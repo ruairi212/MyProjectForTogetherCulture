@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace member_space
 {
-    public partial class Form7 : Form
+    public partial class FrontPage : Form
     {
-        public Form7()
+        public FrontPage()
         {
             InitializeComponent();
         }
@@ -72,6 +72,31 @@ namespace member_space
                 "for a course I was on - it was part of an assignment to imagine a world in which creatives are happy."
                 ;
             Form4 form4 = new Form4(textToDisplay); form4.Show();
+        }
+
+        private void FrontPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
