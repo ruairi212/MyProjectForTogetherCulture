@@ -31,13 +31,13 @@ namespace member_space
         private void button1_Click(object sender, EventArgs e)
         {
             // Retrieve payment details
-            string cardholderName = textBox2.Text;
+            string cardholder_Name = textBox2.Text;
             string cardNumber = textBox3.Text;
-            string expirationDate = textBox4.Text;
-            string amount = textBox5.Text;
+            string expiration_Date = textBox4.Text;
+            string CVV = textBox5.Text;
 
             // Open confirmation form with payment details
-            Form9 confirmationForm = new Form9(cardholderName, cardNumber, expirationDate, amount);
+            Form9 confirmationForm = new Form9(cardholder_Name, cardNumber, expiration_Date, CVV);
             confirmationForm.PaymentConfirmed += ConfirmationForm_PaymentConfirmed; // Event handler for confirmation
             confirmationForm.Show();
         }
@@ -46,6 +46,11 @@ namespace member_space
             // Raise the PaymentCompleted event to notify Form1
             PaymentCompleted?.Invoke(this, EventArgs.Empty);
             this.Close(); // Close Form2 after confirmation
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -43,11 +43,12 @@
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Location = new System.Drawing.Point(0, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 1;
@@ -56,7 +57,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 133);
+            this.label3.Location = new System.Drawing.Point(0, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 2;
@@ -65,17 +66,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 212);
+            this.label4.Location = new System.Drawing.Point(0, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "label4";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(299, 282);
+            this.button1.AutoSize = true;
+            this.button1.Location = new System.Drawing.Point(351, 292);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;

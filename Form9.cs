@@ -13,14 +13,14 @@ namespace member_space
     public partial class Form9 : Form
     {
         public event EventHandler PaymentConfirmed;
-        public Form9(string cardholderName, string cardNumber, string expirationDate, string amount)
+        public Form9(string cardholder_Name, string cardNumber, string expiration_Date, string CVV)
         {
             InitializeComponent();
             // Display payment details in labels
-            label1.Text = "Cardholder Name: " + cardholderName;
+            label1.Text = "Cardholder Name: " + cardholder_Name;
             label2.Text = "Card Number: " + cardNumber;
-            label3.Text = "Expiration Date: " + expirationDate;
-            label4.Text = "Amount: $" + amount;
+            label3.Text = "Expiration Date: " + expiration_Date;
+            label4.Text = "CVV: " + CVV;
         }
 
         private void Form9_Load(object sender, EventArgs e)
@@ -37,6 +37,16 @@ namespace member_space
             PaymentConfirmed?.Invoke(this, EventArgs.Empty);
 
             this.Close(); // Close the confirmation form
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

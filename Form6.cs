@@ -44,30 +44,47 @@ namespace member_space
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {// Open the payment details form
+            Form8 paymentForm = new Form8();
+            paymentForm.PaymentCompleted += label1_Click; // Event handler for payment completion
+            paymentForm.Show();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            // Open the payment details form
+            Form8 paymentForm = new Form8();
+            paymentForm.PaymentCompleted += label1_Click; // Event handler for payment completion
+            paymentForm.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            // Open the payment details form
+            Form8 paymentForm = new Form8();
+            paymentForm.PaymentCompleted += label1_Click; // Event handler for payment completion
+            paymentForm.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            // Open the payment details form
+            Form8 paymentForm = new Form8();
+            paymentForm.PaymentCompleted += label1_Click; // Event handler for payment completion
+            paymentForm.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             // Display a thank-you message after payment is confirmed
-            label1.Text = "Thank you for your purchase!";
+            label1.Text = "Thank you for your purchase!. Purchase was complete";
             label1.Visible = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
