@@ -87,5 +87,14 @@ namespace member_space
 
 
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            // Display a message box to confirm logout
+            MessageBox.Show("You have been logged out of the system.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FrontPage mainpage = new FrontPage();
+            mainpage.Show();
+            this.Close();
+        }
     }
 }
