@@ -7,14 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
     public partial class Form1 : Form
+
     {
+        private string connectionString = "Server=localhost;Database=;together culture; Uid=Dheeraj kodwani;Pwd=;";
+
         public Form1()
         {
             InitializeComponent();
+            this.Load += Form1_Load;
+        }
+        // Event handler for Form Load
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        // Method to load data from the database
+        private void LoadData()
+        {
+            try
+            {
+                // Create a MySQL connection using the connection string
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    // Open the connection to the database
+                    conn.Open();
+
+                    // SQL query to select data from the eventactivity  table
+                    string query = "SELECT EventActivityId, Address, Eventdate, Duration FROM eventacitivity";
+
+                    // Set up a data adapter and fill a DataTable with the query result
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Bind the DataTable to the DataGridView
+                    dataGridView1.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
 
         private void togethercultureTextbox_TextChanged(object sender, EventArgs e)
@@ -95,6 +133,17 @@ namespace member_space
             FrontPage mainpage = new FrontPage();
             mainpage.Show();
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
     }
 }
