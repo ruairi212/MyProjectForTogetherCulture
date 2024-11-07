@@ -141,6 +141,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInsightsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsightsDashboard.Designer.cs">
+      <DependentUpon>UserInsightsDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="MemberInsights.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,7 +214,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserInsightsDashboard.resx">
+      <DependentUpon>UserInsightsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -222,6 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2024-11-07 180710.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
