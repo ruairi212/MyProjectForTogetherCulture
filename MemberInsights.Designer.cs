@@ -229,9 +229,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(9, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(190, 16);
+            this.label8.Size = new System.Drawing.Size(204, 16);
             this.label8.TabIndex = 0;
-            this.label8.Text = "TOTAL EVENTS ATTENDED:";
+            this.label8.Text = "MOST POPULAR EVENT TYPE:";
             // 
             // panel5
             // 
@@ -339,13 +339,13 @@
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(498, 132);
+            this.chart2.Location = new System.Drawing.Point(498, 204);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(273, 306);
+            this.chart2.Size = new System.Drawing.Size(273, 234);
             this.chart2.TabIndex = 12;
             this.chart2.Text = "chart2";
             // 
