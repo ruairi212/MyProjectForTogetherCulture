@@ -7,34 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace member_space
 {
-    public partial class Form1 : Form
-
+    public partial class nonmember : Form
     {
-       
-
-        public Form1()
+        public nonmember()
         {
             InitializeComponent();
-            this.Load += Form1_Load;
         }
-        // Event handler for Form Load
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-        // Method to load data from the database
-        private void LoadData()
+
+        private void nonmember_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void togethercultureTextbox_TextChanged(object sender, EventArgs e)
+        private void blogButton_Click(object sender, EventArgs e)
         {
 
+            string textToDisplay = "Together Culture is growing a community of outrageously curious," +
+                " open-minded and creative members who care for each other and want to build a more " +
+                "inclusive and ecological Cambridge. Today, we’re introducing you to Lele, an illustrator " +
+                "and designer. You can find out more about her work here. I’m an illustrator and designer, so " +
+                "I work on books, magazines, advertising campaigns, games, and all sorts of products.\r\n\r\nI" +
+                " dip in and out when I'm at Together Culture. There’s always someone that you can meet and I " +
+                "really enjoy attending the workshops, Helping Each Other Forums, and if I can contribute something " +
+                "it’s always interesting and exciting to be a part of.  \r\n\r\nTwo years ago I did an illustration " +
+                "for a course I was on - it was part of an assignment to imagine a world in which creatives are happy."
+                ;
+            Form4 form4 = new Form4(textToDisplay); form4.Show();
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -46,31 +47,10 @@ namespace member_space
                 "and make change happen.From 15 - 20 August 2023, we installed a Cabinet of Curiosities at the Fitzwilliam Museum. Inside, visitors " +
                 "could explore and discover portraits co-created through the summer, and watch the Together Culture Manifesto" +
                 " film made in partnership with Anglia Ruskin University and director Pablo Tranchell.";
-           
+
 
             Form3 form3 = new Form3(textToDisplay);
             form3.Show();
-        }
-
-        private void blogButton_Click(object sender, EventArgs e)
-        {
-            string textToDisplay = "Together Culture is growing a community of outrageously curious," +
-                " open-minded and creative members who care for each other and want to build a more " +
-                "inclusive and ecological Cambridge. Today, we’re introducing you to Lele, an illustrator " +
-                "and designer. You can find out more about her work here. I’m an illustrator and designer, so " +
-                "I work on books, magazines, advertising campaigns, games, and all sorts of products.\r\n\r\nI" +
-                " dip in and out when I'm at Together Culture. There’s always someone that you can meet and I " +
-                "really enjoy attending the workshops, Helping Each Other Forums, and if I can contribute something " +
-                "it’s always interesting and exciting to be a part of.  \r\n\r\nTwo years ago I did an illustration " +
-                "for a course I was on - it was part of an assignment to imagine a world in which creatives are happy." 
-                ;
-            Form4 form4 = new Form4(textToDisplay); form4.Show();
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void whatsonButton_Click(object sender, EventArgs e)
@@ -94,13 +74,10 @@ namespace member_space
             string textToDisplay3 = "4.#futuregen: Lessons from a Small Country - £17.99";
             string textToDisplay4 = "5.Invisible Work: The Hidden Ingredient of True Creativity, Purpose and Power - £17.99";
 
-            Form6 form6 = new Form6(textToDisplay,textToDisplay1,textToDisplay2,textToDisplay3,textToDisplay4);
-            
+            Form6 form6 = new Form6(textToDisplay, textToDisplay1, textToDisplay2, textToDisplay3, textToDisplay4);
+
 
             form6.Show();
-            
-
-
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -112,15 +89,31 @@ namespace member_space
             this.Close();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form8 paymentForm = new Form8();
+            paymentForm.PaymentCompleted += label2_Click; // Event handler for payment completion
+            paymentForm.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
