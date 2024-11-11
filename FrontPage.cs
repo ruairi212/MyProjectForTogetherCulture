@@ -29,7 +29,7 @@ namespace member_space
 
 
             Form3 form3 = new Form3(textToDisplay);
-            form3.Show();
+            form3.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace member_space
                 " the next six months to contribute their expertise in a series of workshops that culminates " +
                 "in the delivery of an event that the cohort develops.";
             Form5 form5 = new Form5(textToDisplay);
-            form5.Show();
+            form5.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace member_space
             Form6 form6 = new Form6(textToDisplay, textToDisplay1, textToDisplay2, textToDisplay3, textToDisplay4);
 
 
-            form6.Show();
+            form6.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace member_space
                 "it’s always interesting and exciting to be a part of.  \r\n\r\nTwo years ago I did an illustration " +
                 "for a course I was on - it was part of an assignment to imagine a world in which creatives are happy."
                 ;
-            Form4 form4 = new Form4(textToDisplay); form4.Show();
+            Form4 form4 = new Form4(textToDisplay); form4.ShowDialog();
         }
 
         private void FrontPage_Load(object sender, EventArgs e)
@@ -97,6 +97,17 @@ namespace member_space
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            Form11 Information = new Form11();
+            Information.ShowDialog(); // This will open the form as a modal dialog
         }
     }
 }

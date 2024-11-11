@@ -40,6 +40,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -116,6 +117,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Salmon;
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.richTextBox1);
             this.groupBox1.Location = new System.Drawing.Point(2, 106);
             this.groupBox1.Name = "groupBox1";
@@ -123,15 +125,18 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Our Stories";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(16, 42);
+            this.richTextBox1.Location = new System.Drawing.Point(11, 27);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(337, 269);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // groupBox2
@@ -174,6 +179,18 @@
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.BackColor = System.Drawing.Color.Gainsboro;
+            this.button6.Location = new System.Drawing.Point(250, 301);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(98, 30);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Know more";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
             // FrontPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -190,6 +207,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -209,5 +227,6 @@
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button6;
     }
 }

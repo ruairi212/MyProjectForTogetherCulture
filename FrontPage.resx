@@ -121,7 +121,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMsAAABrCAYAAADZ53bdAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAJ4JJREFUeF7tnfe/JEW5xu//QI736vUKiIJkCQoGUAlLRhElS8YFyUqQHJQcVUDC
+        vQAADr0BR/uQrQAAJ4JJREFUeF7tnfe/JEW5xu//QI736vUKiIJkCQoGUAlLRhElS8YFyUqQHJQcVUDC
         EpUoGURyECSIIKAoOYPEM3nrPt+afvvU9FTP9Jwz4x52+4fns3u6q6qrq9+n3lBv1fzXzEVXcyVKlOiP
         kiwlShRESZYSJQqiJEuJEgVRkqVEiYIoyVKiREGUZClRoiBKspQoURATJktTeGHhld1zC39pKHhzkVWi
         z5lTUFt0VfeWxuCNRVZ2b+vfeqRMiVmLCZPlo0VWdVvOvYT71lyfzcW0uRZz+837ebfzPJ9za0fuhzhl
@@ -291,6 +291,12 @@
         PzP+zFzgY1B3gt8rBf2UFid7I5WbvY7yxz75fofaVhaJPT8WUGp9QWMa9rEg/DpU5juMjiwlSsxmKMlS
         okRBlGQpUaIgSrKUKFEQJVlKlCiIkiwlShRESZYSJQqiJEuJEgVRkqVEiUJYzf0/4MSam6m9XwwAAAAA
         SUVORK5CYII=
+</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>By 2033, we see Together Culture as having a monumental social impact. We hold a shared goal of creating a thriving community that will eventually have 1000s of people feeling empowered by each other to build and share a more equitable and ecological Cambridge. We will have a culture of active citizens making a contribution that matters, with the power to redistribute resources and shape a creative economy.
+
+What is a creative economy? A creative economy is based on people's use of their creative imagination to increase an idea's value. John Howkins (UCL) developed the concept in 2001 to describe economic systems where value is based on novel imaginative qualities rather than the traditional resources of land, labour and capital.
 </value>
   </data>
 </root>
