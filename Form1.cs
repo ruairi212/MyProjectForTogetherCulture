@@ -76,16 +76,16 @@ namespace member_space
         private void whatsonButton_Click(object sender, EventArgs e)
         {
 
-            string textToDisplay = "1.The Future We Choose: 'Everyone should read this book' MATT HAIG - £17.99";
-            string textToDisplay1 = "2.The Sum of Us: What Racism Costs Everyone and How We Can Prosper Together - £17.99";
-            string textToDisplay2 = "3.The Mindful Kitchen: Vegetarian Cooking to Relate to Nature - £17.99";
-            string textToDisplay3 = "4.#futuregen: Lessons from a Small Country - £17.99";
-            string textToDisplay4 = "5.Invisible Work: The Hidden Ingredient of True Creativity, Purpose and Power - £17.99";
 
-            Form6 form6 = new Form6(textToDisplay, textToDisplay1, textToDisplay2, textToDisplay3, textToDisplay4);
-
-
-            form6.ShowDialog();
+            string textToDisplay = "Abbey in Action was developed by Together Culture and Abbey People, " +
+                "and we will be working in collaboration with CCVS. We'll be recruiting 10 leaders who" +
+                " live in Abbey and have the ambition of making positive change in their community, aspire" +
+                " to develop their own voices as local changemakers, and who will work as a team to develop " +
+                "a programme to help more of their neighbours to do the same. The leaders will work across" +
+                " the next six months to contribute their expertise in a series of workshops that culminates " +
+                "in the delivery of an event that the cohort develops.";
+            Form5 form5 = new Form5(textToDisplay);
+            form5.ShowDialog();
         }
 
         private void shopButton_Click(object sender, EventArgs e)

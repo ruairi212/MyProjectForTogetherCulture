@@ -107,7 +107,7 @@
             // whatsonButton
             // 
             this.whatsonButton.AutoSize = true;
-            this.whatsonButton.Location = new System.Drawing.Point(321, 39);
+            this.whatsonButton.Location = new System.Drawing.Point(313, 39);
             this.whatsonButton.Name = "whatsonButton";
             this.whatsonButton.Size = new System.Drawing.Size(107, 30);
             this.whatsonButton.TabIndex = 1;
