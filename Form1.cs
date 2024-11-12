@@ -84,7 +84,7 @@ namespace member_space
                 "a programme to help more of their neighbours to do the same. The leaders will work across" +
                 " the next six months to contribute their expertise in a series of workshops that culminates " +
                 "in the delivery of an event that the cohort develops.";
-            Form5 form5 = new Form5(textToDisplay);//gg
+            Form5 form5 = new Form5(textToDisplay);
             form5.ShowDialog();
         }
 
