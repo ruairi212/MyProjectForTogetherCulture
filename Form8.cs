@@ -45,6 +45,13 @@ namespace member_space
                 textBox3.Focus();
                 return;
             }
+            if (textBox3.Text.Length != 16 || !Is16DigitsOnly(textBox3.Text))
+            {
+                MessageBox.Show("Card number must be 16 digits.", "Invalid Card Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox3.Focus();
+                return;
+            }
+           
 
             if (string.IsNullOrWhiteSpace(textBox4.Text))
             {
@@ -71,6 +78,15 @@ namespace member_space
             Form9 confirmationForm = new Form9(cardholder_Name, cardNumber, expiration_Date, CVV);
             confirmationForm.PaymentConfirmed += ConfirmationForm_PaymentConfirmed; // Event handler for confirmation
             confirmationForm.Show();
+        }
+        private bool Is16DigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+            return true;
         }
         private void ConfirmationForm_PaymentConfirmed(object sender, EventArgs e)
         {
