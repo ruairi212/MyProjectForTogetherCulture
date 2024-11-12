@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace member_space
 {
@@ -30,6 +31,36 @@ namespace member_space
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Check if required fields are filled
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                MessageBox.Show("Please enter your full name.", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox2.Focus(); // Set focus to the empty field
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                MessageBox.Show("Please enter your 16 digit card number.", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox3.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox4.Text))
+            {
+                MessageBox.Show("Please enter the expiration date.", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox4.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox5.Text))
+            {
+                MessageBox.Show("Please enter the CVV.", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox5.Focus();
+                return;
+            }
+
+
             // Retrieve payment details
             string cardholder_Name = textBox2.Text;
             string cardNumber = textBox3.Text;
@@ -45,10 +76,15 @@ namespace member_space
         {
             // Raise the PaymentCompleted event to notify Form1
             PaymentCompleted?.Invoke(this, EventArgs.Empty);
-            this.Close(); // Close Form2 after confirmation
+            this.Close(); // Close Form after confirmation
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
