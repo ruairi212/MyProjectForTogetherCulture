@@ -119,6 +119,10 @@ namespace member_space
 
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form13 form13 = new Form13();
+            form13.Show();
+        }
     }
 }
