@@ -184,6 +184,12 @@
     <Compile Include="ModuleDetailsForm.Designer.cs">
       <DependentUpon>ModuleDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DaysControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DaysControl.Designer.cs">
+      <DependentUpon>DaysControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInsightsDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="DaysControl.resx">
+      <DependentUpon>DaysControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInsightsDashboard.resx">
       <DependentUpon>UserInsightsDashboard.cs</DependentUpon>
     </EmbeddedResource>
