@@ -356,7 +356,7 @@
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(624, 6);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 69);
+            this.button7.Size = new System.Drawing.Size(164, 85);
             this.button7.TabIndex = 13;
             this.button7.Text = "graph settings";
             this.button7.UseVisualStyleBackColor = false;
@@ -366,9 +366,9 @@
             // 
             this.button9.BackColor = System.Drawing.Color.LightCoral;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(624, 87);
+            this.button9.Location = new System.Drawing.Point(624, 103);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(164, 62);
+            this.button9.Size = new System.Drawing.Size(164, 81);
             this.button9.TabIndex = 31;
             this.button9.Text = "Member search";
             this.button9.UseVisualStyleBackColor = false;

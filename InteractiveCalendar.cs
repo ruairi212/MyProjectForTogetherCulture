@@ -21,5 +21,15 @@ namespace member_space
         {
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InteractiveCalendar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
