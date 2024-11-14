@@ -20,6 +20,7 @@ namespace member_space
         {
             InitializeComponent();
             this.Load += Form1_Load;
+           
         }
         // Event handler for Form Load
         private void Form1_Load(object sender, EventArgs e)
@@ -123,6 +124,13 @@ namespace member_space
         {
             Form13 form13 = new Form13();
             form13.Show();
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            int memberId = 1024; // Retrieve the member's ID from login or session
+            SettingForm settingform = new SettingForm(memberId);
+            settingform.ShowDialog();
         }
     }
 }

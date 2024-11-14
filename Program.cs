@@ -16,7 +16,7 @@ namespace member_space
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrontPage());
+            Application.Run(new Form1());
         }
     }
 }
