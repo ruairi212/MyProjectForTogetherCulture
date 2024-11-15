@@ -132,5 +132,11 @@ namespace member_space
             SettingForm settingform = new SettingForm(memberId);
             settingform.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form14 f14 = new Form14();
+            f14.Show();
+        }
     }
 }
