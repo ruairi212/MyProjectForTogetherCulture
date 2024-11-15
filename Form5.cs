@@ -28,5 +28,14 @@ namespace member_space
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InteractiveCalendar cal = new InteractiveCalendar();
+       
+            cal.Show();
+            this.Close();
+            
+        }
     }
 }

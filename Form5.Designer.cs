@@ -60,7 +60,7 @@
             // 
             this.Schedule.Image = global::member_space.Properties.Resources.Screenshot_2024_11_13_100215;
             this.Schedule.Location = new System.Drawing.Point(1, -1);
-            this.Schedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Schedule.Margin = new System.Windows.Forms.Padding(4);
             this.Schedule.Name = "Schedule";
             this.Schedule.Size = new System.Drawing.Size(1402, 714);
             this.Schedule.TabIndex = 2;
@@ -70,12 +70,13 @@
             // 
             this.button1.BackColor = System.Drawing.Color.IndianRed;
             this.button1.Location = new System.Drawing.Point(158, 593);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(436, 106);
             this.button1.TabIndex = 3;
             this.button1.Text = "Book An Event";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
