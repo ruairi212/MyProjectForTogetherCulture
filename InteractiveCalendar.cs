@@ -28,8 +28,8 @@ namespace member_space
             //This will calculate the days in the current month to get number of panels needed
             int days_Month = DateTime.DaysInMonth(year, month);
 
-            //This gets the day of the week of the first date
-            int first_Day = (int)month_Start.DayOfWeek;
+            //This gets the day of the week of the first date -1 so the week starts on sunday
+            int first_Day = (int)month_Start.DayOfWeek - 1;
             //This is the panel size from testing
             int panel_Width = 156;
             int panel_Height = 100;
@@ -81,6 +81,16 @@ namespace member_space
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }
