@@ -127,17 +127,18 @@
             this.ButtonRegister.ForeColor = System.Drawing.Color.White;
             this.ButtonRegister.Location = new System.Drawing.Point(335, 276);
             this.ButtonRegister.Name = "ButtonRegister";
-            this.ButtonRegister.Size = new System.Drawing.Size(130, 40);
+            this.ButtonRegister.Size = new System.Drawing.Size(140, 40);
             this.ButtonRegister.TabIndex = 11;
-            this.ButtonRegister.Text = "Register";
+            this.ButtonRegister.Text = "REGISTER";
             this.ButtonRegister.UseVisualStyleBackColor = false;
             // 
             // LalreadyHaveAccount
             // 
             this.LalreadyHaveAccount.AutoSize = true;
-            this.LalreadyHaveAccount.Location = new System.Drawing.Point(322, 337);
+            this.LalreadyHaveAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LalreadyHaveAccount.Location = new System.Drawing.Point(303, 336);
             this.LalreadyHaveAccount.Name = "LalreadyHaveAccount";
-            this.LalreadyHaveAccount.Size = new System.Drawing.Size(160, 16);
+            this.LalreadyHaveAccount.Size = new System.Drawing.Size(200, 20);
             this.LalreadyHaveAccount.TabIndex = 12;
             this.LalreadyHaveAccount.Text = "Already Have An Account";
             // 
