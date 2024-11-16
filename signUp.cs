@@ -24,9 +24,9 @@ namespace member_space
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Lpassword_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello, World!");
+
         }
     }
 }
