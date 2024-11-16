@@ -12,10 +12,9 @@ using MySql.Data.MySqlClient;
 namespace member_space
 {
     public partial class Form1 : Form
-
     {
-       
 
+        private List<string> pinBoardPosts = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -137,6 +136,42 @@ namespace member_space
         {
             Form14 f14 = new Form14();
             f14.Show();
+        }
+        private void UpdatePinBoard()
+        {
+            // Clear existing items in the ListBox
+            listBoxPinBoard.Items.Clear();
+
+            // Add each post to the ListBox
+            foreach (string post in pinBoardPosts)
+            {
+                listBoxPinBoard.Items.Add(post);
+            }
+        }
+
+        private void buttonPost_Click(object sender, EventArgs e)
+        {
+            // Ensure the user has entered a message
+            if (string.IsNullOrWhiteSpace(textBoxPost.Text))
+            {
+                MessageBox.Show("Please enter a message before posting.");
+                return;
+            }
+
+            // Get the current date and time
+            string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            // Combine the message with the date and time
+            string postWithDateTime = $"{dateTime} - {textBoxPost.Text}";
+
+            // Add the post to the list
+            pinBoardPosts.Add(postWithDateTime);
+
+            // Clear the TextBox after posting
+            textBoxPost.Clear();
+
+            // Update the ListBox to show the new post
+            UpdatePinBoard();
         }
     }
 }

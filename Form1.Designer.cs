@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logoutButton = new System.Windows.Forms.Button();
             this.blogButton = new System.Windows.Forms.Button();
             this.shopButton = new System.Windows.Forms.Button();
@@ -38,16 +39,23 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Settings = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBoxPinBoard = new System.Windows.Forms.ListBox();
+            this.textBoxPost = new System.Windows.Forms.TextBox();
+            this.buttonPost = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,17 +68,29 @@
             this.panel1.Controls.Add(this.whatsonButton);
             this.panel1.Controls.Add(this.aboutButton);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 65);
+            this.panel1.Size = new System.Drawing.Size(883, 65);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(158, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // logoutButton
             // 
             this.logoutButton.AutoSize = true;
             this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.logoutButton.Location = new System.Drawing.Point(457, 25);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logoutButton.Location = new System.Drawing.Point(804, 25);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(69, 30);
             this.logoutButton.TabIndex = 4;
@@ -81,8 +101,8 @@
             // blogButton
             // 
             this.blogButton.AutoSize = true;
-            this.blogButton.Location = new System.Drawing.Point(379, 25);
-            this.blogButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.blogButton.Location = new System.Drawing.Point(618, 25);
+            this.blogButton.Margin = new System.Windows.Forms.Padding(2);
             this.blogButton.Name = "blogButton";
             this.blogButton.Size = new System.Drawing.Size(64, 30);
             this.blogButton.TabIndex = 3;
@@ -93,8 +113,8 @@
             // shopButton
             // 
             this.shopButton.AutoSize = true;
-            this.shopButton.Location = new System.Drawing.Point(302, 25);
-            this.shopButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.shopButton.Location = new System.Drawing.Point(537, 25);
+            this.shopButton.Margin = new System.Windows.Forms.Padding(2);
             this.shopButton.Name = "shopButton";
             this.shopButton.Size = new System.Drawing.Size(64, 30);
             this.shopButton.TabIndex = 2;
@@ -105,8 +125,8 @@
             // whatsonButton
             // 
             this.whatsonButton.AutoSize = true;
-            this.whatsonButton.Location = new System.Drawing.Point(209, 25);
-            this.whatsonButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.whatsonButton.Location = new System.Drawing.Point(408, 25);
+            this.whatsonButton.Margin = new System.Windows.Forms.Padding(2);
             this.whatsonButton.Name = "whatsonButton";
             this.whatsonButton.Size = new System.Drawing.Size(107, 30);
             this.whatsonButton.TabIndex = 1;
@@ -117,8 +137,8 @@
             // aboutButton
             // 
             this.aboutButton.AutoSize = true;
-            this.aboutButton.Location = new System.Drawing.Point(131, 25);
-            this.aboutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.aboutButton.Location = new System.Drawing.Point(314, 25);
+            this.aboutButton.Margin = new System.Windows.Forms.Padding(2);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(74, 30);
             this.aboutButton.TabIndex = 0;
@@ -130,9 +150,9 @@
             // 
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(531, 227);
+            this.panel2.Size = new System.Drawing.Size(883, 489);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -140,7 +160,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -149,10 +169,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panel4);
+            this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Size = new System.Drawing.Size(531, 227);
-            this.splitContainer1.SplitterDistance = 175;
+            this.splitContainer1.Size = new System.Drawing.Size(883, 489);
+            this.splitContainer1.SplitterDistance = 291;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -160,7 +182,7 @@
             // 
             this.Settings.AutoSize = true;
             this.Settings.Location = new System.Drawing.Point(48, 67);
-            this.Settings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Settings.Margin = new System.Windows.Forms.Padding(2);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(55, 23);
             this.Settings.TabIndex = 2;
@@ -168,59 +190,123 @@
             this.Settings.UseVisualStyleBackColor = true;
             this.Settings.Click += new System.EventHandler(this.Settings_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button1.Location = new System.Drawing.Point(3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Digital Content Modules";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button2.Location = new System.Drawing.Point(3, 67);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 23);
+            this.button2.Size = new System.Drawing.Size(81, 47);
             this.button2.TabIndex = 1;
             this.button2.Text = "Feedback";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pictureBox1
+            // button1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.Location = new System.Drawing.Point(3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 57);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Digital Content Modules";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.buttonPost);
+            this.panel3.Controls.Add(this.textBoxPost);
+            this.panel3.Controls.Add(this.listBoxPinBoard);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(106, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(361, 482);
+            this.panel3.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Italic Outline Art", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(60, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(247, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Send your offerings";
+            // 
+            // listBoxPinBoard
+            // 
+            this.listBoxPinBoard.FormattingEnabled = true;
+            this.listBoxPinBoard.Location = new System.Drawing.Point(3, 42);
+            this.listBoxPinBoard.Name = "listBoxPinBoard";
+            this.listBoxPinBoard.Size = new System.Drawing.Size(355, 355);
+            this.listBoxPinBoard.TabIndex = 1;
+            // 
+            // textBoxPost
+            // 
+            this.textBoxPost.Location = new System.Drawing.Point(57, 417);
+            this.textBoxPost.Multiline = true;
+            this.textBoxPost.Name = "textBoxPost";
+            this.textBoxPost.Size = new System.Drawing.Size(250, 59);
+            this.textBoxPost.TabIndex = 2;
+            // 
+            // buttonPost
+            // 
+            this.buttonPost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonPost.Location = new System.Drawing.Point(313, 414);
+            this.buttonPost.Name = "buttonPost";
+            this.buttonPost.Size = new System.Drawing.Size(45, 62);
+            this.buttonPost.TabIndex = 3;
+            this.buttonPost.Text = "Post";
+            this.buttonPost.UseVisualStyleBackColor = false;
+            this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Mudir MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(4, 414);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 62);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Type Post";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel4.Location = new System.Drawing.Point(109, 405);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(355, 10);
+            this.panel4.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 292);
+            this.ClientSize = new System.Drawing.Size(884, 554);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -239,6 +325,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Settings;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button buttonPost;
+        private System.Windows.Forms.TextBox textBoxPost;
+        private System.Windows.Forms.ListBox listBoxPinBoard;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 
