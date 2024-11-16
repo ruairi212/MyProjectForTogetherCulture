@@ -94,5 +94,10 @@ namespace member_space
         {
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
