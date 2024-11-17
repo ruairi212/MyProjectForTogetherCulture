@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
@@ -15,40 +16,27 @@ namespace member_space
     {
         string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
 
-        /*private void CalendarData() 
+        public void ConnectionCheck() 
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    string query = "SELECT Event_Name FROM events";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
-                        {
-                            label1.Text = result.ToString();
-                        }
-                        else
-                        {
-                            label1.Text = "No data found";
-                        }
-                    }
+                    MessageBox.Show("connected successfully");
+                   
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR");
+                MessageBox.Show($"Error: {ex.Message}", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }*/
+        }
         public InteractiveCalendar()
         {
             
-            //CalendarData();
+            ConnectionCheck();
             InitializeComponent();
             calendar_creator(DateTime.Now.Year, DateTime.Now.Month);
         }
