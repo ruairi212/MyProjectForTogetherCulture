@@ -82,6 +82,7 @@
             this.label1.Size = new System.Drawing.Size(183, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Booking Calendar";
+            this.label1.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // label7
             // 

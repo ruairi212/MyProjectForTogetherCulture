@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,42 @@ namespace member_space
 {
     public partial class InteractiveCalendar : Form
     {
+        string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
+
+        /*private void CalendarData() 
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "SELECT Event_Name FROM events";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            label1.Text = result.ToString();
+                        }
+                        else
+                        {
+                            label1.Text = "No data found";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR");
+            }
+        }*/
         public InteractiveCalendar()
         {
+            
+            //CalendarData();
             InitializeComponent();
             calendar_creator(DateTime.Now.Year, DateTime.Now.Month);
         }
@@ -75,9 +110,6 @@ namespace member_space
                 booking.ShowDialog();
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -125,6 +157,11 @@ namespace member_space
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
         {
 
         }
