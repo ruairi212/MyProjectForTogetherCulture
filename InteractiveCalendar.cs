@@ -34,21 +34,42 @@ namespace member_space
             int panel_Width = 156;
             int panel_Height = 100;
            
-            //This will loop through the days in the month creating a panel for each
+            //This will loop through the days in the month creating a button for each day
             for (int i = 1; i <= days_Month; i++) {
                 //Calc the rows needed
                 int col = (first_Day + i - 1) % 7;
                 int row = (first_Day + i - 1) / 7;
                 
-                Panel day_Panel = new Panel
+                //Create the new button each iteration
+                Button day_Button = new Button
                 {
                     Size = new Size(panel_Width - 5, panel_Height - 5),
                     Location = new Point(col * panel_Width, row * panel_Height),
-                    BorderStyle = BorderStyle.FixedSingle,
-                    BackColor = Color.IndianRed
+                    Text = i.ToString() +"th",
+                    TextAlign = ContentAlignment.TopLeft,
+                    //BorderStyle = BorderStyle.FixedSingle,
+                    
+                    BackColor = Color.IndianRed,
+                    Tag = new DateTime(year, month, i)
                 };
-            Calendar.Controls.Add(day_Panel);
+                day_Button.Click += day_Button_Click;
+                //This will generate the dates for each label
+                for (int j = 1; j <= days_Month; j++) 
+                {
+                    
+                }
             
+            Calendar.Controls.Add(day_Button);
+            
+            }
+
+        }
+        private void day_Button_Click(object sender, EventArgs e) 
+        {
+            Button clicked = sender as Button; 
+            if (clicked != null) 
+            {
+
             }
         }
         private void label1_Click(object sender, EventArgs e)
