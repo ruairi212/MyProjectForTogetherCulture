@@ -69,7 +69,8 @@ namespace member_space
             Button clicked = sender as Button; 
             if (clicked != null) 
             {
-
+                EventBooking booking = new EventBooking();
+                
             }
         }
         private void label1_Click(object sender, EventArgs e)
@@ -117,6 +118,11 @@ namespace member_space
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
