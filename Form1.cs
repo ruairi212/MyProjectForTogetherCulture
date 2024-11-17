@@ -173,5 +173,10 @@ namespace member_space
             // Update the ListBox to show the new post
             UpdatePinBoard();
         }
+
+        private void textBoxPost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
