@@ -12,6 +12,14 @@ namespace member_space
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        public static  void is_Valid_Email(TextBox text_Box) 
+        {
+            if (text_Box != null) 
+            {
+                MessageBox.Show("Please input a valid email");
+            }
+            //if (text_Box != " ")
+        }
         static void Main()
         {
             Application.EnableVisualStyles();

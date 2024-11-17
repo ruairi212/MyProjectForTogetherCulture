@@ -12,11 +12,20 @@ namespace member_space
 {
     public partial class EventBooking : Form
     {
-        public EventBooking()
+        private DateTime clicked_Date;
+        public EventBooking(DateTime date)
         {
             InitializeComponent();
-        }
+            clicked_Date = date;
+            DisplayDate();
 
+        }
+        private void DisplayDate()
+        {
+            
+            label4.Text = "Selected Date: " + clicked_Date.ToString("D");
+            
+        }
         private void EventBooking_Load(object sender, EventArgs e)
         {
 

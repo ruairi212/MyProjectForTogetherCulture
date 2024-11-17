@@ -68,9 +68,11 @@ namespace member_space
         {
             Button clicked = sender as Button; 
             if (clicked != null) 
-            {
-                EventBooking booking = new EventBooking();
-                
+            {  
+                DateTime selected = (DateTime)clicked.Tag;
+
+                EventBooking booking = new EventBooking(selected);
+                booking.ShowDialog();
             }
         }
         private void label1_Click(object sender, EventArgs e)
