@@ -131,6 +131,7 @@
             this.ButtonRegister.TabIndex = 11;
             this.ButtonRegister.Text = "REGISTER";
             this.ButtonRegister.UseVisualStyleBackColor = false;
+            this.ButtonRegister.Click += new System.EventHandler(this.ButtonRegister_Click);
             // 
             // LalreadyHaveAccount
             // 

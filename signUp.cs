@@ -28,5 +28,16 @@ namespace member_space
         {
 
         }
+
+        private void ButtonRegister_Click(object sender, EventArgs e)
+        {
+            if (txtbUsername.Text == "" && txtbPassword.Text == "" && txtbConfirmpass.Text == "")
+
+            { 
+            MessageBox.Show("Username and Password field  are empty", "Registration Failed"
+
+
+     }
+        }
     }
 }
