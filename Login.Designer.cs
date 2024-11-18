@@ -50,6 +50,7 @@
             this.LcreateAccount.Size = new System.Drawing.Size(158, 22);
             this.LcreateAccount.TabIndex = 24;
             this.LcreateAccount.Text = "Create Account";
+            this.LcreateAccount.Click += new System.EventHandler(this.LcreateAccount_Click);
             // 
             // LdontHaveAccount
             // 
@@ -72,6 +73,7 @@
             this.ButtonLogin.TabIndex = 22;
             this.ButtonLogin.Text = "LOGIN";
             this.ButtonLogin.UseVisualStyleBackColor = false;
+            this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // CHbxLogShowPass
             // 
@@ -82,6 +84,7 @@
             this.CHbxLogShowPass.TabIndex = 21;
             this.CHbxLogShowPass.Text = "Show Password";
             this.CHbxLogShowPass.UseVisualStyleBackColor = true;
+            this.CHbxLogShowPass.CheckedChanged += new System.EventHandler(this.CHbxLogShowPass_CheckedChanged);
             // 
             // txtbLogPassword
             // 
@@ -89,6 +92,7 @@
             this.txtbLogPassword.Location = new System.Drawing.Point(389, 158);
             this.txtbLogPassword.Multiline = true;
             this.txtbLogPassword.Name = "txtbLogPassword";
+            this.txtbLogPassword.PasswordChar = '*';
             this.txtbLogPassword.Size = new System.Drawing.Size(160, 22);
             this.txtbLogPassword.TabIndex = 18;
             // 

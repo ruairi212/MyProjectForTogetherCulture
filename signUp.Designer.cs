@@ -88,8 +88,10 @@
             this.txtbPassword.Location = new System.Drawing.Point(389, 143);
             this.txtbPassword.Multiline = true;
             this.txtbPassword.Name = "txtbPassword";
+            this.txtbPassword.PasswordChar = '*';
             this.txtbPassword.Size = new System.Drawing.Size(160, 22);
             this.txtbPassword.TabIndex = 7;
+            this.txtbPassword.TextChanged += new System.EventHandler(this.txtbPassword_TextChanged);
             // 
             // txtbConfirmpass
             // 
@@ -97,6 +99,7 @@
             this.txtbConfirmpass.Location = new System.Drawing.Point(389, 202);
             this.txtbConfirmpass.Multiline = true;
             this.txtbConfirmpass.Name = "txtbConfirmpass";
+            this.txtbConfirmpass.PasswordChar = '*';
             this.txtbConfirmpass.Size = new System.Drawing.Size(160, 22);
             this.txtbConfirmpass.TabIndex = 8;
             // 
@@ -119,6 +122,7 @@
             this.CHbxShowPass.TabIndex = 10;
             this.CHbxShowPass.Text = "Show Password";
             this.CHbxShowPass.UseVisualStyleBackColor = true;
+            this.CHbxShowPass.CheckedChanged += new System.EventHandler(this.CHbxShowPass_CheckedChanged);
             // 
             // ButtonRegister
             // 
@@ -154,6 +158,7 @@
             this.LbacktoLogin.Size = new System.Drawing.Size(144, 22);
             this.LbacktoLogin.TabIndex = 13;
             this.LbacktoLogin.Text = "Back To Login";
+            this.LbacktoLogin.Click += new System.EventHandler(this.LbacktoLogin_Click);
             // 
             // signUp
             // 
