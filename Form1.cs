@@ -11,9 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace member_space
 {
+    
     public partial class Form1 : Form
     {
-
+        int memberId = 1025;
         private List<string> pinBoardPosts = new List<string>();
         public Form1()
         {
@@ -127,7 +128,7 @@ namespace member_space
 
         private void Settings_Click(object sender, EventArgs e)
         {
-            int memberId = 1024; // Retrieve the member's ID from login or session
+             // Retrieve the member's ID from login or session
             SettingForm settingform = new SettingForm(memberId);
             settingform.ShowDialog();
         }
@@ -187,6 +188,13 @@ namespace member_space
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int memberId = 1025;
+            BillingHistory billinghistory = new BillingHistory(memberId);
+            billinghistory.ShowDialog();
         }
     }
 }
