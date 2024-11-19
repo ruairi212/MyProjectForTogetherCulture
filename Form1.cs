@@ -11,15 +11,16 @@ using MySql.Data.MySqlClient;
 
 namespace member_space
 {
+    
     public partial class Form1 : Form
-
     {
-       
-
+        int memberId = 1025;
+        private List<string> pinBoardPosts = new List<string>();
         public Form1()
         {
             InitializeComponent();
             this.Load += Form1_Load;
+           
         }
         // Event handler for Form Load
         private void Form1_Load(object sender, EventArgs e)
@@ -76,16 +77,16 @@ namespace member_space
         private void whatsonButton_Click(object sender, EventArgs e)
         {
 
-            string textToDisplay = "1.The Future We Choose: 'Everyone should read this book' MATT HAIG - £17.99";
-            string textToDisplay1 = "2.The Sum of Us: What Racism Costs Everyone and How We Can Prosper Together - £17.99";
-            string textToDisplay2 = "3.The Mindful Kitchen: Vegetarian Cooking to Relate to Nature - £17.99";
-            string textToDisplay3 = "4.#futuregen: Lessons from a Small Country - £17.99";
-            string textToDisplay4 = "5.Invisible Work: The Hidden Ingredient of True Creativity, Purpose and Power - £17.99";
 
-            Form6 form6 = new Form6(textToDisplay, textToDisplay1, textToDisplay2, textToDisplay3, textToDisplay4);
-
-
-            form6.ShowDialog();
+            string textToDisplay = "Abbey in Action was developed by Together Culture and Abbey People, " +
+                "and we will be working in collaboration with CCVS. We'll be recruiting 10 leaders who" +
+                " live in Abbey and have the ambition of making positive change in their community, aspire" +
+                " to develop their own voices as local changemakers, and who will work as a team to develop " +
+                "a programme to help more of their neighbours to do the same. The leaders will work across" +
+                " the next six months to contribute their expertise in a series of workshops that culminates " +
+                "in the delivery of an event that the cohort develops.";
+            Form5 form5 = new Form5(textToDisplay);
+            form5.ShowDialog();
         }
 
         private void shopButton_Click(object sender, EventArgs e)
@@ -123,6 +124,77 @@ namespace member_space
         {
             Form13 form13 = new Form13();
             form13.Show();
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+             // Retrieve the member's ID from login or session
+            SettingForm settingform = new SettingForm(memberId);
+            settingform.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form14 f14 = new Form14();
+            f14.Show();
+        }
+        private void UpdatePinBoard()
+        {
+            // Clear existing items in the ListBox
+            listBoxPinBoard.Items.Clear();
+
+            // Add each post to the ListBox
+            foreach (string post in pinBoardPosts)
+            {
+                listBoxPinBoard.Items.Add(post);
+            }
+        }
+
+        private void buttonPost_Click(object sender, EventArgs e)
+        {
+            // Ensure the user has entered a message
+            if (string.IsNullOrWhiteSpace(textBoxPost.Text))
+            {
+                MessageBox.Show("Please enter a message before posting.");
+                return;
+            }
+
+            // Get the current date and time
+            string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            // Combine the message with the date and time
+            string postWithDateTime = $"{dateTime} - {textBoxPost.Text}";
+
+            // Add the post to the list
+            pinBoardPosts.Add(postWithDateTime);
+
+            // Clear the TextBox after posting
+            textBoxPost.Clear();
+
+            // Update the ListBox to show the new post
+            UpdatePinBoard();
+        }
+
+        private void textBoxPost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int memberId = 1025;
+            BillingHistory billinghistory = new BillingHistory(memberId);
+            billinghistory.ShowDialog();
         }
     }
 }

@@ -10,24 +10,19 @@ using System.Windows.Forms;
 
 namespace member_space
 {
-    public partial class Form7 : Form
+    public partial class DaysControl : UserControl
     {
-        public Form7()
+        public DaysControl()
         {
             InitializeComponent();
         }
 
-        private void Form7_Load(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void DaysControl_load(object sender, EventArgs e)
         {
 
         }

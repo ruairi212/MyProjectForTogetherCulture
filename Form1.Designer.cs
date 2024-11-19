@@ -38,13 +38,26 @@
             this.aboutButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Settings = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonPost = new System.Windows.Forms.Button();
+            this.textBoxPost = new System.Windows.Forms.TextBox();
+            this.listBoxPinBoard = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,18 +70,17 @@
             this.panel1.Controls.Add(this.whatsonButton);
             this.panel1.Controls.Add(this.aboutButton);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 65);
+            this.panel1.Size = new System.Drawing.Size(1324, 100);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(237, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -78,10 +90,9 @@
             // 
             this.logoutButton.AutoSize = true;
             this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.logoutButton.Location = new System.Drawing.Point(457, 25);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logoutButton.Location = new System.Drawing.Point(1206, 38);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(50, 23);
+            this.logoutButton.Size = new System.Drawing.Size(104, 46);
             this.logoutButton.TabIndex = 4;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -90,10 +101,9 @@
             // blogButton
             // 
             this.blogButton.AutoSize = true;
-            this.blogButton.Location = new System.Drawing.Point(379, 25);
-            this.blogButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.blogButton.Location = new System.Drawing.Point(927, 38);
             this.blogButton.Name = "blogButton";
-            this.blogButton.Size = new System.Drawing.Size(50, 23);
+            this.blogButton.Size = new System.Drawing.Size(96, 46);
             this.blogButton.TabIndex = 3;
             this.blogButton.Text = "BLOG";
             this.blogButton.UseVisualStyleBackColor = true;
@@ -102,10 +112,9 @@
             // shopButton
             // 
             this.shopButton.AutoSize = true;
-            this.shopButton.Location = new System.Drawing.Point(302, 25);
-            this.shopButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.shopButton.Location = new System.Drawing.Point(806, 38);
             this.shopButton.Name = "shopButton";
-            this.shopButton.Size = new System.Drawing.Size(50, 23);
+            this.shopButton.Size = new System.Drawing.Size(96, 46);
             this.shopButton.TabIndex = 2;
             this.shopButton.Text = "SHOP";
             this.shopButton.UseVisualStyleBackColor = true;
@@ -114,10 +123,9 @@
             // whatsonButton
             // 
             this.whatsonButton.AutoSize = true;
-            this.whatsonButton.Location = new System.Drawing.Point(214, 25);
-            this.whatsonButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.whatsonButton.Location = new System.Drawing.Point(612, 38);
             this.whatsonButton.Name = "whatsonButton";
-            this.whatsonButton.Size = new System.Drawing.Size(78, 23);
+            this.whatsonButton.Size = new System.Drawing.Size(160, 46);
             this.whatsonButton.TabIndex = 1;
             this.whatsonButton.Text = "WHAT\'S ON";
             this.whatsonButton.UseVisualStyleBackColor = true;
@@ -126,10 +134,9 @@
             // aboutButton
             // 
             this.aboutButton.AutoSize = true;
-            this.aboutButton.Location = new System.Drawing.Point(131, 25);
-            this.aboutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.aboutButton.Location = new System.Drawing.Point(471, 38);
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(54, 23);
+            this.aboutButton.Size = new System.Drawing.Size(111, 46);
             this.aboutButton.TabIndex = 0;
             this.aboutButton.Text = "ABOUT";
             this.aboutButton.UseVisualStyleBackColor = true;
@@ -138,10 +145,9 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.splitContainer1);
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 102);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(531, 227);
+            this.panel2.Size = new System.Drawing.Size(1324, 752);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -149,45 +155,187 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.Settings);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button4);
+            this.splitContainer1.Panel2.Controls.Add(this.panel4);
+            this.splitContainer1.Panel2.Controls.Add(this.panel3);
+            this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Size = new System.Drawing.Size(531, 227);
-            this.splitContainer1.SplitterDistance = 176;
-            this.splitContainer1.SplitterWidth = 3;
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(1324, 752);
+            this.splitContainer1.SplitterDistance = 434;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // Settings
+            // 
+            this.Settings.AutoSize = true;
+            this.Settings.Location = new System.Drawing.Point(296, 12);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(117, 46);
+            this.Settings.TabIndex = 2;
+            this.Settings.Text = "Settings";
+            this.Settings.UseVisualStyleBackColor = true;
+            this.Settings.Click += new System.EventHandler(this.Settings_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel4.Location = new System.Drawing.Point(164, 623);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(539, 15);
+            this.panel4.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.buttonPost);
+            this.panel3.Controls.Add(this.textBoxPost);
+            this.panel3.Controls.Add(this.listBoxPinBoard);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(159, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(542, 742);
+            this.panel3.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(6, 637);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 95);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Type Post";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonPost
+            // 
+            this.buttonPost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonPost.Location = new System.Drawing.Point(470, 637);
+            this.buttonPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonPost.Name = "buttonPost";
+            this.buttonPost.Size = new System.Drawing.Size(68, 95);
+            this.buttonPost.TabIndex = 3;
+            this.buttonPost.Text = "Post";
+            this.buttonPost.UseVisualStyleBackColor = false;
+            this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+            // 
+            // textBoxPost
+            // 
+            this.textBoxPost.Location = new System.Drawing.Point(86, 642);
+            this.textBoxPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxPost.Multiline = true;
+            this.textBoxPost.Name = "textBoxPost";
+            this.textBoxPost.Size = new System.Drawing.Size(373, 89);
+            this.textBoxPost.TabIndex = 2;
+            this.textBoxPost.TextChanged += new System.EventHandler(this.textBoxPost_TextChanged);
+            // 
+            // listBoxPinBoard
+            // 
+            this.listBoxPinBoard.FormattingEnabled = true;
+            this.listBoxPinBoard.ItemHeight = 20;
+            this.listBoxPinBoard.Location = new System.Drawing.Point(4, 65);
+            this.listBoxPinBoard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBoxPinBoard.Name = "listBoxPinBoard";
+            this.listBoxPinBoard.Size = new System.Drawing.Size(530, 544);
+            this.listBoxPinBoard.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(90, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Send your offerings";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button2.Location = new System.Drawing.Point(4, 119);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 72);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Feedback";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(4, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 42);
+            this.button1.Size = new System.Drawing.Size(122, 88);
             this.button1.TabIndex = 0;
             this.button1.Text = "Digital Content Modules";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Location = new System.Drawing.Point(22, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(253, 46);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Member site";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button4.Location = new System.Drawing.Point(4, 215);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 69);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Billing \r\nHistory";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 292);
+            this.ClientSize = new System.Drawing.Size(1326, 852);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -201,9 +349,20 @@
         private System.Windows.Forms.Button shopButton;
         private System.Windows.Forms.Button whatsonButton;
         private System.Windows.Forms.Button aboutButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Settings;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button buttonPost;
+        private System.Windows.Forms.TextBox textBoxPost;
+        private System.Windows.Forms.ListBox listBoxPinBoard;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

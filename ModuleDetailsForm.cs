@@ -10,26 +10,15 @@ using System.Windows.Forms;
 
 namespace member_space
 {
-    public partial class Form7 : Form
+    public partial class ModuleDetailsForm : Form
     {
-        public Form7()
+        public ModuleDetailsForm(Module module)
         {
             InitializeComponent();
-        }
 
-        private void Form7_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            // Display module details
+            lblTitle.Text = module.Title;
+            lblDescription.Text = module.Description;
         }
     }
 }
