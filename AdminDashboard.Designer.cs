@@ -37,10 +37,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.MemberInsightsButton = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -145,6 +145,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unknown";
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(11, 0);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(214, 43);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "Event Managment";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // button7
             // 
             this.button7.AutoSize = true;
@@ -185,15 +194,6 @@
             this.MemberInsightsButton.UseVisualStyleBackColor = false;
             this.MemberInsightsButton.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(161, 23);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Event Managment";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -202,7 +202,7 @@
             this.ClientSize = new System.Drawing.Size(1087, 554);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminDashboard";
             this.Text = "Admin Dashboard";
             this.panel1.ResumeLayout(false);
