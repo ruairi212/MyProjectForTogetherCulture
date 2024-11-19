@@ -135,6 +135,7 @@
             this.txtbLogUsername.Name = "txtbLogUsername";
             this.txtbLogUsername.Size = new System.Drawing.Size(160, 22);
             this.txtbLogUsername.TabIndex = 14;
+            this.txtbLogUsername.TextChanged += new System.EventHandler(this.txtbLogUsername_TextChanged);
             // 
             // Login
             // 
@@ -152,6 +153,7 @@
             this.Controls.Add(this.txtbLogUsername);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

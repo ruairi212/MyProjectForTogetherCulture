@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+
 
 namespace member_space
 {
@@ -110,6 +113,16 @@ namespace member_space
         {
             new signUp().Show();
             this.Hide();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbLogUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
