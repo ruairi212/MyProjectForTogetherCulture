@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
@@ -114,7 +115,7 @@ namespace member_space
 
         private void LbacktoLogin_Click(object sender, EventArgs e)
         {
-            new Login().Show();
+            new Logi().Show();
             this.Hide();
        }
 

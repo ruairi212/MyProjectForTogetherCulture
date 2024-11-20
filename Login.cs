@@ -72,7 +72,7 @@ namespace member_space
                         {
                             if (memberDr.Read())
                             {
-                                new Members_Dashboard().Show();
+                                new Form1().Show();
                                 this.Hide();
                             }
                             else

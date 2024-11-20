@@ -37,17 +37,19 @@
             this.Llogusername = new System.Windows.Forms.Label();
             this.Llogin = new System.Windows.Forms.Label();
             this.txtbLogUsername = new System.Windows.Forms.TextBox();
+            this.ButtonForgetPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LcreateAccount
             // 
             this.LcreateAccount.AutoSize = true;
+            this.LcreateAccount.BackColor = System.Drawing.Color.White;
             this.LcreateAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LcreateAccount.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LcreateAccount.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LcreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LcreateAccount.Location = new System.Drawing.Point(343, 350);
+            this.LcreateAccount.Location = new System.Drawing.Point(512, 314);
             this.LcreateAccount.Name = "LcreateAccount";
-            this.LcreateAccount.Size = new System.Drawing.Size(158, 22);
+            this.LcreateAccount.Size = new System.Drawing.Size(182, 25);
             this.LcreateAccount.TabIndex = 24;
             this.LcreateAccount.Text = "Create Account";
             this.LcreateAccount.Click += new System.EventHandler(this.LcreateAccount_Click);
@@ -56,18 +58,18 @@
             // 
             this.LdontHaveAccount.AutoSize = true;
             this.LdontHaveAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LdontHaveAccount.Location = new System.Drawing.Point(327, 310);
+            this.LdontHaveAccount.Location = new System.Drawing.Point(313, 319);
             this.LdontHaveAccount.Name = "LdontHaveAccount";
-            this.LdontHaveAccount.Size = new System.Drawing.Size(184, 20);
+            this.LdontHaveAccount.Size = new System.Drawing.Size(193, 20);
             this.LdontHaveAccount.TabIndex = 23;
-            this.LdontHaveAccount.Text = "Don\'t Have An Account";
+            this.LdontHaveAccount.Text = "Don\'t Have An Account?";
             // 
             // ButtonLogin
             // 
             this.ButtonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ButtonLogin.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLogin.ForeColor = System.Drawing.Color.White;
-            this.ButtonLogin.Location = new System.Drawing.Point(357, 253);
+            this.ButtonLogin.Location = new System.Drawing.Point(358, 250);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(130, 40);
             this.ButtonLogin.TabIndex = 22;
@@ -137,11 +139,24 @@
             this.txtbLogUsername.TabIndex = 14;
             this.txtbLogUsername.TextChanged += new System.EventHandler(this.txtbLogUsername_TextChanged);
             // 
+            // ButtonForgetPass
+            // 
+            this.ButtonForgetPass.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonForgetPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonForgetPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ButtonForgetPass.Location = new System.Drawing.Point(307, 366);
+            this.ButtonForgetPass.Name = "ButtonForgetPass";
+            this.ButtonForgetPass.Size = new System.Drawing.Size(210, 44);
+            this.ButtonForgetPass.TabIndex = 25;
+            this.ButtonForgetPass.Text = "Forget Password";
+            this.ButtonForgetPass.UseVisualStyleBackColor = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonForgetPass);
             this.Controls.Add(this.LcreateAccount);
             this.Controls.Add(this.LdontHaveAccount);
             this.Controls.Add(this.ButtonLogin);
@@ -170,5 +185,6 @@
         private System.Windows.Forms.Label Llogusername;
         private System.Windows.Forms.Label Llogin;
         private System.Windows.Forms.TextBox txtbLogUsername;
+        private System.Windows.Forms.Button ButtonForgetPass;
     }
 }

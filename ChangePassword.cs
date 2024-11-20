@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace member_space
 {
-    public partial class Members_Dashboard : Form
+    public partial class ChangePassword : Form
     {
-        public Members_Dashboard()
+        public ChangePassword()
         {
             InitializeComponent();
+        }
+
+        private void textBcpConfirmPass_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
