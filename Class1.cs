@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
-    class member_dashBoard_Data_ : DatabaseConnection
+    class member_dashBoard_Data : DatabaseConnection
     {
         private DateTime start_Date;
         private DateTime end_Date;
@@ -19,8 +20,26 @@ namespace member_space
         public DateTime registration_Date { get; set; }
 
         public string membership_Type { get; set; }
+        
+        public int total_Members { get; set; }
 
-    
+        // dashboard data displayed
+        public int Get_Totals() 
+        {
+            using (var connection = get_Connection()) 
+            {
+                connection.Open();
+                using (var command = new MySqlCommand()) 
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT count(MemberID) FROM `member`";
+                    total_Members = Convert.ToInt32(command.ExecuteScalar());
+                
+                    
+                }
+            }
+            return total_Members;
+        }
 }
 }
 
