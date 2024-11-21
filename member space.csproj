@@ -305,6 +305,8 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>

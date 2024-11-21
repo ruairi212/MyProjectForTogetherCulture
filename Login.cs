@@ -39,6 +39,7 @@ namespace member_space
             
             try
             {
+                string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
                 using (OleDbConnection con = new OleDbConnection(connectionString))
                 {
                     con.Open();

@@ -115,7 +115,7 @@ namespace member_space
 
         private void LbacktoLogin_Click(object sender, EventArgs e)
         {
-            new Logi().Show();
+            new Login().Show();
             this.Hide();
        }
 
