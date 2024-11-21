@@ -62,7 +62,8 @@ namespace member_space
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            MemberSearch memberSearch = new MemberSearch();
+            memberSearch.Show();
         }
     }
 }
