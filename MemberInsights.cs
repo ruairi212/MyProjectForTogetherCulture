@@ -23,6 +23,7 @@ namespace member_space
         {
             int total_members = member_Data.Get_Totals();
             label3.Text = total_members.ToString();
+
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -50,6 +51,16 @@ namespace member_space
         }
 
         private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
         {
 
         }

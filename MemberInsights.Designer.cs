@@ -142,6 +142,7 @@
             this.label1.Size = new System.Drawing.Size(176, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "TOTAL ACTIVE MEMBERS:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -373,6 +374,7 @@
             this.button9.TabIndex = 31;
             this.button9.Text = "Member search";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // MemberInsightDashboard
             // 
