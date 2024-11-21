@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace member_space
 {
-    class member_Data : DatabaseConnection
+    class member_dashBoard_Data_ : DatabaseConnection
     {
-        public int Id { get; set; }
-    public string first_Name { get; set; }
-    public string second_Name { get; set; }
+        private DateTime start_Date;
+        private DateTime end_Date;
+        private int number_Days;
+        public int memeber_Id { get; set; }
+        public string first_Name { get; set; }
+        public string second_Name { get; set; }
+        public  string email {  get; set; }
+        public DateTime date_Of_Birth { get; set; }
+        public DateTime registration_Date { get; set; }
 
-    public member_Data() { int Id, first_Name, second_Name; }
+        public string membership_Type { get; set; }
+
+    
 }
 }
 

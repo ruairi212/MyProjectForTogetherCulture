@@ -22,6 +22,28 @@ namespace member_space
             this.Load += Form1_Load;
            
         }
+        //Testing the connection to DB
+        public static void DbConnectionTest()
+
+        {
+            //Establishing connection to the MySql Server
+            string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                MessageBox.Show("Connected to MySQL!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
         // Event handler for Form Load
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -195,6 +217,11 @@ namespace member_space
             int memberId = 1025;
             BillingHistory billinghistory = new BillingHistory(memberId);
             billinghistory.ShowDialog();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

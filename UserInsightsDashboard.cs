@@ -14,32 +14,12 @@ namespace member_space
     public partial class UserInsightsDashboard : Form
 
     {
-        //Testing the connection to DB
-        public static void DbConnectionTest()
-
-        {
-            //Establishing connection to the MySql Server
-            string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-                MessageBox.Show("Connected to MySQL!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
+        
        
         public UserInsightsDashboard()
         {
             InitializeComponent();
-            DbConnectionTest();
+            
             
         }
 
