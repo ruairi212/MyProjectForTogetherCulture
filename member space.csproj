@@ -415,6 +415,7 @@
     <Compile Include="MemberSearch.Designer.cs">
       <DependentUpon>MemberSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="member_Data.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="ModuleDetailsForm.cs">
       <SubType>Form</SubType>
