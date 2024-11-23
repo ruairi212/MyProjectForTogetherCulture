@@ -18,7 +18,7 @@ namespace member_space
         private string smtpServer = "smtp.gmail.com"; // Gmail's SMTP server
         private int smtpPort = 587; // Port for TLS
         private string smtpEmail = "dheerajkodwani21@gmail.com"; // Sender's email
-        private string smtpPassword = "dheeraj21"; // Sender's email password 
+        private string smtpPassword = "dheeraj2122222"; // Sender's email password 
 
         int memberId = 1029;
         private List<string> pinBoardPosts = new List<string>();
