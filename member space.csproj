@@ -307,6 +307,12 @@
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="Eventavtivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eventavtivity.Designer.cs">
+      <DependentUpon>Eventavtivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -481,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eventavtivity.resx">
+      <DependentUpon>Eventavtivity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>

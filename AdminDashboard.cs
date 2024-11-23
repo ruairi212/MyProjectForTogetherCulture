@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
@@ -30,6 +31,12 @@ namespace member_space
         private void button8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Eventavtivity eventavtivity = new Eventavtivity();  
+            eventavtivity.ShowDialog();
         }
     }
 }

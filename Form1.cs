@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,12 @@ namespace member_space
     
     public partial class Form1 : Form
     {
-        int memberId = 1025;
+        private string smtpServer = "smtp.gmail.com"; // Gmail's SMTP server
+        private int smtpPort = 587; // Port for TLS
+        private string smtpEmail = "dheerajkodwani21@gmail.com"; // Sender's email
+        private string smtpPassword = "dheeraj21"; // Sender's email password 
+
+        int memberId = 1029;
         private List<string> pinBoardPosts = new List<string>();
         public Form1()
         {
@@ -28,6 +34,7 @@ namespace member_space
         {
             //Establishing connection to the MySql Server
             string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
+            //member_space.DatabaseConnection
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             try
@@ -214,7 +221,7 @@ namespace member_space
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int memberId = 1025;
+            int memberId = 1029;
             BillingHistory billinghistory = new BillingHistory(memberId);
             billinghistory.ShowDialog();
         }
@@ -222,6 +229,76 @@ namespace member_space
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Fetch the logged-in user's email
+                string userEmail = "dheerajkodwani21@gmail.com";
+
+                // Fetch all event details
+                string eventDetails = LoadEvent();
+
+                // Send the email with event details
+                SendEmail(userEmail, "Event Reminder", eventDetails);
+
+                MessageBox.Show("Reminder email sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void SendEmail(string toEmail, string subject, string body)
+        {
+            using (System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient(smtpServer, smtpPort))
+            {
+                smtpClient.Credentials = new System.Net.NetworkCredential(smtpEmail, smtpPassword);
+                smtpClient.EnableSsl = true; // Use TLS for security
+
+                // Set up the email message
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress(smtpEmail); // Sender
+                mailMessage.To.Add(toEmail); // Recipient
+                mailMessage.Subject = subject; // Email Subject
+                mailMessage.Body = body; // Email Body
+
+                smtpClient.Send(mailMessage); // Send the email
+            }
+        }
+        private string LoadEvent()
+        {
+            string eventDetails = "Upcoming Events:\n\n";
+            string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
+            string query = "SELECT * FROM EventActivity";
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            eventDetails += $"Event: {reader["Type"]}\n";
+                            eventDetails += $"Description: {reader["Description"]}\n";
+                            eventDetails += $"Date: {reader["EventDate"]}\n";
+                            eventDetails += $"Location: {reader["BuildingName"]}, {reader["Address"]}\n";
+                            eventDetails += $"Max Capacity: {reader["MaxCapacity"]}\n";
+                            eventDetails += "-----------------------------------------\n";
+                        }
+                    }
+                }
+            }
+
+            return eventDetails;
         }
     }
 }
