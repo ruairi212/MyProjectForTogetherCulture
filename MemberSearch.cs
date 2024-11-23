@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace member_space
 {
-    public partial class Members_Dashboard : Form
+    public partial class MemberSearch : Form
     {
-        public Members_Dashboard()
+        public MemberSearch()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

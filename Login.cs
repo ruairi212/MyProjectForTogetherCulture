@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+
 
 namespace member_space
 {
@@ -32,6 +35,7 @@ namespace member_space
             
             try
             {
+                string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
                 using (OleDbConnection con = new OleDbConnection(connectionString))
                 {
                     con.Open();
@@ -65,7 +69,7 @@ namespace member_space
                         {
                             if (memberDr.Read())
                             {
-                                new Members_Dashboard().Show();
+                                new Form1().Show();
                                 this.Hide();
                             }
                             else
@@ -106,6 +110,16 @@ namespace member_space
         {
             new signUp().Show();
             this.Hide();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbLogUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
