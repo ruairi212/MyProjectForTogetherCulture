@@ -13,11 +13,11 @@ namespace member_space
 {
     public partial class MemberInsightDashboard : Form
     {
-        private member_dashBoard_Data member_Data;
+        private dashBoard_Data member_Data;
         public MemberInsightDashboard()
         {
             InitializeComponent();
-            member_Data = new member_dashBoard_Data();
+            member_Data = new dashBoard_Data();
         }
         private void Show_Members() 
         {

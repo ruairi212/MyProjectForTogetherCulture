@@ -17,4 +17,5 @@ namespace member_space
 
         public string membership_Type { get; set; }
     }
+
 }

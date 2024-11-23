@@ -14,50 +14,24 @@ namespace member_space
     public partial class UserInsightsDashboard : Form
 
     {
-        
-       
+
+        private dashBoard_Data user_Data;
         public UserInsightsDashboard()
         {
             InitializeComponent();
-            
-            
+            user_Data = new dashBoard_Data();
+
         }
 
-        private static void FillingData(UserInsightsDashboard form) 
+        private void FillingData() 
         {
-            try 
-            {
-                string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
-                using (MySqlConnection connection = new MySqlConnection(connectionString)) 
-                {
-                    connection.Open();
-                    string query = "SELECT Event_Name FROM events WHERE Event_Name = 'Yoga'";
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection)) 
-                    {
-                        
-                        using (MySqlDataReader reader = cmd.ExecuteReader()) 
-                        {
-                            if (reader.Read()) 
-                            {
-                                form.label3.Text = reader.GetString("Event_Name");
-                            }
-                            else 
-                            {
-                                form.label3.Text = "No event found with that name";
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
+            int total_users = user_Data.Get_Totals();
+            label3.Text = total_users.ToString();
         }
         
         private void UserInsightsDashboard_Load(object sender, EventArgs e)
         {
-
+            FillingData();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

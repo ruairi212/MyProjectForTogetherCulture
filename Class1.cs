@@ -7,12 +7,13 @@ using MySql.Data.MySqlClient;
 
 namespace member_space
 {
-    class member_dashBoard_Data : DatabaseConnection
+    class dashBoard_Data : DatabaseConnection
     {
         private DateTime start_Date;
         private DateTime end_Date;
         private int number_Days; 
         public int total_Members { get; set; }
+        public int total_Users { get; set; }
 
         // dashboard data displayed
         public int Get_Totals() 
@@ -25,11 +26,13 @@ namespace member_space
                     command.Connection = connection;
                     command.CommandText = "SELECT count(MemberID) FROM `member`";
                     total_Members = Convert.ToInt32(command.ExecuteScalar());
-                
-                    
+                   
+                    command.CommandText = "SELECT count(email) FROM `nonmember`";
+                    total_Users = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
             return total_Members;
+            
         }
 }
 }
