@@ -75,6 +75,8 @@ namespace member_space
                     BackColor = Color.IndianRed,
                     Tag = new DateTime(year, month, i)
                 };
+                DateTime currentDate = new DateTime(year, month, i);
+                
                 day_Button.Click += day_Button_Click;
                 //This will generate the dates for each label
                 for (int j = 1; j <= days_Month; j++) 
