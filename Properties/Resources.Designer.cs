@@ -63,6 +63,16 @@ namespace member_space.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2024_11_07_180710 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2024-11-07 180710", resourceCulture);
@@ -76,6 +86,16 @@ namespace member_space.Properties {
         internal static System.Drawing.Bitmap Screenshot_2024_11_13_100215 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2024-11-13 100215", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_icon_png_9985 {
+            get {
+                object obj = ResourceManager.GetObject("search-icon-png-9985", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

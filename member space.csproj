@@ -305,7 +305,14 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="dataBaseHelper.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="Eventavtivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eventavtivity.Designer.cs">
+      <DependentUpon>Eventavtivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +415,13 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemberSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberSearch.Designer.cs">
+      <DependentUpon>MemberSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="member_Data.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="ModuleDetailsForm.cs">
       <SubType>Form</SubType>
@@ -474,6 +488,9 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Eventavtivity.resx">
+      <DependentUpon>Eventavtivity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -534,6 +551,9 @@
     <EmbeddedResource Include="Form9.resx">
       <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MemberSearch.resx">
+      <DependentUpon>MemberSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleDetailsForm.resx">
       <DependentUpon>ModuleDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -593,6 +613,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-icon-png-9985.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

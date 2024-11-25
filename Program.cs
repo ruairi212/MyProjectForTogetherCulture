@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace member_space
 {
-    
+
     internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        public static  void is_Valid_Email(TextBox text_Box) 
+        public static void is_Valid_Email(TextBox text_Box)
         {
-            if (text_Box != null) 
+            if (text_Box != null)
             {
                 MessageBox.Show("Please input a valid email");
             }
@@ -26,13 +23,7 @@ namespace member_space
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrontPage());
-
-            
-           
-
-
-
+            Application.Run(new UserInsightsDashboard());
         }
     }
 }

@@ -23,10 +23,6 @@ namespace member_space
         {
             InitializeComponent();
 
-
-
-
-
         }
 
       
