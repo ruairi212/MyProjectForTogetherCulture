@@ -35,7 +35,6 @@ namespace member_space
                 return;
             }
 
-            
             try
             {
                 // Initialize the database helper
