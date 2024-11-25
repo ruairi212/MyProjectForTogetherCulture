@@ -196,5 +196,10 @@ namespace member_space
             BillingHistory billinghistory = new BillingHistory(memberId);
             billinghistory.ShowDialog();
         }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

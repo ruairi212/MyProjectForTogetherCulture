@@ -136,7 +136,7 @@
             this.ButtonRegister.ForeColor = System.Drawing.Color.White;
             this.ButtonRegister.Location = new System.Drawing.Point(413, 370);
             this.ButtonRegister.Name = "ButtonRegister";
-            this.ButtonRegister.Size = new System.Drawing.Size(140, 40);
+            this.ButtonRegister.Size = new System.Drawing.Size(196, 40);
             this.ButtonRegister.TabIndex = 11;
             this.ButtonRegister.Text = "REGISTER";
             this.ButtonRegister.UseVisualStyleBackColor = false;
@@ -172,13 +172,14 @@
             this.combobxSecurityQues.ForeColor = System.Drawing.Color.White;
             this.combobxSecurityQues.FormattingEnabled = true;
             this.combobxSecurityQues.Items.AddRange(new object[] {
-            "Nmae of the city you were born in?",
+            "Name of the city you were born in?",
             "Name of the first school you went to?",
-            "Nmae of your first pet?"});
+            "Name of your first pet?"});
             this.combobxSecurityQues.Location = new System.Drawing.Point(440, 268);
             this.combobxSecurityQues.Name = "combobxSecurityQues";
             this.combobxSecurityQues.Size = new System.Drawing.Size(257, 30);
             this.combobxSecurityQues.TabIndex = 14;
+            this.combobxSecurityQues.SelectedIndexChanged += new System.EventHandler(this.combobxSecurityQues_SelectedIndexChanged);
             // 
             // textbSecurityQuesAns
             // 
@@ -188,6 +189,7 @@
             this.textbSecurityQuesAns.Name = "textbSecurityQuesAns";
             this.textbSecurityQuesAns.Size = new System.Drawing.Size(257, 29);
             this.textbSecurityQuesAns.TabIndex = 15;
+            this.textbSecurityQuesAns.TextChanged += new System.EventHandler(this.textbSecurityQuesAns_TextChanged);
             // 
             // LselectSecurityQues
             // 
@@ -208,6 +210,7 @@
             this.LAnswer.Size = new System.Drawing.Size(78, 25);
             this.LAnswer.TabIndex = 17;
             this.LAnswer.Text = "Answer";
+            this.LAnswer.Click += new System.EventHandler(this.LAnswer_Click);
             // 
             // signUp
             // 

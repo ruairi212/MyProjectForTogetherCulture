@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.login = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.blogButton = new System.Windows.Forms.Button();
             this.shopButton = new System.Windows.Forms.Button();
             this.whatsonButton = new System.Windows.Forms.Button();
@@ -57,37 +57,41 @@
             this.panel1.Controls.Add(this.whatsonButton);
             this.panel1.Controls.Add(this.aboutButton);
             this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(796, 100);
+            this.panel1.Size = new System.Drawing.Size(708, 80);
             this.panel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(190, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // login
             // 
             this.login.AutoSize = true;
             this.login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.login.Location = new System.Drawing.Point(664, 34);
+            this.login.Location = new System.Drawing.Point(590, 27);
+            this.login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(132, 50);
+            this.login.Size = new System.Drawing.Size(117, 42);
             this.login.TabIndex = 4;
             this.login.Text = "Login/\r\nsignup";
             this.login.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(169, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // blogButton
             // 
             this.blogButton.AutoSize = true;
-            this.blogButton.Location = new System.Drawing.Point(567, 36);
+            this.blogButton.Location = new System.Drawing.Point(504, 29);
+            this.blogButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.blogButton.Name = "blogButton";
-            this.blogButton.Size = new System.Drawing.Size(96, 46);
+            this.blogButton.Size = new System.Drawing.Size(85, 37);
             this.blogButton.TabIndex = 3;
             this.blogButton.Text = "BLOG";
             this.blogButton.UseVisualStyleBackColor = true;
@@ -96,9 +100,10 @@
             // shopButton
             // 
             this.shopButton.AutoSize = true;
-            this.shopButton.Location = new System.Drawing.Point(483, 38);
+            this.shopButton.Location = new System.Drawing.Point(429, 30);
+            this.shopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.shopButton.Name = "shopButton";
-            this.shopButton.Size = new System.Drawing.Size(96, 46);
+            this.shopButton.Size = new System.Drawing.Size(85, 37);
             this.shopButton.TabIndex = 2;
             this.shopButton.Text = "SHOP";
             this.shopButton.UseVisualStyleBackColor = true;
@@ -107,9 +112,10 @@
             // whatsonButton
             // 
             this.whatsonButton.AutoSize = true;
-            this.whatsonButton.Location = new System.Drawing.Point(326, 38);
+            this.whatsonButton.Location = new System.Drawing.Point(290, 30);
+            this.whatsonButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.whatsonButton.Name = "whatsonButton";
-            this.whatsonButton.Size = new System.Drawing.Size(160, 46);
+            this.whatsonButton.Size = new System.Drawing.Size(142, 37);
             this.whatsonButton.TabIndex = 1;
             this.whatsonButton.Text = "WHAT\'S ON";
             this.whatsonButton.UseVisualStyleBackColor = true;
@@ -118,9 +124,10 @@
             // aboutButton
             // 
             this.aboutButton.AutoSize = true;
-            this.aboutButton.Location = new System.Drawing.Point(220, 38);
+            this.aboutButton.Location = new System.Drawing.Point(196, 30);
+            this.aboutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(111, 46);
+            this.aboutButton.Size = new System.Drawing.Size(99, 37);
             this.aboutButton.TabIndex = 0;
             this.aboutButton.Text = "ABOUT";
             this.aboutButton.UseVisualStyleBackColor = true;
@@ -129,18 +136,20 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(470, 102);
+            this.panel2.Location = new System.Drawing.Point(418, 82);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(328, 326);
+            this.panel2.Size = new System.Drawing.Size(292, 261);
             this.panel2.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.Location = new System.Drawing.Point(99, 6);
+            this.button1.Location = new System.Drawing.Point(88, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 46);
+            this.button1.Size = new System.Drawing.Size(162, 37);
             this.button1.TabIndex = 0;
             this.button1.Text = "Administrators";
             this.button1.UseVisualStyleBackColor = false;
@@ -149,16 +158,18 @@
             // 
             this.panel3.Controls.Add(this.richTextBox1);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(2, 102);
+            this.panel3.Location = new System.Drawing.Point(2, 82);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(470, 326);
+            this.panel3.Size = new System.Drawing.Size(418, 261);
             this.panel3.TabIndex = 3;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(3, 74);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 59);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(466, 249);
+            this.richTextBox1.Size = new System.Drawing.Size(415, 200);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
@@ -166,9 +177,10 @@
             // 
             this.button2.AutoSize = true;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(3, 6);
+            this.button2.Location = new System.Drawing.Point(3, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(496, 108);
+            this.button2.Size = new System.Drawing.Size(441, 86);
             this.button2.TabIndex = 0;
             this.button2.Text = "Together Culture is excited to announce the \r\nlaunch of \'Let’s Go Fly The Kite\',\r" +
     "\n funded by the Heritage Fund. ";
@@ -176,14 +188,16 @@
             // 
             // Form11
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 423);
+            this.ClientSize = new System.Drawing.Size(712, 338);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form11";
             this.Text = "Form11";
+            this.Load += new System.EventHandler(this.Form11_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

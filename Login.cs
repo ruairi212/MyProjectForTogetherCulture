@@ -14,8 +14,11 @@ using MySql.Data.MySqlClient;
 
 namespace member_space
 {
+   
+
     public partial class Login : Form
     {
+        public string connectionString = "Server=127.0.0.1;Database=software;Uid=root;Pwd=;";
         public Login()
         {
             InitializeComponent();
@@ -39,45 +42,40 @@ namespace member_space
             
             try
             {
-                using (OleDbConnection con = new OleDbConnection(connectionString))
+                // Initialize the database helper
+                dataBaseHelper dbHelper = new dataBaseHelper();
+                dbHelper.QueryTable("logindetails");
+
+                // SQL Query to check the username and password
+                string query = "SELECT * FROM logindetails WHERE Email = @Email AND Password = @Password";
+
+                using (MySqlConnection connection = new MySqlConnection(dbHelper.connectionString))
                 {
-                    con.Open();
+                    connection.Open();
 
-                    // Check if the user is an administrator
-                    string adminLogin = "SELECT * FROM tbl_administrator WHERE username = @username AND passwords = @passwords";
-                    using (OleDbCommand adminCmd = new OleDbCommand(adminLogin, con))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        adminCmd.Parameters.AddWithValue("@username", txtbLogUsername.Text);
-                        adminCmd.Parameters.AddWithValue("@passwords", txtbLogPassword.Text);
+                        // Add parameters to prevent SQL injection
+                        command.Parameters.AddWithValue("@Email", txtbLogUsername.Text);
+                        command.Parameters.AddWithValue("@Password", txtbLogPassword.Text);
 
-                        using (OleDbDataReader adminDr = adminCmd.ExecuteReader())
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            if (adminDr.Read())
+                            if (reader.Read())
                             {
-                                new AdminDashboard().Show();
-                                this.Hide();
-                                return;
-                            }
-                        }
-                    }
+                                // If a match is found, proceed with login
+                                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Check if the user is a member
-                    string memberLogin = "SELECT * FROM tbl_users WHERE username = @username AND passwords = @passwords";
-                    using (OleDbCommand memberCmd = new OleDbCommand(memberLogin, con))
-                    {
-                        memberCmd.Parameters.AddWithValue("@username", txtbLogUsername.Text);
-                        memberCmd.Parameters.AddWithValue("@passwords", txtbLogPassword.Text);
-
-                        using (OleDbDataReader memberDr = memberCmd.ExecuteReader())
-                        {
-                            if (memberDr.Read())
-                            {
+                                // Open the appropriate form for the user
                                 new Form1().Show();
                                 this.Hide();
                             }
                             else
                             {
-                                MessageBox.Show("Invalid Username or Password, Please Try Again or Press Forget Password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                // If no match is found, show an error message
+                                MessageBox.Show("Invalid Username or Password. Please Try Again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                // Clear the input fields
                                 txtbLogUsername.Text = "";
                                 txtbLogPassword.Text = "";
                                 txtbLogUsername.Focus();
@@ -93,6 +91,9 @@ namespace member_space
             }
 
         }
+
+
+
 
         private void CHbxLogShowPass_CheckedChanged(object sender, EventArgs e)
         {
@@ -123,6 +124,11 @@ namespace member_space
         private void txtbLogUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonForgetPass_Click(object sender, EventArgs e)
+        {
+          new  ForgetPassword().Show();
         }
     }
 }
