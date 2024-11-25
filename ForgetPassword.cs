@@ -21,5 +21,11 @@ namespace member_space
         {
 
         }
+
+        private void BfpSubmit_Click(object sender, EventArgs e)
+        {
+            new ChangePassword().Show();
+            this.Close();   
+        }
     }
 }

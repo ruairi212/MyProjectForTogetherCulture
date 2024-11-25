@@ -47,7 +47,7 @@
             this.LcreateAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LcreateAccount.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LcreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LcreateAccount.Location = new System.Drawing.Point(512, 314);
+            this.LcreateAccount.Location = new System.Drawing.Point(527, 315);
             this.LcreateAccount.Name = "LcreateAccount";
             this.LcreateAccount.Size = new System.Drawing.Size(182, 25);
             this.LcreateAccount.TabIndex = 24;
@@ -150,6 +150,7 @@
             this.ButtonForgetPass.TabIndex = 25;
             this.ButtonForgetPass.Text = "Forget Password";
             this.ButtonForgetPass.UseVisualStyleBackColor = false;
+            this.ButtonForgetPass.Click += new System.EventHandler(this.ButtonForgetPass_Click);
             // 
             // Login
             // 

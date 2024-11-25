@@ -76,5 +76,10 @@ namespace member_space
                ;
             Form4 form4 = new Form4(textToDisplay); form4.Show();
         }
+
+        private void Form11_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

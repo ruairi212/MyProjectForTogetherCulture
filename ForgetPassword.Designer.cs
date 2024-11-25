@@ -107,6 +107,7 @@
             this.BfpSubmit.TabIndex = 6;
             this.BfpSubmit.Text = "Submit";
             this.BfpSubmit.UseVisualStyleBackColor = true;
+            this.BfpSubmit.Click += new System.EventHandler(this.BfpSubmit_Click);
             // 
             // ForgetPassword
             // 

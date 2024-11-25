@@ -86,7 +86,7 @@ namespace member_space
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            new Login().Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -108,6 +108,11 @@ namespace member_space
         {
             Form11 Information = new Form11();
             Information.ShowDialog(); // This will open the form as a modal dialog
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }

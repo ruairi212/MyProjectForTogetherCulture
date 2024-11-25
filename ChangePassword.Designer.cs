@@ -33,6 +33,7 @@
             this.textBcpNewPass = new System.Windows.Forms.TextBox();
             this.textBcpConfirmPass = new System.Windows.Forms.TextBox();
             this.BcpBacktoLogin = new System.Windows.Forms.Button();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LcpNewPass
@@ -62,6 +63,7 @@
             this.textBcpNewPass.Name = "textBcpNewPass";
             this.textBcpNewPass.Size = new System.Drawing.Size(181, 22);
             this.textBcpNewPass.TabIndex = 2;
+            this.textBcpNewPass.TextChanged += new System.EventHandler(this.textBcpNewPass_TextChanged);
             // 
             // textBcpConfirmPass
             // 
@@ -77,18 +79,33 @@
             this.BcpBacktoLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BcpBacktoLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BcpBacktoLogin.ForeColor = System.Drawing.Color.White;
-            this.BcpBacktoLogin.Location = new System.Drawing.Point(588, 320);
+            this.BcpBacktoLogin.Location = new System.Drawing.Point(638, 342);
             this.BcpBacktoLogin.Name = "BcpBacktoLogin";
             this.BcpBacktoLogin.Size = new System.Drawing.Size(122, 54);
             this.BcpBacktoLogin.TabIndex = 4;
             this.BcpBacktoLogin.Text = "Back To Login";
             this.BcpBacktoLogin.UseVisualStyleBackColor = false;
+            this.BcpBacktoLogin.Click += new System.EventHandler(this.BcpBacktoLogin_Click);
+            // 
+            // confirmButton
+            // 
+            this.confirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmButton.ForeColor = System.Drawing.Color.White;
+            this.confirmButton.Location = new System.Drawing.Point(376, 299);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(122, 54);
+            this.confirmButton.TabIndex = 5;
+            this.confirmButton.Text = "confirm";
+            this.confirmButton.UseVisualStyleBackColor = false;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.BcpBacktoLogin);
             this.Controls.Add(this.textBcpConfirmPass);
             this.Controls.Add(this.textBcpNewPass);
@@ -97,6 +114,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ChangePassword";
             this.Text = "ChangePassword";
+            this.Load += new System.EventHandler(this.ChangePassword_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +127,6 @@
         private System.Windows.Forms.TextBox textBcpNewPass;
         private System.Windows.Forms.TextBox textBcpConfirmPass;
         private System.Windows.Forms.Button BcpBacktoLogin;
+        private System.Windows.Forms.Button confirmButton;
     }
 }
