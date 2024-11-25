@@ -306,6 +306,7 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="DataBaseSearch.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="dataBaseHelper.cs" />
     <Compile Include="Eventavtivity.cs">

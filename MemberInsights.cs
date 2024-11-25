@@ -55,6 +55,7 @@ namespace member_space
         private void MemberInsightDashboard_Load(object sender, EventArgs e)
         {
             Show_Members();
+            
         }
 
         private void button6_Click(object sender, EventArgs e)

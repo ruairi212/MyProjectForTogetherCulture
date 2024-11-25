@@ -19,6 +19,7 @@ namespace member_space
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            string searchText = textBox1.Text.Trim();
 
         }
     }
