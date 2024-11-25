@@ -112,7 +112,7 @@ namespace member_space
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            new signUp().Show();
+            
         }
     }
 }

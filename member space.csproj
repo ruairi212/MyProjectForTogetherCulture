@@ -307,6 +307,7 @@
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="dataBaseHelper.cs" />
     <Compile Include="Eventavtivity.cs">
       <SubType>Form</SubType>
     </Compile>
