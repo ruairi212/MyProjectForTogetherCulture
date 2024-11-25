@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,12 @@ namespace member_space
         {
             int total_members = member_Data.Get_Totals();
             label3.Text = total_members.ToString();
+
+        }
+        public static string total_MembersQ = "SELECT count(MemberID) FROM `member` WHERE RegistrationDate BETWEEN @fromDate AND @toDate";
+        public void Update_Dashboard(DateTime startDate, DateTime endDate)
+        {
+            member_Data.Update_Data(label3,total_MembersQ,startDate,endDate);
 
         }
         private void button5_Click(object sender, EventArgs e)
@@ -64,6 +71,22 @@ namespace member_space
         {
             MemberSearch memberSearch = new MemberSearch();
             memberSearch.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            DateTime today = DateTime.Today;
+            Update_Dashboard(today,today.AddTicks(-1));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime start_Of_last_Week = today.AddDays(-(int)today.DayOfWeek - 7);
+            DateTime end_Of_Last_Week = start_Of_last_Week.AddDays(7).AddTicks(-1);
+
+            Update_Dashboard(start_Of_last_Week, end_Of_Last_Week);
         }
     }
 }
