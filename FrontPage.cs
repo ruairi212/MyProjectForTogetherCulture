@@ -86,7 +86,7 @@ namespace member_space
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new Login().Show();
+            new Login().ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)

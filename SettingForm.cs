@@ -14,11 +14,13 @@ namespace member_space
 {
 
     public partial class SettingForm : Form
+
     {
-        private int memberId ;
+        private string memberId;
+        
         private string connectionString = "Server=localhost;Database=together_culture;User ID=Dheerajk;Password=;SslMode=none;";
 
-        public SettingForm(int memberId)
+        public SettingForm(string memberId)
         {
             InitializeComponent();
             this.memberId = memberId;
@@ -78,6 +80,11 @@ namespace member_space
                 }
                 conn.Close();
             }
+        }
+
+        private void SettingForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

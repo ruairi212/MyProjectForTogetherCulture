@@ -8,7 +8,7 @@ namespace member_space
     internal class dataBaseHelper
     {
         // Connection string to the database
-        public string connectionString = "Server=127.0.0.1;Database=software;Uid=root;Pwd=;";
+        public string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
 
         // Method to fetch and display all rows from a specific table
         public void QueryTable(string tableName)

@@ -13,9 +13,10 @@ namespace member_space
 {
     public partial class BillingHistory : Form
     {
-        private string connectionString = "server=localhost;user=Dheerajk;password=;database=together_culture;";
-        private int memberId;
-        public BillingHistory(int memberId)
+        private string memberId;
+        private string connectionString = "server=127.0.0.1;user=root;password=;database=together_culture;";
+        //private int memberId;
+        public BillingHistory(string memberId)
         {
             InitializeComponent();
             this.memberId = memberId; // Store the Member ID for filtering
@@ -68,6 +69,16 @@ namespace member_space
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+        }
+
+        private void BillingHistory_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

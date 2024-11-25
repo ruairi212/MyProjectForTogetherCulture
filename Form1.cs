@@ -15,18 +15,26 @@ namespace member_space
     
     public partial class Form1 : Form
     {
+        private string memberId;
+        private string memberType;
+        private string email;
         private string smtpServer = "smtp.gmail.com"; // Gmail's SMTP server
         private int smtpPort = 587; // Port for TLS
         private string smtpEmail = "dheerajkodwani21@gmail.com"; // Sender's email
         private string smtpPassword = "dheeraj2122222"; // Sender's email password 
 
-        int memberId = 1029;
+        //int memberId = 1029;
         private List<string> pinBoardPosts = new List<string>();
-        public Form1()
+        public Form1(string memberId, string memberType)
         {
             InitializeComponent();
             this.Load += Form1_Load;
-           
+            this.memberId = memberId;
+            this.memberType = memberType;
+            LoadMembershipBenefits();
+
+
+
         }
         //Testing the connection to DB
         public static void DbConnectionTest()
@@ -221,7 +229,7 @@ namespace member_space
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int memberId = 1029;
+            //int memberId = 1029;
             BillingHistory billinghistory = new BillingHistory(memberId);
             billinghistory.ShowDialog();
         }
@@ -272,6 +280,47 @@ namespace member_space
 
                 smtpClient.Send(mailMessage); // Send the email
             }
+        }
+        private void LoadMembershipBenefits()
+        {
+            // Define the benefits for Standard and Premium members
+            string benefits = string.Empty;
+
+            if (memberType == "Standard")
+            {
+                benefits = "Standard Membership Benefits:\n" +
+               "- Access to basic community events\n" +
+               "- Monthly newsletter with updates\n" +
+               "- Limited customer support (9 AM - 5 PM)\n" +
+               "- Participation in free workshops\n" +
+               "- Free access to digital resources\n" +
+               "- Invites to volunteer activities\n" +
+               "- Opportunity to join group forums\n" +
+               "- Access to members-only discounts on select events\n" +
+               "- Annual feedback sessions\n" +
+               "- Recognition in our annual community report";
+            }
+            else if (memberType == "Premium")
+            {
+                benefits = "Premium Membership Benefits:\n" +
+               "- Unlimited access to all community events\n" +
+               "- Weekly updates and exclusive insights\n" +
+               "- Priority 24/7 customer support\n" +
+               "- Participation in premium workshops and webinars\n" +
+               "- Access to exclusive digital resources\n" +
+               "- Personalized mentoring sessions\n" +
+               "- VIP invites to special events and galas\n" +
+               "- Heavily discounted rates for paid events\n" +
+               "- Early access to new programs and initiatives\n" +
+               "- Exclusive recognition in premium member spotlights";
+            }
+            else
+            {
+                benefits = "Membership type not recognized.";
+            }
+
+            // Display the benefits in a textbox
+            textBox1.Text = benefits;
         }
         private string LoadEvent()
         {

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 
 
@@ -18,7 +19,7 @@ namespace member_space
 
     public partial class Login : Form
     {
-        public string connectionString = "Server=127.0.0.1;Database=software;Uid=root;Pwd=;";
+        //public string connectionString = "Server=127.0.0.1;Database=software;Uid=root;Pwd=;";
         public Login()
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace member_space
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
+            string email = txtbLogUsername.Text.Trim();
+
             if (string.IsNullOrEmpty(txtbLogUsername.Text) || string.IsNullOrEmpty(txtbLogPassword.Text))
             {
                 MessageBox.Show("Username and Password fields cannot be empty", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -42,7 +45,7 @@ namespace member_space
                 dbHelper.QueryTable("logindetails");
 
                 // SQL Query to check the username and password
-                string query = "SELECT * FROM logindetails WHERE Email = @Email AND Password = @Password";
+                string query = "SELECT Email FROM logindetails WHERE Email = @Email AND Password = @Password";
 
                 using (MySqlConnection connection = new MySqlConnection(dbHelper.connectionString))
                 {
@@ -54,16 +57,42 @@ namespace member_space
                         command.Parameters.AddWithValue("@Email", txtbLogUsername.Text);
                         command.Parameters.AddWithValue("@Password", txtbLogPassword.Text);
 
+                        // Execute the reader
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                // If a match is found, proceed with login
-                                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // If a match is found, close the reader before proceeding
+                                reader.Close();
 
-                                // Open the appropriate form for the user
-                                new Form1().Show();
-                                this.Hide();
+                                // Fetch the MemberID from the members table
+                                string memberQuery = "SELECT MemberID, Membership FROM member WHERE Email = @Email";
+
+                                using (MySqlCommand memberCmd = new MySqlCommand(memberQuery, connection))
+                                {
+                                    memberCmd.Parameters.AddWithValue("@Email", email);
+                                    object memberIdResult = memberCmd.ExecuteScalar();
+
+                                    using (MySqlDataReader memberReader = memberCmd.ExecuteReader())
+                                    {
+
+                                        if (memberReader.Read())
+                                        {
+                                            //string memberId = memberIdResult.ToString();
+                                            string memberId = memberReader["MemberID"].ToString();
+                                            string memberType = memberReader["Membership"].ToString();
+
+                                            // Open the Member Page and pass the MemberID
+                                            Form1 memberPage = new Form1(memberId,memberType);
+                                            memberPage.Show();
+                                            this.Hide(); // Hide the login form
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Member not found for the provided email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                    }
+                                }
                             }
                             else
                             {
@@ -79,7 +108,6 @@ namespace member_space
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
