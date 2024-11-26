@@ -17,7 +17,7 @@ namespace member_space
     {
         private string memberId;
         private string memberType;
-        private string email;
+       
         private string smtpServer = "smtp.gmail.com"; // Gmail's SMTP server
         private int smtpPort = 587; // Port for TLS
         private string smtpEmail = "dheerajkodwani21@gmail.com"; // Sender's email
