@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
@@ -67,12 +68,21 @@ namespace member_space
                 return;
             }
 
+            // Prompt user for payment details
+            string purpose = PromptForPurpose(); // Get the purpose of payment
+            if (string.IsNullOrEmpty(purpose)) return;
+
+            string memberId = PromptForMemberID(); // Get the member ID
+            if (string.IsNullOrEmpty(memberId)) return;
+
 
             // Retrieve payment details
             string cardholder_Name = textBox2.Text;
             string cardNumber = textBox3.Text;
             string expiration_Date = textBox4.Text;
             string CVV = textBox5.Text;
+            // Save payment to the database
+            SavePaymentToDatabase(memberId, Pay_for);
 
             // Open confirmation form with payment details
             Form9 confirmationForm = new Form9(cardholder_Name, cardNumber, expiration_Date, CVV);
