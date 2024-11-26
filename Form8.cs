@@ -14,6 +14,7 @@ namespace member_space
 {
     public partial class Form8 : Form
     {
+
         public event EventHandler PaymentCompleted;
         public Form8()
         {
@@ -22,7 +23,11 @@ namespace member_space
 
         private void Form8_Load(object sender, EventArgs e)
         {
-
+            // Populate the purpose ComboBox
+            comboBox1.Items.Add("Book ");
+            comboBox1.Items.Add("Event");
+            comboBox1.Items.Add("Module");
+            comboBox1.SelectedIndex = 0; // Default to "Book Event"
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,12 +73,9 @@ namespace member_space
                 return;
             }
 
-            // Prompt user for payment details
-            string purpose = PromptForPurpose(); // Get the purpose of payment
-            if (string.IsNullOrEmpty(purpose)) return;
 
-            string memberId = PromptForMemberID(); // Get the member ID
-            if (string.IsNullOrEmpty(memberId)) return;
+
+            
 
 
             // Retrieve payment details
@@ -81,13 +83,57 @@ namespace member_space
             string cardNumber = textBox3.Text;
             string expiration_Date = textBox4.Text;
             string CVV = textBox5.Text;
-            // Save payment to the database
-            SavePaymentToDatabase(memberId, Pay_for);
+            string memberId = textBox10.Text; // Member ID from the new text box
+            string Pay_for = comboBox1.Text; // Purpose from the combo box
 
+
+            SavePaymentToDatabase(memberId, Pay_for);
             // Open confirmation form with payment details
             Form9 confirmationForm = new Form9(cardholder_Name, cardNumber, expiration_Date, CVV);
             confirmationForm.PaymentConfirmed += ConfirmationForm_PaymentConfirmed; // Event handler for confirmation
             confirmationForm.Show();
+        }
+        private void SavePaymentToDatabase(string memberId, string Pay_for)
+        {
+            string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Get the next Billing ID
+                    string getNextBillingIdQuery = "SELECT IFNULL(MAX(PaymentID), 0) + 1 FROM billings";
+                    int nextBillingId = 1;
+                    using (MySqlCommand command = new MySqlCommand(getNextBillingIdQuery, connection))
+                    {
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            nextBillingId = Convert.ToInt32(result);
+                        }
+                    }
+
+                    // Insert the payment record with MemberID, Purpose, Current Date, and Default Payment Type
+                    string insertQuery = "INSERT INTO billings (PaymentID, MemberID, Payment_Date, PaymentType,Pay_for) " +
+                                         "VALUES (@PaymentID, @MemberID, @Payment_Date, @PaymentType,@Pay_for)";
+                    using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@PaymentID", nextBillingId);
+                        command.Parameters.AddWithValue("@MemberID", memberId);
+                        command.Parameters.AddWithValue("@Pay_for", Pay_for);
+                        command.Parameters.AddWithValue("@Payment_Date", DateTime.Now); // Current date and time
+                        command.Parameters.AddWithValue("@PaymentType", "Online");    // Default payment type
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while saving the payment: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         private bool Is16DigitsOnly(string str)
         {
@@ -98,6 +144,7 @@ namespace member_space
             }
             return true;
         }
+        
         private void ConfirmationForm_PaymentConfirmed(object sender, EventArgs e)
         {
             // Raise the PaymentCompleted event to notify Form1
