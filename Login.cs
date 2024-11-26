@@ -66,7 +66,7 @@ namespace member_space
                                 reader.Close();
 
                                 // Check if the email exists in the `member` table
-                                string memberQuery = "SELECT Membership FROM member WHERE Email = @Email";
+                                string memberQuery = "SELECT MemberID,Membership FROM member WHERE Email = @Email";
 
                                 using (MySqlCommand memberCmd = new MySqlCommand(memberQuery, connection))
                                 {
@@ -77,8 +77,8 @@ namespace member_space
                                         {
                                             // If the email exists in the `member` table, open the Member page
                                             string memberType = memberReader["Membership"].ToString();
-
-                                            Form1 memberPage = new Form1(email, memberType); // Pass email and membership type
+                                            string memberId = memberReader["MemberID"].ToString();
+                                            Form1 memberPage = new Form1(memberId,memberType); // Pass email and membership type
                                             memberPage.Show();
                                             this.Hide();
                                             return; // Exit the method

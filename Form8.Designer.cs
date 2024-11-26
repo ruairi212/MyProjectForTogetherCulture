@@ -150,9 +150,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(498, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 20);
+            this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "MemberID";
+            this.label1.Text = "MemberID if member";
             // 
             // textBox10
             // 
