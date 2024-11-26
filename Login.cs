@@ -65,34 +65,47 @@ namespace member_space
                                 // If a match is found, close the reader before proceeding
                                 reader.Close();
 
-                                // Fetch the MemberID from the members table
-                                string memberQuery = "SELECT MemberID, Membership FROM member WHERE Email = @Email";
+                                // Check if the email exists in the `member` table
+                                string memberQuery = "SELECT Membership FROM member WHERE Email = @Email";
 
                                 using (MySqlCommand memberCmd = new MySqlCommand(memberQuery, connection))
                                 {
                                     memberCmd.Parameters.AddWithValue("@Email", email);
-                                    object memberIdResult = memberCmd.ExecuteScalar();
-
                                     using (MySqlDataReader memberReader = memberCmd.ExecuteReader())
                                     {
-
                                         if (memberReader.Read())
                                         {
-                                            //string memberId = memberIdResult.ToString();
-                                            string memberId = memberReader["MemberID"].ToString();
+                                            // If the email exists in the `member` table, open the Member page
                                             string memberType = memberReader["Membership"].ToString();
 
-                                            // Open the Member Page and pass the MemberID
-                                            Form1 memberPage = new Form1(memberId,memberType);
+                                            Form1 memberPage = new Form1(email, memberType); // Pass email and membership type
                                             memberPage.Show();
-                                            this.Hide(); // Hide the login form
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Member not found for the provided email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            this.Hide();
+                                            return; // Exit the method
                                         }
                                     }
                                 }
+
+                                // If not in the `member` table, check if it exists in the `non_member` table
+                                string nonMemberQuery = "SELECT Email FROM nonmember WHERE Email = @Email";
+
+                                using (MySqlCommand nonMemberCmd = new MySqlCommand(nonMemberQuery, connection))
+                                {
+                                    nonMemberCmd.Parameters.AddWithValue("@Email", email);
+                                    using (MySqlDataReader nonMemberReader = nonMemberCmd.ExecuteReader())
+                                    {
+                                        if (nonMemberReader.Read())
+                                        {
+                                            // If the email exists in the `non_member` table, open the Non-Member page
+                                            nonmember nonMemberPage = new nonmember(email); // Pass Email to the page
+                                            nonMemberPage.Show();
+                                            this.Hide();
+                                            return; // Exit the method
+                                        }
+                                    }
+                                }// If the email is not found in either table, show an error
+                                MessageBox.Show("Your account could not be found as either a Member or Non-Member.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             }
                             else
                             {

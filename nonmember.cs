@@ -12,14 +12,17 @@ namespace member_space
 {
     public partial class nonmember : Form
     {
-        public nonmember()
+        private string email;
+        public nonmember(string email)
         {
             InitializeComponent();
+            this.email = email;
         }
 
         private void nonmember_Load(object sender, EventArgs e)
         {
-
+            // Display or use the email as needed
+            MessageBox.Show("Welcome Non-Member with Email: " + email, "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void blogButton_Click(object sender, EventArgs e)
