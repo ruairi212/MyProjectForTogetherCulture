@@ -14,7 +14,7 @@ namespace member_space
 {
     public partial class Eventavtivity : Form
     {
-        private string connectionString = "server=127.0.0.1;user=Dheerajk;password=;database=together_culture;";
+        private string connectionString = "server=127.0.0.1;user=root;password=;database=together_culture;";
         public Eventavtivity()
         {
             InitializeComponent();
