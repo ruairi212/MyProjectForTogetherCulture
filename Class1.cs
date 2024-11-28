@@ -42,7 +42,7 @@ namespace member_space
         public static string total_MembersQ = "SELECT count(MemberID) FROM `member` WHERE RegistrationDate BETWEEN @fromDate AND @toDate";
         public int Get_Data_In_Range(string query,DateTime startDate, DateTime endDate) 
         {
-            int output;
+            int output ;
             using (var connection = get_Connection())
             {
                 using (var command = new MySqlCommand(query, connection))
