@@ -33,10 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMessage = new System.Windows.Forms.TextBox();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.listBoxFeedback = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -85,51 +81,19 @@
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // listBoxFeedback
-            // 
-            this.listBoxFeedback.FormattingEnabled = true;
-            this.listBoxFeedback.Location = new System.Drawing.Point(145, 318);
-            this.listBoxFeedback.Name = "listBoxFeedback";
-            this.listBoxFeedback.Size = new System.Drawing.Size(320, 95);
-            this.listBoxFeedback.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Feedback List";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(-2, 279);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(802, 171);
-            this.panel1.TabIndex = 7;
-            // 
             // Form14
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBoxFeedback);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxFeedbackType);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
             this.Name = "Form14";
             this.Text = "Form14";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,8 +106,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxMessage;
         private System.Windows.Forms.Button buttonSubmit;
-        private System.Windows.Forms.ListBox listBoxFeedback;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
     public partial class Form14 : Form
     {
         private List<Feedback> feedbackList = new List<Feedback>();
+        private DatabaseConnection dbConnection = new DatabaseConnection(); // Instantiate the DatabaseConnection class
+        private dataBaseHelper dbHelper = new dataBaseHelper(); // Instantiate the dataBaseHelper class
+
         public Form14()
         {
             InitializeComponent();
@@ -20,7 +24,7 @@ namespace member_space
             comboBoxFeedbackType.Items.Add("Suggestion");
             comboBoxFeedbackType.Items.Add("Other");
 
-            comboBoxFeedbackType.SelectedIndex = 0; 
+            comboBoxFeedbackType.SelectedIndex = 0;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -31,34 +35,51 @@ namespace member_space
                 return;
             }
 
-           
+            // Create new feedback object
             Feedback newFeedback = new Feedback
             {
                 Type = comboBoxFeedbackType.SelectedItem.ToString(),
                 Message = textBoxMessage.Text
             };
 
-          
-            feedbackList.Add(newFeedback);
+            // Insert feedback into the database
+            InsertFeedbackToDatabase(newFeedback);
 
-            
+            // Clear the message box
             textBoxMessage.Clear();
 
-            
-            UpdateFeedbackList();
+            // Optionally, show a confirmation message
+            MessageBox.Show("Feedback submitted successfully!");
         }
-        private void UpdateFeedbackList()
-        {
-            // Clear existing items
-            listBoxFeedback.Items.Clear();
 
-            // Add each feedback entry to the ListBox
-            foreach (var feedback in feedbackList)
+        private void InsertFeedbackToDatabase(Feedback feedback)
+        {
+            try
             {
-                listBoxFeedback.Items.Add(feedback);
+                // Prepare SQL query to insert feedback into the 'feedback' table
+                string query = "INSERT INTO feedback (Type, Message) VALUES (@Type, @Message)";
+
+                // Use the connection from DatabaseConnection class
+                using (MySqlConnection conn = dbConnection.get_Connection())
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        // Add parameters to prevent SQL injection
+                        cmd.Parameters.AddWithValue("@Type", feedback.Type);
+                        cmd.Parameters.AddWithValue("@Message", feedback.Message);
+
+                        cmd.ExecuteNonQuery(); // Execute the query
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while submitting feedback: " + ex.Message);
             }
         }
     }
+
     public class Feedback
     {
         public string Type { get; set; }

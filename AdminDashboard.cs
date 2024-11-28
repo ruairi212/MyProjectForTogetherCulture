@@ -13,10 +13,77 @@ namespace member_space
 {
     public partial class AdminDashboard : Form
     {
+        private DatabaseConnection dbConnection = new DatabaseConnection(); // Instantiate the DatabaseConnection class
+        private dataBaseHelper dbHelper = new dataBaseHelper(); // Instantiate the dataBaseHelper class
+
         public AdminDashboard()
         {
             InitializeComponent();
+            LoadFeedback();
         }
+        private void LoadFeedback()
+        {
+            // Create a list to hold the feedback items
+            List<Feedback> feedbackList = new List<Feedback>();
+
+            // SQL query to fetch all feedback records from the database
+            string query = "SELECT Type, Message FROM feedback";
+
+            try
+            {
+                // Use the connection from DatabaseConnection class
+                using (MySqlConnection conn = dbConnection.get_Connection())
+                {
+                    conn.Open(); // Open the connection
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        // Execute the query and retrieve the data
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Create a new Feedback object for each record
+                                Feedback feedback = new Feedback
+                                {
+                                    Type = reader.GetString("Type"),
+                                    Message = reader.GetString("Message")
+                                };
+
+                                // Add the feedback to the list
+                                feedbackList.Add(feedback);
+                            }
+                        }
+                    }
+                }
+
+                // Clear existing items in the ListBox before adding new feedback items
+                listBoxFeedback.Items.Clear();
+
+                // Add each feedback item to the ListBox
+                foreach (var feedback in feedbackList)
+                {
+                    listBoxFeedback.Items.Add(feedback);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading feedback: " + ex.Message);
+            }
+        }
+
+        public class Feedback
+        {
+            public string Type { get; set; }
+            public string Message { get; set; }
+
+            // Override ToString to format the output in the ListBox
+            public override string ToString()
+            {
+                return $"{Type}: {Message}";
+            }
+        }
+
+
 
         private void button5_Click(object sender, EventArgs e)
         {
