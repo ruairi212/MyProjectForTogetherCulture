@@ -16,7 +16,7 @@ namespace member_space
         {
             connection_String = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
         }
-        protected MySqlConnection get_Connection()
+        public MySqlConnection get_Connection()
         { 
             return new MySqlConnection(connection_String); 
         }

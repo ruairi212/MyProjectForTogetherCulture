@@ -22,9 +22,8 @@ namespace member_space
         private int smtpPort = 587; // Port for TLS
         private string smtpEmail = "dheerajkodwani21@gmail.com"; // Sender's email
         private string smtpPassword = "dheeraj2122222"; // Sender's email password 
-
-        //int memberId = 1029;
         private List<string> pinBoardPosts = new List<string>();
+        //int memberId = 1029;
         public Form1(string memberId, string memberType)
         {
             InitializeComponent();
@@ -32,6 +31,7 @@ namespace member_space
             this.memberId = memberId;
             this.memberType = memberType;
             LoadMembershipBenefits();
+            UpdatePinBoard();
 
 
 
@@ -59,6 +59,8 @@ namespace member_space
                 connection.Close();
             }
         }
+
+
         // Event handler for Form Load
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -175,42 +177,9 @@ namespace member_space
             Form14 f14 = new Form14();
             f14.Show();
         }
-        private void UpdatePinBoard()
-        {
-            // Clear existing items in the ListBox
-            listBoxPinBoard.Items.Clear();
 
-            // Add each post to the ListBox
-            foreach (string post in pinBoardPosts)
-            {
-                listBoxPinBoard.Items.Add(post);
-            }
-        }
 
-        private void buttonPost_Click(object sender, EventArgs e)
-        {
-            // Ensure the user has entered a message
-            if (string.IsNullOrWhiteSpace(textBoxPost.Text))
-            {
-                MessageBox.Show("Please enter a message before posting.");
-                return;
-            }
 
-            // Get the current date and time
-            string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-            // Combine the message with the date and time
-            string postWithDateTime = $"{dateTime} - {textBoxPost.Text}";
-
-            // Add the post to the list
-            pinBoardPosts.Add(postWithDateTime);
-
-            // Clear the TextBox after posting
-            textBoxPost.Clear();
-
-            // Update the ListBox to show the new post
-            UpdatePinBoard();
-        }
 
         private void textBoxPost_TextChanged(object sender, EventArgs e)
         {
@@ -322,6 +291,30 @@ namespace member_space
             // Display the benefits in a textbox
             textBox1.Text = benefits;
         }
+        private void UpdatePinBoard()
+        {
+            listBoxPinBoard.Items.Clear();
+
+            string query = "SELECT Content FROM PinboardMessages ORDER BY Timestamp DESC";
+
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (MySqlConnection conn = dbConnection.get_Connection())
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string post = reader.GetString("Content");
+                            listBoxPinBoard.Items.Add(post);
+                        }
+                    }
+                }
+            }
+        }
         private string LoadEvent()
         {
             string eventDetails = "Upcoming Events:\n\n";
@@ -348,6 +341,40 @@ namespace member_space
             }
 
             return eventDetails;
+        }
+
+        private void buttonPost_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxPost.Text))
+            {
+                MessageBox.Show("Please enter a message before posting.");
+                return;
+            }
+
+            // Get the current date and time
+            string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            // Prepare the message with date and time
+            string messageContent = $"{dateTime} - {textBoxPost.Text.Trim()}";
+
+            // Insert the message into the database
+            string query = "INSERT INTO PinboardMessages (Content, Timestamp) VALUES (@Content, @Timestamp)";
+
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (MySqlConnection conn = dbConnection.get_Connection())
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Content", messageContent);
+                    cmd.Parameters.AddWithValue("@Timestamp", dateTime); // Storing the timestamp separately
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            textBoxPost.Clear();
+            UpdatePinBoard();
         }
     }
 }
