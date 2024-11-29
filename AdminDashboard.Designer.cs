@@ -37,11 +37,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBoxFeedback = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.MemberInsightsButton = new System.Windows.Forms.Button();
-            this.listBoxFeedback = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -57,7 +58,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(815, 71);
             this.panel1.TabIndex = 5;
@@ -67,7 +68,7 @@
             this.button5.AutoSize = true;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(668, 10);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(122, 46);
             this.button5.TabIndex = 6;
@@ -79,7 +80,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 71);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -90,7 +91,7 @@
             // 
             this.button4.AutoSize = true;
             this.button4.Location = new System.Drawing.Point(523, 25);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(51, 30);
             this.button4.TabIndex = 3;
@@ -101,7 +102,7 @@
             // 
             this.button3.AutoSize = true;
             this.button3.Location = new System.Drawing.Point(409, 25);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(57, 30);
             this.button3.TabIndex = 2;
@@ -112,7 +113,7 @@
             // 
             this.button2.AutoSize = true;
             this.button2.Location = new System.Drawing.Point(284, 25);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 30);
             this.button2.TabIndex = 1;
@@ -123,7 +124,7 @@
             // 
             this.button1.AutoSize = true;
             this.button1.Location = new System.Drawing.Point(183, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(62, 30);
             this.button1.TabIndex = 0;
@@ -133,19 +134,29 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Salmon;
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.listBoxFeedback);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.MemberInsightsButton);
             this.groupBox1.Location = new System.Drawing.Point(1, 89);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(815, 359);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unknown";
+            // 
+            // listBoxFeedback
+            // 
+            this.listBoxFeedback.BackColor = System.Drawing.Color.Salmon;
+            this.listBoxFeedback.FormattingEnabled = true;
+            this.listBoxFeedback.Location = new System.Drawing.Point(5, 92);
+            this.listBoxFeedback.Name = "listBoxFeedback";
+            this.listBoxFeedback.Size = new System.Drawing.Size(286, 173);
+            this.listBoxFeedback.TabIndex = 10;
             // 
             // button8
             // 
@@ -160,7 +171,7 @@
             this.button7.BackColor = System.Drawing.Color.Maroon;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(542, 201);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(218, 64);
             this.button7.TabIndex = 9;
@@ -174,7 +185,7 @@
             this.button6.BackColor = System.Drawing.Color.Maroon;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(542, 117);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(218, 64);
             this.button6.TabIndex = 8;
@@ -187,7 +198,7 @@
             this.MemberInsightsButton.BackColor = System.Drawing.Color.Maroon;
             this.MemberInsightsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberInsightsButton.Location = new System.Drawing.Point(542, 35);
-            this.MemberInsightsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MemberInsightsButton.Margin = new System.Windows.Forms.Padding(2);
             this.MemberInsightsButton.Name = "MemberInsightsButton";
             this.MemberInsightsButton.Size = new System.Drawing.Size(218, 64);
             this.MemberInsightsButton.TabIndex = 7;
@@ -195,13 +206,15 @@
             this.MemberInsightsButton.UseVisualStyleBackColor = false;
             this.MemberInsightsButton.Click += new System.EventHandler(this.button6_Click);
             // 
-            // listBoxFeedback
+            // label1
             // 
-            this.listBoxFeedback.FormattingEnabled = true;
-            this.listBoxFeedback.Location = new System.Drawing.Point(6, 67);
-            this.listBoxFeedback.Name = "listBoxFeedback";
-            this.listBoxFeedback.Size = new System.Drawing.Size(286, 173);
-            this.listBoxFeedback.TabIndex = 10;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 24);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Feedback";
             // 
             // AdminDashboard
             // 
@@ -211,7 +224,7 @@
             this.ClientSize = new System.Drawing.Size(815, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminDashboard";
             this.Text = "Admin Dashboard";
             this.panel1.ResumeLayout(false);
@@ -238,5 +251,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ListBox listBoxFeedback;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -49,7 +49,7 @@ namespace member_space
             textBoxMessage.Clear();
 
             // Optionally, show a confirmation message
-            MessageBox.Show("Feedback submitted successfully!");
+            MessageBox.Show("Feedback Sent!");
         }
 
         private void InsertFeedbackToDatabase(Feedback feedback)
@@ -77,6 +77,16 @@ namespace member_space
             {
                 MessageBox.Show("An error occurred while submitting feedback: " + ex.Message);
             }
+        }
+
+        private void Form14_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
