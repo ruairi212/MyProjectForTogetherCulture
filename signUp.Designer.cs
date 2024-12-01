@@ -43,15 +43,18 @@
             this.textbSecurityQuesAns = new System.Windows.Forms.TextBox();
             this.LselectSecurityQues = new System.Windows.Forms.Label();
             this.LAnswer = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // txtbUsername
             // 
             this.txtbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.txtbUsername.Location = new System.Drawing.Point(440, 73);
+            this.txtbUsername.Location = new System.Drawing.Point(495, 91);
+            this.txtbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtbUsername.Multiline = true;
             this.txtbUsername.Name = "txtbUsername";
-            this.txtbUsername.Size = new System.Drawing.Size(160, 22);
+            this.txtbUsername.Size = new System.Drawing.Size(180, 26);
             this.txtbUsername.TabIndex = 3;
             // 
             // Lgetstarted
@@ -59,9 +62,9 @@
             this.Lgetstarted.AutoSize = true;
             this.Lgetstarted.Font = new System.Drawing.Font("MS UI Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lgetstarted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Lgetstarted.Location = new System.Drawing.Point(362, 18);
+            this.Lgetstarted.Location = new System.Drawing.Point(407, 22);
             this.Lgetstarted.Name = "Lgetstarted";
-            this.Lgetstarted.Size = new System.Drawing.Size(163, 28);
+            this.Lgetstarted.Size = new System.Drawing.Size(191, 33);
             this.Lgetstarted.TabIndex = 4;
             this.Lgetstarted.Text = "Get Started";
             // 
@@ -69,9 +72,9 @@
             // 
             this.Lusername.AutoSize = true;
             this.Lusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lusername.Location = new System.Drawing.Point(258, 73);
+            this.Lusername.Location = new System.Drawing.Point(290, 91);
             this.Lusername.Name = "Lusername";
-            this.Lusername.Size = new System.Drawing.Size(102, 25);
+            this.Lusername.Size = new System.Drawing.Size(124, 29);
             this.Lusername.TabIndex = 5;
             this.Lusername.Text = "Username";
             // 
@@ -79,9 +82,9 @@
             // 
             this.Lpassword.AutoSize = true;
             this.Lpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lpassword.Location = new System.Drawing.Point(262, 129);
+            this.Lpassword.Location = new System.Drawing.Point(295, 161);
             this.Lpassword.Name = "Lpassword";
-            this.Lpassword.Size = new System.Drawing.Size(98, 25);
+            this.Lpassword.Size = new System.Drawing.Size(120, 29);
             this.Lpassword.TabIndex = 6;
             this.Lpassword.Text = "Password";
             this.Lpassword.Click += new System.EventHandler(this.Lpassword_Click);
@@ -89,11 +92,12 @@
             // txtbPassword
             // 
             this.txtbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.txtbPassword.Location = new System.Drawing.Point(440, 129);
+            this.txtbPassword.Location = new System.Drawing.Point(495, 161);
+            this.txtbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtbPassword.Multiline = true;
             this.txtbPassword.Name = "txtbPassword";
             this.txtbPassword.PasswordChar = '*';
-            this.txtbPassword.Size = new System.Drawing.Size(160, 22);
+            this.txtbPassword.Size = new System.Drawing.Size(180, 26);
             this.txtbPassword.TabIndex = 7;
             this.txtbPassword.TextChanged += new System.EventHandler(this.txtbPassword_TextChanged);
             // 
@@ -101,29 +105,32 @@
             // 
             this.txtbConfirmpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtbConfirmpass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtbConfirmpass.Location = new System.Drawing.Point(440, 186);
+            this.txtbConfirmpass.Location = new System.Drawing.Point(495, 232);
+            this.txtbConfirmpass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtbConfirmpass.Multiline = true;
             this.txtbConfirmpass.Name = "txtbConfirmpass";
             this.txtbConfirmpass.PasswordChar = '*';
-            this.txtbConfirmpass.Size = new System.Drawing.Size(160, 22);
+            this.txtbConfirmpass.Size = new System.Drawing.Size(180, 26);
             this.txtbConfirmpass.TabIndex = 8;
+            this.txtbConfirmpass.TextChanged += new System.EventHandler(this.txtbConfirmpass_TextChanged);
             // 
             // Lconfirmpassword
             // 
             this.Lconfirmpassword.AutoSize = true;
             this.Lconfirmpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lconfirmpassword.Location = new System.Drawing.Point(189, 186);
+            this.Lconfirmpassword.Location = new System.Drawing.Point(213, 232);
             this.Lconfirmpassword.Name = "Lconfirmpassword";
-            this.Lconfirmpassword.Size = new System.Drawing.Size(171, 25);
+            this.Lconfirmpassword.Size = new System.Drawing.Size(210, 29);
             this.Lconfirmpassword.TabIndex = 9;
             this.Lconfirmpassword.Text = "Confirm Password";
             // 
             // CHbxShowPass
             // 
             this.CHbxShowPass.AutoSize = true;
-            this.CHbxShowPass.Location = new System.Drawing.Point(613, 228);
+            this.CHbxShowPass.Location = new System.Drawing.Point(772, 238);
+            this.CHbxShowPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CHbxShowPass.Name = "CHbxShowPass";
-            this.CHbxShowPass.Size = new System.Drawing.Size(125, 20);
+            this.CHbxShowPass.Size = new System.Drawing.Size(148, 24);
             this.CHbxShowPass.TabIndex = 10;
             this.CHbxShowPass.Text = "Show Password";
             this.CHbxShowPass.UseVisualStyleBackColor = true;
@@ -134,9 +141,10 @@
             this.ButtonRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ButtonRegister.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonRegister.ForeColor = System.Drawing.Color.White;
-            this.ButtonRegister.Location = new System.Drawing.Point(413, 370);
+            this.ButtonRegister.Location = new System.Drawing.Point(465, 462);
+            this.ButtonRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonRegister.Name = "ButtonRegister";
-            this.ButtonRegister.Size = new System.Drawing.Size(196, 40);
+            this.ButtonRegister.Size = new System.Drawing.Size(220, 50);
             this.ButtonRegister.TabIndex = 11;
             this.ButtonRegister.Text = "REGISTER";
             this.ButtonRegister.UseVisualStyleBackColor = false;
@@ -146,9 +154,9 @@
             // 
             this.LalreadyHaveAccount.AutoSize = true;
             this.LalreadyHaveAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LalreadyHaveAccount.Location = new System.Drawing.Point(383, 427);
+            this.LalreadyHaveAccount.Location = new System.Drawing.Point(431, 534);
             this.LalreadyHaveAccount.Name = "LalreadyHaveAccount";
-            this.LalreadyHaveAccount.Size = new System.Drawing.Size(200, 20);
+            this.LalreadyHaveAccount.Size = new System.Drawing.Size(257, 25);
             this.LalreadyHaveAccount.TabIndex = 12;
             this.LalreadyHaveAccount.Text = "Already Have An Account";
             // 
@@ -158,9 +166,9 @@
             this.LbacktoLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LbacktoLogin.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbacktoLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LbacktoLogin.Location = new System.Drawing.Point(413, 462);
+            this.LbacktoLogin.Location = new System.Drawing.Point(465, 578);
             this.LbacktoLogin.Name = "LbacktoLogin";
-            this.LbacktoLogin.Size = new System.Drawing.Size(144, 22);
+            this.LbacktoLogin.Size = new System.Drawing.Size(167, 26);
             this.LbacktoLogin.TabIndex = 13;
             this.LbacktoLogin.Text = "Back To Login";
             this.LbacktoLogin.Click += new System.EventHandler(this.LbacktoLogin_Click);
@@ -175,19 +183,21 @@
             "Name of the city you were born in?",
             "Name of the first school you went to?",
             "Name of your first pet?"});
-            this.combobxSecurityQues.Location = new System.Drawing.Point(440, 268);
+            this.combobxSecurityQues.Location = new System.Drawing.Point(495, 335);
+            this.combobxSecurityQues.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.combobxSecurityQues.Name = "combobxSecurityQues";
-            this.combobxSecurityQues.Size = new System.Drawing.Size(257, 30);
+            this.combobxSecurityQues.Size = new System.Drawing.Size(289, 34);
             this.combobxSecurityQues.TabIndex = 14;
             this.combobxSecurityQues.SelectedIndexChanged += new System.EventHandler(this.combobxSecurityQues_SelectedIndexChanged);
             // 
             // textbSecurityQuesAns
             // 
             this.textbSecurityQuesAns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.textbSecurityQuesAns.Location = new System.Drawing.Point(440, 314);
+            this.textbSecurityQuesAns.Location = new System.Drawing.Point(495, 392);
+            this.textbSecurityQuesAns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textbSecurityQuesAns.Multiline = true;
             this.textbSecurityQuesAns.Name = "textbSecurityQuesAns";
-            this.textbSecurityQuesAns.Size = new System.Drawing.Size(257, 29);
+            this.textbSecurityQuesAns.Size = new System.Drawing.Size(289, 35);
             this.textbSecurityQuesAns.TabIndex = 15;
             this.textbSecurityQuesAns.TextChanged += new System.EventHandler(this.textbSecurityQuesAns_TextChanged);
             // 
@@ -195,9 +205,9 @@
             // 
             this.LselectSecurityQues.AutoSize = true;
             this.LselectSecurityQues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LselectSecurityQues.Location = new System.Drawing.Point(87, 273);
+            this.LselectSecurityQues.Location = new System.Drawing.Point(98, 341);
             this.LselectSecurityQues.Name = "LselectSecurityQues";
-            this.LselectSecurityQues.Size = new System.Drawing.Size(273, 25);
+            this.LselectSecurityQues.Size = new System.Drawing.Size(333, 29);
             this.LselectSecurityQues.TabIndex = 16;
             this.LselectSecurityQues.Text = "Select Your Security Question";
             // 
@@ -205,18 +215,39 @@
             // 
             this.LAnswer.AutoSize = true;
             this.LAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LAnswer.Location = new System.Drawing.Point(282, 318);
+            this.LAnswer.Location = new System.Drawing.Point(317, 398);
             this.LAnswer.Name = "LAnswer";
-            this.LAnswer.Size = new System.Drawing.Size(78, 25);
+            this.LAnswer.Size = new System.Drawing.Size(93, 29);
             this.LAnswer.TabIndex = 17;
             this.LAnswer.Text = "Answer";
             this.LAnswer.Click += new System.EventHandler(this.LAnswer_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(270, 281);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 29);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Date of Birth";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/mm/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(495, 283);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(206, 26);
+            this.dateTimePicker1.TabIndex = 19;
+            // 
             // signUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 514);
+            this.ClientSize = new System.Drawing.Size(1076, 642);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LAnswer);
             this.Controls.Add(this.LselectSecurityQues);
             this.Controls.Add(this.textbSecurityQuesAns);
@@ -235,6 +266,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "signUp";
             this.Text = "signUp";
             this.Load += new System.EventHandler(this.signUp_Load);
@@ -259,5 +291,7 @@
         private System.Windows.Forms.TextBox textbSecurityQuesAns;
         private System.Windows.Forms.Label LselectSecurityQues;
         private System.Windows.Forms.Label LAnswer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

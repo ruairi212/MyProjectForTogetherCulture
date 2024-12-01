@@ -37,7 +37,7 @@ namespace member_space
                     member.Email AS 'Email',
                     billings.PaymentID AS 'Billing ID',
                     billings.PaymentType AS 'Type',
-                    billings.Payment_Date AS 'Payment Date'
+                    billings.Payment_Date AS 'Payment Date',billings.Pay_for AS 'Payment for'
                 FROM 
                     member
                 LEFT JOIN 

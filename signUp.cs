@@ -55,6 +55,7 @@ namespace member_space
 
 
              }
+
              else if (txtbPassword.Text == txtbConfirmpass.Text)
              {
 
@@ -146,6 +147,16 @@ namespace member_space
         }
 
         private void LAnswer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbConfirmpass_TextChanged(object sender, EventArgs e)
         {
 
         }
