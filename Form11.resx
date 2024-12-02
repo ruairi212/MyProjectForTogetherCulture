@@ -293,12 +293,6 @@
         SUVORK5CYII=
 </value>
   </data>
-  <metadata name="panel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="button1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="panel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -312,7 +306,7 @@ That’s why Together Culture, Anglia Ruskin University and the Cambridge Room a
   <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUMAAAEbCAYAAABA7uadAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAXclJREFUeF7tnQV4VcfTxi9etEgFb0uNIvVCaUtbpG7U+69Qb6lDvbRQ3KG4SyAQ
+        vQAADr0BR/uQrQAAXclJREFUeF7tnQV4VcfTxi9etEgFb0uNIvVCaUtbpG7U+69Qb6lDvbRQ3KG4SyAQ
         JSFEcCKQEIhAkBAjCcQNSQgO33zz7pXchBOSQOTKnOf5kcu5R/bIvndmd3ZWd+l0HgmCINg7IoaCIAiM
         iKEgCAIjYigIgsCIGAqCIDAihoIgCIyIoSAIAiNiKAiCwIgYCoIgMCKGgiAIjIihIAgCI2IoCILAiBgK
         giAwIoaCIAiMiKEgCAIjYigIgsCIGAqCIDAihoIgCIyIoSAIAiNiKAiCwIgYCoIgMCKGgiAIjIihIAgC
