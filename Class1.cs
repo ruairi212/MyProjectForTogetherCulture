@@ -45,6 +45,7 @@ namespace member_space
             int output ;
             using (var connection = get_Connection())
             {
+                connection.Open();
                 using (var command = new MySqlCommand(query, connection))
                 {
 

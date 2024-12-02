@@ -18,7 +18,7 @@ namespace member_space
     {
         private string memberId;
         
-        private string connectionString = "Server=localhost;Database=together_culture;User ID=User;Password=;SslMode=none;";
+        private string connectionString = "Server=localhost;Database=together_culture;User ID=root;Password=;SslMode=none;";
 
         public SettingForm(string memberId)
         {

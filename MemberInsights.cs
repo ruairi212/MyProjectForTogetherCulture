@@ -30,7 +30,7 @@ namespace member_space
         public void Update_Dashboard(DateTime startDate, DateTime endDate)
         {
             member_Data.Update_Data(label3,total_MembersQ,startDate,endDate);
-
+            
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -88,6 +88,11 @@ namespace member_space
             DateTime end_Of_Last_Week = start_Of_last_Week.AddDays(7).AddTicks(-1);
 
             Update_Dashboard(start_Of_last_Week, end_Of_Last_Week);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
