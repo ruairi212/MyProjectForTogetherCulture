@@ -105,5 +105,15 @@ namespace member_space
             Eventavtivity eventavtivity = new Eventavtivity();  
             eventavtivity.ShowDialog();
         }
+
+        private void buttonStafflist_Click(object sender, EventArgs e)
+        {
+            new staffList().Show();
+        }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace member_space
 
     public partial class Login : Form
     {
-        //public string connectionString = "Server=127.0.0.1;Database=software;Uid=root;Pwd=;";
+        public string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
         public Login()
         {
             InitializeComponent();

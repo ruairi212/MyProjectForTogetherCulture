@@ -22,5 +22,10 @@ namespace member_space
             string searchText = textBox1.Text.Trim();
 
         }
+
+        private void MemberSearch_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
