@@ -7,19 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
     public partial class nonmember : Form
     {
         private string email;
+       
+
+        private string connectionString = "Server=localhost;Database=together_culture;User ID=root;Password=;SslMode=none;";
         public nonmember(string email)
         {
             InitializeComponent();
             this.email = email;
+            LoadNonMemberDetails();
         }
+        private void LoadNonMemberDetails()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT FirstName, LastName, Email FROM nonmember WHERE Email = @Email";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Email", email);
 
-        private void nonmember_Load(object sender, EventArgs e)
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    textBox3.Text = reader["FirstName"].ToString();
+                    textBox4.Text = reader["LastName"].ToString();
+                    textBox5.Text = reader["Email"].ToString();
+                }
+                conn.Close();
+            }
+        }
+            private void nonmember_Load(object sender, EventArgs e)
         {
             // Display or use the email as needed
             MessageBox.Show("Welcome Non-Member with Email: " + email, "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,6 +140,31 @@ namespace member_space
         private void label2_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE nonmember SET FirstName = @FirstName, LastName = @LastName, Email = @Email WHERE Email = @Email";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@FirstName", textBox3.Text);
+                cmd.Parameters.AddWithValue("@LastName", textBox4.Text);
+                cmd.Parameters.AddWithValue("@Email", textBox5.Text);
+                //cmd.Parameters.AddWithValue("@Email", email);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Details updated successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Error updating details.");
+                }
+                conn.Close();
+            }
         }
     }
 }
