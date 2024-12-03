@@ -42,7 +42,7 @@ namespace member_space
                 string.IsNullOrEmpty(txtbConfirmpass.Text) ||
                  string.IsNullOrEmpty(textBxFirstName.Text) ||
                 string.IsNullOrEmpty(textBxLastname.Text) ||
-                string.IsNullOrEmpty(dateTimePicker1.ToString()) ||
+                string.IsNullOrEmpty(dateTimePicker2.ToString()) ||
                 combobxSecurityQues.SelectedItem == null ||
                 string.IsNullOrEmpty(textbSecurityQuesAns.Text))
 
@@ -68,7 +68,7 @@ namespace member_space
                         txtbPassword.Text,
                         combobxSecurityQues.SelectedItem.ToString(),
                         textbSecurityQuesAns.Text,
-                        dateTimePicker1.ToString(),
+                        dateTimePicker2.ToString(),
 
 
 
@@ -84,7 +84,7 @@ namespace member_space
                         textBxLastname.Text = "";
                         combobxSecurityQues.SelectedItem = null;
                         textbSecurityQuesAns.Text = "";
-                        dateTimePicker1.ToString();
+                        dateTimePicker2.ToString();
 
                         MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK);
                     }
