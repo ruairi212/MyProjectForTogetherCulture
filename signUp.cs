@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.WebRequestMethods;
-using MySql.Data.MySqlClient;
 
 namespace member_space
 {
@@ -26,7 +24,6 @@ namespace member_space
             InitializeComponent();
 
         }
-        //database linking code
 
         private void signUp_Load(object sender, EventArgs e)
         {
@@ -34,7 +31,6 @@ namespace member_space
             combobxSecurityQues.Items.Add("Name of the city you were born in?");
             combobxSecurityQues.Items.Add("Name of the first school you went to?");
             combobxSecurityQues.Items.Add("Name of your first pet?");
-
         }
 
         private void Lpassword_Click(object sender, EventArgs e)
