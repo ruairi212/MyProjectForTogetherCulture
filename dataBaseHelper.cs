@@ -124,7 +124,7 @@ namespace member_space
                     }
 
                     // Format the DOB before adding it as a parameter
-                    //string formattedDOB = DateTime.Parse(DOB).ToString("yyyy-MM-dd");
+                    string formattedDOB = DateTime.Parse(DOB).ToString("yyyy-MM-dd");
 
 
                     // Insert into nonmember table
