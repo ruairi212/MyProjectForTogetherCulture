@@ -15,11 +15,13 @@ namespace member_space
     {
         private DatabaseConnection dbConnection = new DatabaseConnection(); // Instantiate the DatabaseConnection class
         private dataBaseHelper dbHelper = new dataBaseHelper(); // Instantiate the dataBaseHelper class
+        private string email;
 
-        public AdminDashboard()
+        public AdminDashboard(string email)
         {
             InitializeComponent();
             LoadFeedback();
+            this.email= email;
         }
         private void LoadFeedback()
         {
@@ -112,6 +114,11 @@ namespace member_space
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

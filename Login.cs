@@ -103,7 +103,26 @@ namespace member_space
                                             return; // Exit the method
                                         }
                                     }
-                                }// If the email is not found in either table, show an error
+                                }
+                                // If not in the `nonmember` table, check if it exists in the `non_member` table
+                                string adminQuery = "SELECT Email FROM administrator WHERE Email = @Email";
+
+                                using (MySqlCommand adminCmd = new MySqlCommand(adminQuery, connection))
+                                {
+                                    adminCmd.Parameters.AddWithValue("@Email", email);
+                                    using (MySqlDataReader adminReader = adminCmd.ExecuteReader())
+                                    {
+                                        if (adminReader.Read())
+                                        {
+                                            // If the email exists in the `non_member` table, open the Non-Member page
+                                            AdminDashboard adminPage = new AdminDashboard(email); // Pass Email to the page
+                                            adminPage.Show();
+                                            this.Hide();
+                                            return; // Exit the method
+                                        }
+                                    }
+                                }
+                                // If the email is not found in either table, show an error
                                 MessageBox.Show("Your account could not be found as either a Member or Non-Member.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             }

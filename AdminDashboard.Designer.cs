@@ -31,22 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonStafflist = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxFeedback = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.MemberInsightsButton = new System.Windows.Forms.Button();
-            this.buttonStafflist = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,6 +76,17 @@
             this.button5.Text = "Sign Out";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(201, 87);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // button4
             // 
@@ -139,6 +150,21 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unknown";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // buttonStafflist
+            // 
+            this.buttonStafflist.AutoSize = true;
+            this.buttonStafflist.BackColor = System.Drawing.Color.Maroon;
+            this.buttonStafflist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStafflist.Location = new System.Drawing.Point(723, 341);
+            this.buttonStafflist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonStafflist.Name = "buttonStafflist";
+            this.buttonStafflist.Size = new System.Drawing.Size(291, 79);
+            this.buttonStafflist.TabIndex = 12;
+            this.buttonStafflist.Text = "Staff List ";
+            this.buttonStafflist.UseVisualStyleBackColor = false;
+            this.buttonStafflist.Click += new System.EventHandler(this.buttonStafflist_Click);
             // 
             // label1
             // 
@@ -157,7 +183,7 @@
             this.listBoxFeedback.FormattingEnabled = true;
             this.listBoxFeedback.ItemHeight = 16;
             this.listBoxFeedback.Location = new System.Drawing.Point(7, 113);
-            this.listBoxFeedback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxFeedback.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxFeedback.Name = "listBoxFeedback";
             this.listBoxFeedback.Size = new System.Drawing.Size(380, 212);
             this.listBoxFeedback.TabIndex = 10;
@@ -165,7 +191,7 @@
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 28);
             this.button8.TabIndex = 0;
@@ -211,31 +237,6 @@
             this.MemberInsightsButton.UseVisualStyleBackColor = false;
             this.MemberInsightsButton.Click += new System.EventHandler(this.button6_Click);
             // 
-            // buttonStafflist
-            // 
-            this.buttonStafflist.AutoSize = true;
-            this.buttonStafflist.BackColor = System.Drawing.Color.Maroon;
-            this.buttonStafflist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStafflist.Location = new System.Drawing.Point(723, 341);
-            this.buttonStafflist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonStafflist.Name = "buttonStafflist";
-            this.buttonStafflist.Size = new System.Drawing.Size(291, 79);
-            this.buttonStafflist.TabIndex = 12;
-            this.buttonStafflist.Text = "Staff List ";
-            this.buttonStafflist.UseVisualStyleBackColor = false;
-            this.buttonStafflist.Click += new System.EventHandler(this.buttonStafflist_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(201, 87);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,15 +245,15 @@
             this.ClientSize = new System.Drawing.Size(1087, 554);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "AdminDashboard";
             this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
