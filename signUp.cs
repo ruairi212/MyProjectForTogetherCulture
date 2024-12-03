@@ -14,8 +14,7 @@ namespace member_space
     public partial class signUp : Form
     {
         // Define the connection string for your database
-       // private string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=your_database_path.accdb"; 
-       // Adjust the path accordingly
+        public string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
 
 
 
@@ -25,6 +24,7 @@ namespace member_space
 
         }
 
+        // Event handler for Form Load
         private void signUp_Load(object sender, EventArgs e)
         {
             // Populate the combo box with security questions
@@ -33,77 +33,78 @@ namespace member_space
             combobxSecurityQues.Items.Add("Name of your first pet?");
         }
 
-        private void Lpassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Register Button Click event handler
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
-            /* if (string.IsNullOrEmpty(txtbUsername.Text) || 
-                 string.IsNullOrEmpty(txtbPassword.Text) || 
-                 string.IsNullOrEmpty(txtbConfirmpass.Text) ||
-                 combobxSecurityQues.SelectedItem == null ||
-                 string.IsNullOrEmpty(textbSecurityQuesAns.Text))
+            // Check for empty fields
+            if (string.IsNullOrEmpty(txtbUsername.Text) ||
+                string.IsNullOrEmpty(txtbPassword.Text) ||
+                string.IsNullOrEmpty(txtbConfirmpass.Text) ||
+                 string.IsNullOrEmpty(textBxFirstName.Text) ||
+                string.IsNullOrEmpty(textBxLastname.Text) ||
+                combobxSecurityQues.SelectedItem == null ||
+                string.IsNullOrEmpty(textbSecurityQuesAns.Text))
 
-             {
-                 MessageBox.Show("Username and Password field  are empty", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                MessageBox.Show("All fields are required.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+            else if (txtbPassword.Text == txtbConfirmpass.Text)
+            {
 
-             }
+                try
+                {
+                    // Initialize the database helper
+                    dataBaseHelper dbHelper = new dataBaseHelper();
+                    string errorMessage;
 
-             else if (txtbPassword.Text == txtbConfirmpass.Text)
-             {
+                    // Insert logindetails using the helper class
+                    bool isInserted = dbHelper.InsertLogindetailsAndNonmember(
 
-                  try
-                  {
-                      using (OleDbConnection con = new OleDbConnection(connectionString))
-                      {
-                          con.Open();
+                        textBxFirstName.Text,
+                        textBxLastname.Text,
+                        txtbUsername.Text,
+                        txtbPassword.Text,
+                        combobxSecurityQues.SelectedItem.ToString(),
+                        textbSecurityQuesAns.Text,
+                      
+                        out errorMessage);
 
-                          string register = "INSERT INTO tbl_user (username, password, security_question, security_answer) VALUES (@username, @password, @security_question, @security_answer)";
-                          using (OleDbCommand cmd = new OleDbCommand(register, con))
-                          {
-                              cmd.Parameters.AddWithValue("@username", txtbUsername.Text);
-                              cmd.Parameters.AddWithValue("@password", txtbPassword.Text);
-                              cmd.Parameters.AddWithValue("@security_question", combobxSecurityQues.SelectedItem.ToString());
-                              cmd.Parameters.AddWithValue("@security_answer", textbSecurityQuesAns.Text);
-                              cmd.ExecuteNonQuery();
-                          }
-                      }
-                 
+                    if (isInserted)
+                    {
+                        // Clear fields after successful registration
+                        txtbUsername.Text = "";
+                        txtbPassword.Text = "";
+                        txtbConfirmpass.Text = "";
+                        textBxFirstName.Text = "";
+                        textBxLastname.Text = "";
+                        combobxSecurityQues.SelectedItem = null;
+                        textbSecurityQuesAns.Text = "";
 
-
-
-            txtbUsername.Text = "";
-                txtbPassword.Text = "";
-                txtbConfirmpass.Text = "";
-                combobxSecurityQues.SelectedItem = null;
-                textbSecurityQuesAns.Text = "";
-
-
-
-                MessageBox.Show("Your account has been Successfullu created", "Registration Success", MessageBoxButtons.OK);
-                // catch (Exception ex)
-                // {
-                //     MessageBox.Show("An error occurred: " + ex.Message, "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // }
-
-                //new nonmember().Show();
-
-            } 
+                        MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred: " + errorMessage, "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An unexpected error occurred: " + ex.Message, "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
 
             else
             {
-                MessageBox.Show("Passwords does not match, Please Re-enter", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Passwords do not match. Please re-enter.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtbPassword.Text = "";
                 txtbConfirmpass.Text = "";
                 txtbPassword.Focus();
-
-            }*/
+            }
         }
 
+        // Checkbox to Show/Hide Password
         private void CHbxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (CHbxShowPass.Checked)
@@ -114,7 +115,7 @@ namespace member_space
             else
             {
                 txtbPassword.PasswordChar = '*';
-                     txtbConfirmpass.PasswordChar = '*';
+                txtbConfirmpass.PasswordChar = '*';
 
             }
 
@@ -123,10 +124,10 @@ namespace member_space
 
         private void LbacktoLogin_Click(object sender, EventArgs e)
         {
-           new Login().Show();
-           this.Close();
-       }
-
+            new Login().Show();
+            this.Close();
+        }
+         
         private void txtbPassword_TextChanged(object sender, EventArgs e)
         {
 
@@ -154,8 +155,12 @@ namespace member_space
 
         private void txtbConfirmpass_TextChanged(object sender, EventArgs e)
         {
+      
+    }
+
+        private void textBxFirstName_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
     }
-

@@ -306,6 +306,12 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="memberList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="memberList.Designer.cs">
+      <DependentUpon>memberList.cs</DependentUpon>
+    </Compile>
     <Compile Include="searchDataMember.cs" />
     <Compile Include="DataBaseSearch.cs" />
     <Compile Include="DatabaseConnection.cs" />
@@ -505,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="memberList.resx">
+      <DependentUpon>memberList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="nonmember.resx">
       <DependentUpon>nonmember.cs</DependentUpon>

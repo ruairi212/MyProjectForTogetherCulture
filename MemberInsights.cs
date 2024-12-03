@@ -94,5 +94,10 @@ namespace member_space
         {
 
         }
+
+        private void buttonMemberList_Click(object sender, EventArgs e)
+        {
+            new memberList().Show();
+        }
     }
 }

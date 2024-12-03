@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace member_space
@@ -94,6 +93,61 @@ namespace member_space
             catch (Exception ex)
             {
                 Console.WriteLine($"Error querying all tables: {ex.Message}");
+            }
+        }
+
+        // Method to insert data into logindetails and nonmember tables
+        public bool InsertLogindetailsAndNonmember(string firstName, string lastName, string email, string password, string securityQuestion, string securityAnswer, out string errorMessage)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    Console.WriteLine("Connected to the database successfully! Inserting data into logindetails and nonmember...");
+
+                    // Insert into logindetails table with LoginID starting from 26
+                    string queryLogindetails = "INSERT INTO logindetails (Email, Password, Security_questions, Security_questions_answers) VALUES (@LoginID, @Email, @Password, @Security_questions, @Security_questions_answers)";
+                    using (MySqlCommand command = new MySqlCommand(queryLogindetails, connection))
+                    {
+                        // Set LoginID to start from 26
+                        command.Parameters.AddWithValue("@FirstName", firstName);
+                        command.Parameters.AddWithValue("@LastName", lastName);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@Security_questions", securityQuestion);
+                        command.Parameters.AddWithValue("@Security_questions_answers", securityAnswer);
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Insert into nonmember table
+                    string queryNonmember = "INSERT INTO nonmember (Email, Password, Security_questions, Security_questions_answers) VALUES (@Email, @Password, @Security_questions, @Security_questions_answers)";
+                    using (MySqlCommand command = new MySqlCommand(queryNonmember, connection))
+                    {
+                        command.Parameters.AddWithValue("@FirstName", firstName);
+                        command.Parameters.AddWithValue("@LastName", lastName);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@Security_questions", securityQuestion);
+                        command.Parameters.AddWithValue("@Security_questions_answers", securityAnswer);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                errorMessage = null;
+                return true;
+            }
+            catch (MySqlException ex) when (ex.Number == 1062) // Duplicate entry error
+            {
+                errorMessage = "A record with the same primary key already exists.";
+                Console.WriteLine($"Error inserting data: {errorMessage}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                Console.WriteLine($"Error inserting data into logindetails and nonmember: {ex.Message}");
+                return false;
             }
         }
     }

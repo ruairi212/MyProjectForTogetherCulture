@@ -23,7 +23,7 @@ namespace member_space
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MemberInsightDashboard());
+            Application.Run(new FrontPage());
         }
     }
 }
