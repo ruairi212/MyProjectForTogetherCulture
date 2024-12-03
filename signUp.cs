@@ -88,6 +88,7 @@ namespace member_space
                         dateTimePicker2.ToString();
 
                         MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK);
+
                         new Login().Show();
                         this.Close();
                     }
@@ -171,7 +172,7 @@ namespace member_space
 
         }
 
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
