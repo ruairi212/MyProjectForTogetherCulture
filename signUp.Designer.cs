@@ -49,6 +49,7 @@
             this.textBxFirstName = new System.Windows.Forms.TextBox();
             this.textBxLastname = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // txtbUsername
@@ -287,11 +288,21 @@
             this.dateTimePicker1.TabIndex = 24;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(495, 271);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker2.TabIndex = 24;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
             // signUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 514);
+            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.textBxLastname);
             this.Controls.Add(this.textBxFirstName);
             this.Controls.Add(this.labelLastname);
@@ -346,5 +357,6 @@
         private System.Windows.Forms.TextBox textBxFirstName;
         private System.Windows.Forms.TextBox textBxLastname;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

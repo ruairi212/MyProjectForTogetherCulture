@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace member_space
 {
@@ -42,7 +43,7 @@ namespace member_space
                 string.IsNullOrEmpty(txtbConfirmpass.Text) ||
                  string.IsNullOrEmpty(textBxFirstName.Text) ||
                 string.IsNullOrEmpty(textBxLastname.Text) ||
-                string.IsNullOrEmpty(dateTimePicker1.ToString()) ||
+                string.IsNullOrEmpty(dateTimePicker2.ToString()) ||
                 combobxSecurityQues.SelectedItem == null ||
                 string.IsNullOrEmpty(textbSecurityQuesAns.Text))
 
@@ -68,7 +69,7 @@ namespace member_space
                         txtbPassword.Text,
                         combobxSecurityQues.SelectedItem.ToString(),
                         textbSecurityQuesAns.Text,
-                        dateTimePicker1.ToString(),
+                        dateTimePicker2.ToString(),
 
 
 
@@ -84,7 +85,7 @@ namespace member_space
                         textBxLastname.Text = "";
                         combobxSecurityQues.SelectedItem = null;
                         textbSecurityQuesAns.Text = "";
-                        dateTimePicker1.ToString();
+                        dateTimePicker2.ToString();
 
                         MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK);
                     }
@@ -169,6 +170,11 @@ namespace member_space
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
         }
