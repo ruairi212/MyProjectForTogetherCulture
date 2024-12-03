@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using MySql.Data.MySqlClient;
 
 namespace member_space
@@ -97,8 +98,11 @@ namespace member_space
         }
 
         // Method to insert data into logindetails and nonmember tables
-        public bool InsertLogindetailsAndNonmember(string firstName, string lastName, string email, string password, string securityQuestion, string securityAnswer, out string errorMessage)
+        public bool InsertLogindetailsAndNonmember(string firstName, string lastName, string email, string password, string securityQuestion, string securityAnswer, string DOB, out string errorMessage)
+
         {
+
+
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -106,13 +110,12 @@ namespace member_space
                     connection.Open();
                     Console.WriteLine("Connected to the database successfully! Inserting data into logindetails and nonmember...");
 
-                    // Insert into logindetails table with LoginID starting from 26
-                    string queryLogindetails = "INSERT INTO logindetails (Email, Password, Security_questions, Security_questions_answers) VALUES (@LoginID, @Email, @Password, @Security_questions, @Security_questions_answers)";
+                    // Insert into logindetails table 
+                    string queryLogindetails = "INSERT INTO logindetails (Email, Password, Security_questions, Security_questions_answers) VALUES (@Email, @Password, @Security_questions, @Security_questions_answers)";
                     using (MySqlCommand command = new MySqlCommand(queryLogindetails, connection))
                     {
-                        // Set LoginID to start from 26
-                        command.Parameters.AddWithValue("@FirstName", firstName);
-                        command.Parameters.AddWithValue("@LastName", lastName);
+                        // Set LoginID 
+                        
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@Security_questions", securityQuestion);
@@ -120,17 +123,20 @@ namespace member_space
                         command.ExecuteNonQuery();
                     }
 
+                    // Format the DOB before adding it as a parameter
+                    string formattedDOB = DateTime.Parse(DOB).ToString("yyyy-MM-dd");
+
+
                     // Insert into nonmember table
-                    string queryNonmember = "INSERT INTO nonmember (Email, Password, Security_questions, Security_questions_answers) VALUES (@Email, @Password, @Security_questions, @Security_questions_answers)";
+                    string queryNonmember = "INSERT INTO nonmember (Email, FirstName, LastName, DOB) VALUES (@Email, @FirstName, @LastName, @DOB)";
                     using (MySqlCommand command = new MySqlCommand(queryNonmember, connection))
                     {
                         command.Parameters.AddWithValue("@FirstName", firstName);
                         command.Parameters.AddWithValue("@LastName", lastName);
                         command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Password", password);
-                        command.Parameters.AddWithValue("@Security_questions", securityQuestion);
-                        command.Parameters.AddWithValue("@Security_questions_answers", securityAnswer);
-                        command.ExecuteNonQuery();
+                        command.Parameters.AddWithValue("@DOB", DOB);
+                     
+                       command.ExecuteNonQuery();
                     }
                 }
 
