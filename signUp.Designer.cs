@@ -44,11 +44,11 @@
             this.LselectSecurityQues = new System.Windows.Forms.Label();
             this.LAnswer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.labelFirstname = new System.Windows.Forms.Label();
             this.labelLastname = new System.Windows.Forms.Label();
             this.textBxFirstName = new System.Windows.Forms.TextBox();
             this.textBxLastname = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // txtbUsername
@@ -287,16 +287,24 @@
             this.textBxLastname.Size = new System.Drawing.Size(180, 26);
             this.textBxLastname.TabIndex = 23;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(440, 225);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 24;
+            // 
             // signUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 642);
+            this.ClientSize = new System.Drawing.Size(956, 514);
             this.Controls.Add(this.textBxLastname);
             this.Controls.Add(this.textBxFirstName);
             this.Controls.Add(this.labelLastname);
             this.Controls.Add(this.labelFirstname);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LAnswer);
             this.Controls.Add(this.LselectSecurityQues);
@@ -342,10 +350,10 @@
         private System.Windows.Forms.Label LselectSecurityQues;
         private System.Windows.Forms.Label LAnswer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label labelFirstname;
         private System.Windows.Forms.Label labelLastname;
         private System.Windows.Forms.TextBox textBxFirstName;
         private System.Windows.Forms.TextBox textBxLastname;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

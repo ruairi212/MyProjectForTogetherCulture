@@ -42,6 +42,7 @@ namespace member_space
                 string.IsNullOrEmpty(txtbConfirmpass.Text) ||
                  string.IsNullOrEmpty(textBxFirstName.Text) ||
                 string.IsNullOrEmpty(textBxLastname.Text) ||
+                string.IsNullOrEmpty(dateTimePicker1.ToString()) ||
                 combobxSecurityQues.SelectedItem == null ||
                 string.IsNullOrEmpty(textbSecurityQuesAns.Text))
 
@@ -67,7 +68,10 @@ namespace member_space
                         txtbPassword.Text,
                         combobxSecurityQues.SelectedItem.ToString(),
                         textbSecurityQuesAns.Text,
-                      
+                        dateTimePicker1.ToString(),
+
+
+
                         out errorMessage);
 
                     if (isInserted)
@@ -80,6 +84,7 @@ namespace member_space
                         textBxLastname.Text = "";
                         combobxSecurityQues.SelectedItem = null;
                         textbSecurityQuesAns.Text = "";
+                        dateTimePicker1.ToString();
 
                         MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK);
                     }
