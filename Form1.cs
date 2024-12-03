@@ -376,5 +376,10 @@ namespace member_space
             textBoxPost.Clear();
             UpdatePinBoard();
         }
+
+        private void listBoxPinBoard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
