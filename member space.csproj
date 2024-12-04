@@ -462,6 +462,12 @@
     <Compile Include="staffList.Designer.cs">
       <DependentUpon>staffList.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateAdminCred.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateAdminCred.Designer.cs">
+      <DependentUpon>updateAdminCred.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInsightsDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -596,6 +602,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="staffList.resx">
       <DependentUpon>staffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateAdminCred.resx">
+      <DependentUpon>updateAdminCred.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInsightsDashboard.resx">
       <DependentUpon>UserInsightsDashboard.cs</DependentUpon>

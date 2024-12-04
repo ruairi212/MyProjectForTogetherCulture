@@ -86,6 +86,11 @@ namespace member_space
         {
 
         }
+
+        private void textBoxFirstname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

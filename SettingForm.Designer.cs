@@ -36,36 +36,41 @@
             // 
             // textBoxFirstname
             // 
-            this.textBoxFirstname.Location = new System.Drawing.Point(12, 12);
+            this.textBoxFirstname.Location = new System.Drawing.Point(11, 10);
+            this.textBoxFirstname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxFirstname.Multiline = true;
             this.textBoxFirstname.Name = "textBoxFirstname";
-            this.textBoxFirstname.Size = new System.Drawing.Size(196, 41);
+            this.textBoxFirstname.Size = new System.Drawing.Size(175, 34);
             this.textBoxFirstname.TabIndex = 0;
+            this.textBoxFirstname.TextChanged += new System.EventHandler(this.textBoxFirstname_TextChanged);
             // 
             // textBoxLastname
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(12, 73);
+            this.textBoxLastname.Location = new System.Drawing.Point(11, 58);
+            this.textBoxLastname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLastname.Multiline = true;
             this.textBoxLastname.Name = "textBoxLastname";
-            this.textBoxLastname.Size = new System.Drawing.Size(196, 40);
+            this.textBoxLastname.Size = new System.Drawing.Size(175, 33);
             this.textBoxLastname.TabIndex = 1;
             this.textBoxLastname.TextChanged += new System.EventHandler(this.textBoxLastname_TextChanged);
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(12, 139);
+            this.textBoxEmail.Location = new System.Drawing.Point(11, 111);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Multiline = true;
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(196, 36);
+            this.textBoxEmail.Size = new System.Drawing.Size(175, 30);
             this.textBoxEmail.TabIndex = 2;
             this.textBoxEmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Save
             // 
             this.Save.AutoSize = true;
-            this.Save.Location = new System.Drawing.Point(236, 268);
+            this.Save.Location = new System.Drawing.Point(210, 214);
+            this.Save.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(75, 30);
+            this.Save.Size = new System.Drawing.Size(67, 26);
             this.Save.TabIndex = 3;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
@@ -73,13 +78,14 @@
             // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxLastname);
             this.Controls.Add(this.textBoxFirstname);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SettingForm";
             this.Text = "SettingForm";
             this.Load += new System.EventHandler(this.SettingForm_Load);

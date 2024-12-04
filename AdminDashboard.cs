@@ -127,5 +127,11 @@ namespace member_space
         {
 
         }
+
+        private void updateCredButton_Click(object sender, EventArgs e)
+        {
+            new updateAdminCred().Show();
+            this.Hide();
+        }
     }
 }
