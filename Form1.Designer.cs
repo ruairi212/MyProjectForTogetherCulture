@@ -106,7 +106,7 @@
             // blogButton
             // 
             this.blogButton.AutoSize = true;
-            this.blogButton.Location = new System.Drawing.Point(927, 38);
+            this.blogButton.Location = new System.Drawing.Point(973, 38);
             this.blogButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.blogButton.Name = "blogButton";
             this.blogButton.Size = new System.Drawing.Size(96, 46);
@@ -118,7 +118,7 @@
             // shopButton
             // 
             this.shopButton.AutoSize = true;
-            this.shopButton.Location = new System.Drawing.Point(806, 38);
+            this.shopButton.Location = new System.Drawing.Point(835, 38);
             this.shopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.shopButton.Name = "shopButton";
             this.shopButton.Size = new System.Drawing.Size(96, 46);
@@ -142,7 +142,7 @@
             // aboutButton
             // 
             this.aboutButton.AutoSize = true;
-            this.aboutButton.Location = new System.Drawing.Point(471, 38);
+            this.aboutButton.Location = new System.Drawing.Point(439, 38);
             this.aboutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(111, 46);
