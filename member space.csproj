@@ -293,6 +293,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPinboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPinboardForm.Designer.cs">
+      <DependentUpon>AdminPinboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillingHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -509,6 +515,9 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminPinboardForm.resx">
+      <DependentUpon>AdminPinboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillingHistory.resx">
       <DependentUpon>BillingHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -658,6 +667,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-search-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -196,5 +196,11 @@ namespace member_space
                ;
             Form4 form4 = new Form4(textToDisplay); form4.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            AdminPinboardForm f24 = new AdminPinboardForm();
+            f24.Show();
+        }
     }
 }
