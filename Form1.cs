@@ -17,6 +17,7 @@ namespace member_space
     {
         private string memberId;
         private string memberType;
+        private string memberName;
        
         private string smtpServer = "smtp.gmail.com"; // Gmail's SMTP server
         private int smtpPort = 587; // Port for TLS
@@ -30,6 +31,9 @@ namespace member_space
             this.Load += Form1_Load;
             this.memberId = memberId;
             this.memberType = memberType;
+
+            LoadMemberDetails();
+            
             LoadMembershipBenefits();
             UpdatePinBoard();
 
@@ -250,6 +254,23 @@ namespace member_space
                 smtpClient.Send(mailMessage); // Send the email
             }
         }
+        private void LoadMemberDetails()
+        {
+            string query = "SELECT CONCAT(FirstName, ' ', LastName) AS FullName FROM member WHERE MemberID = @MemberID";
+
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            using (MySqlConnection conn = dbConnection.get_Connection())
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MemberID", memberId);
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    memberName = result != null ? result.ToString() : "Unknown Member";
+                }
+            }
+        }
         private void LoadMembershipBenefits()
         {
             // Define the benefits for Standard and Premium members
@@ -293,12 +314,12 @@ namespace member_space
         }
         private void UpdatePinBoard()
         {
-            listBoxPinBoard.Items.Clear();
+            pinBoardPosts.Clear();
+            richTextBoxPinBoard.Clear();
 
-            string query = "SELECT Content FROM PinboardMessages ORDER BY Timestamp DESC";
+            string query = "SELECT MemberName, Content, Timestamp FROM PinboardMessages ORDER BY Timestamp DESC";
 
             DatabaseConnection dbConnection = new DatabaseConnection();
-
             using (MySqlConnection conn = dbConnection.get_Connection())
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -308,11 +329,23 @@ namespace member_space
                     {
                         while (reader.Read())
                         {
-                            string post = reader.GetString("Content");
-                            listBoxPinBoard.Items.Add(post);
+                            string posterName = reader["MemberName"].ToString();
+                            string content = reader["Content"].ToString();
+                            DateTime timestamp = Convert.ToDateTime(reader["Timestamp"]);
+
+                            string date = timestamp.ToString("dd/MM");
+                            string time = timestamp.ToString("HH:mm");
+
+                            string post = $"[{date} - {time}] {posterName}: {content}";
+                            pinBoardPosts.Add(post);
                         }
                     }
                 }
+            }
+
+            foreach (var post in pinBoardPosts)
+            {
+                richTextBoxPinBoard.AppendText(post + Environment.NewLine + Environment.NewLine);
             }
         }
         private string LoadEvent()
@@ -351,23 +384,20 @@ namespace member_space
                 return;
             }
 
-            // Get the current date and time
             string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string content = textBoxPost.Text.Trim();
 
-            // Prepare the message with date and time
-            string messageContent = $"{dateTime} - {textBoxPost.Text.Trim()}";
-
-            // Insert the message into the database
-            string query = "INSERT INTO PinboardMessages (Content, Timestamp) VALUES (@Content, @Timestamp)";
+            string query = "INSERT INTO PinboardMessages (MemberName, Content, Timestamp) VALUES (@MemberName, @Content, @Timestamp)";
 
             DatabaseConnection dbConnection = new DatabaseConnection();
-
             using (MySqlConnection conn = dbConnection.get_Connection())
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Content", messageContent);
-                    cmd.Parameters.AddWithValue("@Timestamp", dateTime); // Storing the timestamp separately
+                    cmd.Parameters.AddWithValue("@MemberName", memberName);
+                    cmd.Parameters.AddWithValue("@Content", content);
+                    cmd.Parameters.AddWithValue("@Timestamp", dateTime);
+
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -376,6 +406,7 @@ namespace member_space
             textBoxPost.Clear();
             UpdatePinBoard();
         }
+    
 
         private void listBoxPinBoard_SelectedIndexChanged(object sender, EventArgs e)
         {
