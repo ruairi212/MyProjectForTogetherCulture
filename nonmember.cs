@@ -46,6 +46,27 @@ namespace member_space
         {
             // Display or use the email as needed
             MessageBox.Show("Welcome Non-Member with Email: " + email, "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string connectionString = "Server=127.0.0.1;Database=together_culture;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT Firstname, Email FROM administrator";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dataGridView1.DataSource = dataTable; // Binding data to DataGridView
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
 
         private void blogButton_Click(object sender, EventArgs e)
@@ -165,6 +186,12 @@ namespace member_space
                 }
                 conn.Close();
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ContactAdmin contactForm = new ContactAdmin();
+            contactForm.ShowDialog();
         }
     }
 }

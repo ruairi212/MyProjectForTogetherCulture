@@ -306,6 +306,12 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="ContactAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactAdmin.Designer.cs">
+      <DependentUpon>ContactAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="memberList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -508,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactAdmin.resx">
+      <DependentUpon>ContactAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eventavtivity.resx">
       <DependentUpon>Eventavtivity.cs</DependentUpon>

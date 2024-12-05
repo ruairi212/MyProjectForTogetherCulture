@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nonmember));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logoutButton = new System.Windows.Forms.Button();
@@ -42,17 +43,21 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -62,6 +67,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(797, 349);
             this.panel2.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(0, 0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 0;
             // 
             // panel1
             // 
@@ -75,7 +87,7 @@
             this.panel1.Controls.Add(this.aboutButton);
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(797, 100);
+            this.panel1.Size = new System.Drawing.Size(1019, 100);
             this.panel1.TabIndex = 3;
             // 
             // pictureBox1
@@ -92,7 +104,7 @@
             // 
             this.logoutButton.AutoSize = true;
             this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.logoutButton.Location = new System.Drawing.Point(680, 39);
+            this.logoutButton.Location = new System.Drawing.Point(805, 39);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(75, 30);
             this.logoutButton.TabIndex = 4;
@@ -103,7 +115,7 @@
             // blogButton
             // 
             this.blogButton.AutoSize = true;
-            this.blogButton.Location = new System.Drawing.Point(569, 39);
+            this.blogButton.Location = new System.Drawing.Point(683, 39);
             this.blogButton.Name = "blogButton";
             this.blogButton.Size = new System.Drawing.Size(75, 30);
             this.blogButton.TabIndex = 3;
@@ -114,7 +126,7 @@
             // shopButton
             // 
             this.shopButton.AutoSize = true;
-            this.shopButton.Location = new System.Drawing.Point(453, 39);
+            this.shopButton.Location = new System.Drawing.Point(535, 39);
             this.shopButton.Name = "shopButton";
             this.shopButton.Size = new System.Drawing.Size(75, 30);
             this.shopButton.TabIndex = 2;
@@ -125,7 +137,7 @@
             // whatsonButton
             // 
             this.whatsonButton.AutoSize = true;
-            this.whatsonButton.Location = new System.Drawing.Point(321, 39);
+            this.whatsonButton.Location = new System.Drawing.Point(367, 39);
             this.whatsonButton.Name = "whatsonButton";
             this.whatsonButton.Size = new System.Drawing.Size(107, 30);
             this.whatsonButton.TabIndex = 1;
@@ -136,7 +148,7 @@
             // aboutButton
             // 
             this.aboutButton.AutoSize = true;
-            this.aboutButton.Location = new System.Drawing.Point(197, 39);
+            this.aboutButton.Location = new System.Drawing.Point(239, 39);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(75, 30);
             this.aboutButton.TabIndex = 0;
@@ -158,9 +170,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button4);
+            this.splitContainer1.Panel2.Controls.Add(this.button3);
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(610, 353);
-            this.splitContainer1.SplitterDistance = 203;
+            this.splitContainer1.Size = new System.Drawing.Size(693, 353);
+            this.splitContainer1.SplitterDistance = 230;
             this.splitContainer1.TabIndex = 4;
             // 
             // button1
@@ -181,7 +196,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(197, 284);
+            this.textBox1.Size = new System.Drawing.Size(228, 284);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -206,13 +221,6 @@
             this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Non Member";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 0;
             // 
             // textBox3
             // 
@@ -249,11 +257,43 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 62);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(476, 288);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Location = new System.Drawing.Point(149, 10);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 39);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Administrators";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.Location = new System.Drawing.Point(359, 14);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(79, 30);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Contact ";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // nonmember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(883, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
@@ -271,8 +311,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,5 +341,8 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

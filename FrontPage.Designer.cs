@@ -131,9 +131,9 @@
             // 
             this.button6.AutoSize = true;
             this.button6.BackColor = System.Drawing.Color.Gainsboro;
-            this.button6.Location = new System.Drawing.Point(250, 302);
+            this.button6.Location = new System.Drawing.Point(250, 305);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(147, 46);
+            this.button6.Size = new System.Drawing.Size(147, 43);
             this.button6.TabIndex = 1;
             this.button6.Text = "Know more";
             this.button6.UseVisualStyleBackColor = false;
