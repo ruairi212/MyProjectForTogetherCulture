@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ServiceStack.Script;
 
 namespace member_space
 {
@@ -24,14 +25,14 @@ namespace member_space
         private void updateButton_Click(object sender, EventArgs e)
         {
             // Check if Email or Password field is empty
-            if (string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxPass.Text))
+            if (string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxPass.Text) || string.IsNullOrEmpty(textBoxAConfPass.Text))
             {
-                MessageBox.Show("Email and Password fields cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("All fields are required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            else if (textBoxPass.Text == textBoxAConfPass.Text)
             {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
                 try
                 {
                     conn.Open();
@@ -63,17 +64,49 @@ namespace member_space
                   
                     conn.Close();
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Passwords do not match. Please re-enter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPass.Text = "";
+                textBoxAConfPass.Text = "";
+                textBoxPass.Focus();
             }
         }
+      
+       
+
 
         private void textBoxEmail_TextChanged(object sender, EventArgs e)
         {
             // Any additional functionality on email change (if required)
         }
 
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+       
+
+        private void updateAdminCred_Load(object sender, EventArgs e)
         {
-            // Any additional functionality on password change (if required)
+
+        }
+
+        private void chbxAShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            {
+                if (chbxAShowPass.Checked)
+                {
+                    textBoxPass.PasswordChar = '\0';
+                    textBoxAConfPass.PasswordChar = '\0';
+                }
+                else
+                {
+                    textBoxPass.PasswordChar = '*';
+                    textBoxAConfPass.PasswordChar = '*';
+
+                }
+
+
+            }
         }
     }
 }
