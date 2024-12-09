@@ -98,32 +98,24 @@ namespace member_space
         }
 
         // Method to insert data into logindetails and nonmember tables
-        public bool InsertLogindetailsAndNonmember(string firstName, string lastName, string email, string password, string securityQuestion, string securityAnswer, string DOB, string interests, string intentions, out string errorMessage)
+        public bool InsertLogindetailsAndNonmember(string firstName, string lastName, string email, string password, string securityQuestion, string securityAnswer, string DOB, out string errorMessage)
+
         {
+
+
             try
             {
-                // First, check if the email already exists in the logindetails or nonmember table
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
+                    Console.WriteLine("Connected to the database successfully! Inserting data into logindetails and nonmember...");
 
-                    string checkEmailQuery = "SELECT COUNT(*) FROM logindetails WHERE Email = @Email";
-                    using (MySqlCommand cmd = new MySqlCommand(checkEmailQuery, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Email", email);
-                        long emailCount = (long)cmd.ExecuteScalar();
-
-                        if (emailCount > 0)
-                        {
-                            errorMessage = "A record with the same email already exists.";
-                            return false; // Stop execution if email exists
-                        }
-                    }
-
-                    // Proceed with the insertion if email does not exist
+                    // Insert into logindetails table 
                     string queryLogindetails = "INSERT INTO logindetails (Email, Password, Security_questions, Security_questions_answers) VALUES (@Email, @Password, @Security_questions, @Security_questions_answers)";
                     using (MySqlCommand command = new MySqlCommand(queryLogindetails, connection))
                     {
+                        // Set LoginID 
+                        
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@Security_questions", securityQuestion);
@@ -131,33 +123,36 @@ namespace member_space
                         command.ExecuteNonQuery();
                     }
 
-                    // Insert into nonmember table with Interests and Intentions
-                    string queryNonmember = "INSERT INTO nonmember (Email, FirstName, LastName, DOB, Interests, Intentions) VALUES (@Email, @FirstName, @LastName, @DOB, @Interests, @Intentions)";
+                    // Format the DOB before adding it as a parameter
+                    //string formattedDOB = DateTime.Parse(DOB).ToString("yyyy-MM-dd");
+
+
+                    // Insert into nonmember table
+                    string queryNonmember = "INSERT INTO nonmember (Email, FirstName, LastName, DOB) VALUES (@Email, @FirstName, @LastName, @DOB)";
                     using (MySqlCommand command = new MySqlCommand(queryNonmember, connection))
                     {
                         command.Parameters.AddWithValue("@FirstName", firstName);
                         command.Parameters.AddWithValue("@LastName", lastName);
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@DOB", DOB);
-                        command.Parameters.AddWithValue("@Interests", interests);
-                        command.Parameters.AddWithValue("@Intentions", intentions);
-                        command.ExecuteNonQuery();
+                     
+                       command.ExecuteNonQuery();
                     }
                 }
 
                 errorMessage = null;
                 return true;
             }
-            catch (MySqlException ex)
+            catch (MySqlException ex) when (ex.Number == 1062) // Duplicate entry error
             {
-                errorMessage = "Database error: " + ex.Message;
+                errorMessage = "A record with the same primary key already exists.";
                 Console.WriteLine($"Error inserting data: {errorMessage}");
                 return false;
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                Console.WriteLine($"Unexpected error: {ex.Message}");
+                Console.WriteLine($"Error inserting data into logindetails and nonmember: {ex.Message}");
                 return false;
             }
         }

@@ -312,17 +312,19 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="CompanyOutcomes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CompanyOutcomes.Designer.cs">
-      <DependentUpon>CompanyOutcomes.cs</DependentUpon>
-    </Compile>
+    <Compile Include="EventMethods.cs" />
     <Compile Include="ContactAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ContactAdmin.Designer.cs">
       <DependentUpon>ContactAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventData.cs" />
+    <Compile Include="EventSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventSearch.Designer.cs">
+      <DependentUpon>EventSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="memberList.cs">
       <SubType>Form</SubType>
@@ -531,9 +533,6 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompanyOutcomes.resx">
-      <DependentUpon>CompanyOutcomes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ContactAdmin.resx">
       <DependentUpon>ContactAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -545,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventSearch.resx">
+      <DependentUpon>EventSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="memberList.resx">
       <DependentUpon>memberList.cs</DependentUpon>

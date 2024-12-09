@@ -38,7 +38,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.updateCredButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.buttonStafflist = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.MemberInsightsButton = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -176,17 +176,6 @@
             this.groupBox1.Text = "Unknown";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Salmon;
-            this.button10.Location = new System.Drawing.Point(110, 299);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(103, 42);
-            this.button10.TabIndex = 14;
-            this.button10.Text = "Company Outcomes";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.Salmon;
@@ -279,6 +268,17 @@
             this.MemberInsightsButton.UseVisualStyleBackColor = false;
             this.MemberInsightsButton.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.DarkRed;
+            this.button10.Location = new System.Drawing.Point(298, 25);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(223, 31);
+            this.button10.TabIndex = 14;
+            this.button10.Text = "Event Manager";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,7 +287,7 @@
             this.ClientSize = new System.Drawing.Size(815, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminDashboard";
             this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
