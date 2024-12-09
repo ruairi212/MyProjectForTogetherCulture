@@ -21,7 +21,7 @@ namespace member_space
 
         private void LoadPosts()
         {
-            string query = "SELECT ID, MemberName, Content, Timestamp FROM PinboardMessages ORDER BY Timestamp DESC";
+            string query = "SELECT MessageID, MemberName, Content, Timestamp FROM PinboardMessages ORDER BY Timestamp DESC";
 
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (MySqlConnection conn = dbConnection.get_Connection())
@@ -36,7 +36,7 @@ namespace member_space
                     dataGridViewPosts.DataSource = table;
 
                     // Set up DataGridView appearance (optional)
-                    dataGridViewPosts.Columns["ID"].Visible = false; // Hide ID column
+                    dataGridViewPosts.Columns["MessageID"].Visible = false; // Hide ID column
                     dataGridViewPosts.Columns["MemberName"].HeaderText = "Posted By";
                     dataGridViewPosts.Columns["Content"].HeaderText = "Message";
                     dataGridViewPosts.Columns["Timestamp"].HeaderText = "Date & Time";
@@ -54,16 +54,16 @@ namespace member_space
             }
 
             // Get the selected post's ID
-            int selectedPostId = Convert.ToInt32(dataGridViewPosts.SelectedRows[0].Cells["ID"].Value);
+            int selectedPostId = Convert.ToInt32(dataGridViewPosts.SelectedRows[0].Cells["MessageID"].Value);
 
-            string query = "DELETE FROM PinboardMessages WHERE ID = @ID";
+            string query = "DELETE FROM PinboardMessages WHERE MessageID = @MessageID";
 
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (MySqlConnection conn = dbConnection.get_Connection())
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ID", selectedPostId);
+                    cmd.Parameters.AddWithValue("@MessageID", selectedPostId);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }

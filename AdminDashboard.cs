@@ -205,8 +205,8 @@ namespace member_space
 
         private void button10_Click(object sender, EventArgs e)
         {
-            EventSearch eventSearch = new EventSearch();
-            eventSearch.Show();
+            CompanyOutcomes f25 = new CompanyOutcomes();
+            f25.Show();
         }
     }
 }
