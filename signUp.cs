@@ -37,30 +37,32 @@ namespace member_space
         // Register Button Click event handler
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
-            // Check for empty fields including the new Interests and Intentions fields
+            // Check for empty fields
             if (string.IsNullOrEmpty(txtbUsername.Text) ||
                 string.IsNullOrEmpty(txtbPassword.Text) ||
                 string.IsNullOrEmpty(txtbConfirmpass.Text) ||
-                string.IsNullOrEmpty(textBxFirstName.Text) ||
+                 string.IsNullOrEmpty(textBxFirstName.Text) ||
                 string.IsNullOrEmpty(textBxLastname.Text) ||
                 string.IsNullOrEmpty(dateTimePicker2.ToString()) ||
                 combobxSecurityQues.SelectedItem == null ||
-                string.IsNullOrEmpty(textbSecurityQuesAns.Text) ||
-                string.IsNullOrEmpty(txtbInterests.Text) || // New field
-                string.IsNullOrEmpty(txtbIntentions.Text)) // New field
+                string.IsNullOrEmpty(textbSecurityQuesAns.Text))
+
             {
                 MessageBox.Show("All fields are required.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             else if (txtbPassword.Text == txtbConfirmpass.Text)
             {
+
                 try
                 {
                     // Initialize the database helper
                     dataBaseHelper dbHelper = new dataBaseHelper();
                     string errorMessage;
 
-                    // Insert logindetails and nonmember using the helper class
+                    // Insert logindetails using the helper class
                     bool isInserted = dbHelper.InsertLogindetailsAndNonmember(
+
                         textBxFirstName.Text,
                         textBxLastname.Text,
                         txtbUsername.Text,
@@ -68,8 +70,9 @@ namespace member_space
                         combobxSecurityQues.SelectedItem.ToString(),
                         textbSecurityQuesAns.Text,
                         dateTimePicker2.ToString(),
-                        txtbInterests.Text, // New field
-                        txtbIntentions.Text, // New field
+
+
+
                         out errorMessage);
 
                     if (isInserted)
@@ -82,11 +85,10 @@ namespace member_space
                         textBxLastname.Text = "";
                         combobxSecurityQues.SelectedItem = null;
                         textbSecurityQuesAns.Text = "";
-                        txtbInterests.Text = ""; // Clear Interests
-                        txtbIntentions.Text = ""; // Clear Intentions
                         dateTimePicker2.ToString();
 
                         MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK);
+
                         new Login().Show();
                         this.Close();
                     }
@@ -100,6 +102,8 @@ namespace member_space
                     MessageBox.Show("An unexpected error occurred: " + ex.Message, "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+
             else
             {
                 MessageBox.Show("Passwords do not match. Please re-enter.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -174,11 +178,6 @@ namespace member_space
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
         {
 
         }

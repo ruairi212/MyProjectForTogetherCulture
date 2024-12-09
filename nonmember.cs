@@ -22,7 +22,6 @@ namespace member_space
             InitializeComponent();
             this.email = email;
             LoadNonMemberDetails();
-            LoadInterestsAndIntentions();
         }
         private void LoadNonMemberDetails()
         {
@@ -43,7 +42,6 @@ namespace member_space
                 conn.Close();
             }
         }
-
             private void nonmember_Load(object sender, EventArgs e)
         {
             // Display or use the email as needed
@@ -68,39 +66,6 @@ namespace member_space
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading data: " + ex.Message);
-            }
-        }
-        private void LoadInterestsAndIntentions()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT Interests, Intentions FROM nonmember WHERE Email = @Email";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Email", email);
-
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        string interests = reader["Interests"].ToString();
-                        string intentions = reader["Intentions"].ToString();
-
-                        // Assuming you have Labels or TextBoxes to display the Interests and Intentions
-                        labelInterests.Text = "Interests: " + interests;
-                        labelIntentions.Text = "Intentions: " + intentions;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No interests or intentions found for this email.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while loading interests and intentions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
