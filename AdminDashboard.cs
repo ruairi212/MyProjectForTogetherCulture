@@ -202,5 +202,11 @@ namespace member_space
             AdminPinboardForm f24 = new AdminPinboardForm();
             f24.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            CompanyOutcomes f25 = new CompanyOutcomes();
+            f25.Show();
+        }
     }
 }
