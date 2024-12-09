@@ -13,9 +13,9 @@ namespace member_space
 {
     class dashBoard_Data : DatabaseConnection
     {
-        private DateTime start_Date;
-        private DateTime end_Date;
-        private int number_Days; 
+        //private DateTime start_Date;
+        //private DateTime end_Date;
+        //private int number_Days; 
         public int total_Members { get; set; }
         public int total_Users { get; set; }
 

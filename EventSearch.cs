@@ -75,10 +75,8 @@ namespace member_space
 
         private void createbutton_Click(object sender, EventArgs e)
         {
-            var EventMethods = new EventMethods();
-            var newEvent = new EventData();
-
-
+            EventCreateForm createevent = new EventCreateForm();
+            createevent.Show();
         }
 
         private void editbutton_Click(object sender, EventArgs e)
@@ -104,7 +102,7 @@ namespace member_space
                 EventNameTB.Text = selectedRow.Cells["EventName"].Value.ToString();
                 EventtypeTB.Text = selectedRow.Cells["Type"].Value.ToString();
                 EventCapTB.Text = selectedRow.Cells["MaxCapacity"].Value.ToString();
-                EventDuraTB.Text = selectedRow.Cells["AdminID"].Value.ToString();
+                EventDuraTB.Text = selectedRow.Cells["Duration"].Value.ToString();
                 descTB.Text = selectedRow.Cells["Description"].Value.ToString();
                 dateTimePicker1.Value = DateTime.Parse(selectedRow.Cells["Date"].Value.ToString());
                 MessageBox.Show(" press 'Save Changes' to update when finished", "Edit Event", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -116,7 +114,7 @@ namespace member_space
 
         private void savechangesbutton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(EventNameTB.Text)) 
+            if (string.IsNullOrEmpty(EventIDtextbox.Text)) 
             {
                 MessageBox.Show("No event selected please select one and try again");
                 return;
@@ -130,9 +128,9 @@ namespace member_space
             if (confirmResult == DialogResult.Yes) 
             {
                 var EventMethods = new EventMethods();
-                var newEvent = new EventData
+                var updatedEvent = new EventData
                 {
-                    EventID = int.Parse(EventNameTB.Text),
+                    EventID = int.Parse(EventIDtextbox.Text),
                     AdminID = int.Parse(AdminIDText1.Text),
                     Address = AddressTB.Text,
                     Postcode = PostcodeTB.Text,
@@ -144,8 +142,16 @@ namespace member_space
                     MaxCapacity = int.Parse(EventCapTB.Text),
                     EventName = EventNameTB.Text
                 };
-                //var eventM
-                load_Events();
+                var eventMethods = new EventMethods();
+                if (eventMethods.UpdateEvent(updatedEvent)) 
+                {
+                    MessageBox.Show("Event Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    load_Events();
+                }
+                else 
+                {
+                    MessageBox.Show("Errpr Updating Event","Errpr",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
