@@ -98,7 +98,8 @@ namespace member_space
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            MemberInsightDashboard memberInsights = new MemberInsightDashboard();
+            memberInsights.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)

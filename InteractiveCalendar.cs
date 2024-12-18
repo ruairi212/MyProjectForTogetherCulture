@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static ServiceStack.Text.RecyclableMemoryStreamManager;
 
 namespace member_space
 {
@@ -49,40 +50,46 @@ namespace member_space
             DateTime month_Start = new DateTime(year, month, 1);
 
             //This will calculate the days in the current month to get number of panels needed
-            int days_Month = DateTime.DaysInMonth(year, month);
+            int days_In_Month = DateTime.DaysInMonth(year, month);
 
-            //This gets the day of the week of the first date -1 so the week starts on sunday
-            int first_Day = (int)month_Start.DayOfWeek - 1;
-            //This is the panel size from testing
+            //This gets the day of the week of the first date
+            int first_Day = (int)month_Start.DayOfWeek ;
+            
             int panel_Width = 156;
             int panel_Height = 100;
+            EventMethods eventMethods = new EventMethods();
+            DateTime month_End = new DateTime(year, month, days_In_Month);
+            List<EventData> monthEvents = eventMethods.getEventsByMonth(month_Start, month_End);
            
             //This will loop through the days in the month creating a button for each day
-            for (int i = 1; i <= days_Month; i++) {
+            for (int i = 1; i <= days_In_Month; i++) {
                 //Calc the rows needed
                 int col = (first_Day + i - 1) % 7;
                 int row = (first_Day + i - 1) / 7;
-                
+                DateTime buttonDate = new DateTime(year,month,i);
+                List<EventData> events = monthEvents.Where(e => e.Date.Date == buttonDate).ToList();
+                string suffix = eventMethods.suffixHelp(i);
                 //Create the new button each iteration
                 Button day_Button = new Button
                 {
                     Size = new Size(panel_Width - 5, panel_Height - 5),
                     Location = new Point(col * panel_Width, row * panel_Height),
-                    Text = i.ToString() +"th",
+                    Text = i.ToString() + suffix,
                     TextAlign = ContentAlignment.TopLeft,
-                    //BorderStyle = BorderStyle.FixedSingle,
                     
+              
                     BackColor = Color.IndianRed,
                     Tag = new DateTime(year, month, i)
                 };
+                if (events.Count > 0 )
+                {
+                    string eventName = string.Join(",", events.Select(e => e.EventName));
+                    day_Button.Text = $"{i}\n\n{  eventName}";
+                 }
                 DateTime currentDate = new DateTime(year, month, i);
                 
                 day_Button.Click += day_Button_Click;
-                //This will generate the dates for each label
-                for (int j = 1; j <= days_Month; j++) 
-                {
-                    
-                }
+                
             
             Calendar.Controls.Add(day_Button);
             
@@ -91,12 +98,31 @@ namespace member_space
         }
         private void day_Button_Click(object sender, EventArgs e) 
         {
+            //If a button is clicked to indicate a booking it will open the bookingform
             Button clicked = sender as Button; 
             if (clicked != null) 
             {  
-                DateTime selected = (DateTime)clicked.Tag;
-
-                EventBooking booking = new EventBooking(selected);
+                DateTime date_Selected = (DateTime)clicked.Tag;
+                EventMethods eventMethods = new EventMethods();
+                List <EventData> events = eventMethods.getEventsByMonth(date_Selected,date_Selected);
+                string event_Name;
+                if (events.Count > 0)
+                {
+                    event_Name = ""; // Initialize an empty string
+                    foreach (var i in events)
+                    {
+                        if (!string.IsNullOrEmpty(event_Name))
+                        {
+                            event_Name += ", "; // Add a separator between event names
+                        }
+                        event_Name += i.EventName; // Append the event name
+                    }
+                }
+                else
+                {
+                    event_Name = "No events for this date"; // Default message
+                }
+                EventBooking booking = new EventBooking(date_Selected,event_Name);
                 booking.ShowDialog();
             }
         }
@@ -154,6 +180,11 @@ namespace member_space
         private void label1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

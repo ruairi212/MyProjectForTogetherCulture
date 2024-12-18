@@ -18,6 +18,7 @@ namespace member_space
             load_Events();
         }
         private void load_Events() 
+            //load the events found using  GetEvents into the dataSource displayed 
         {
             EventMethods eventMethods = new EventMethods();
             var events = eventMethods.GetEvents();
@@ -111,7 +112,7 @@ namespace member_space
         }
 
         
-
+        
         private void savechangesbutton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(EventIDtextbox.Text)) 
@@ -153,6 +154,11 @@ namespace member_space
                     MessageBox.Show("Errpr Updating Event","Errpr",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void refreshbutton_Click(object sender, EventArgs e)
+        {
+            load_Events();
         }
     }
 }

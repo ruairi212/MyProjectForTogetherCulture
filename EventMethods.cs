@@ -3,6 +3,7 @@ using ServiceStack;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -13,6 +14,7 @@ namespace member_space
     internal class EventMethods : DatabaseConnection
     {
         public List<EventData> GetEvents() 
+            //Get all events and their details
         {
             List<EventData> events = new List<EventData>();
             using (var connection = get_Connection()) 
@@ -51,10 +53,10 @@ namespace member_space
             return events;
         }
         public bool UpdateEvent(EventData updatedEvent) 
-        {
+        {//This will changed event details 
             using (var connection = get_Connection()) 
             {
-                
+                connection.Open();
                 string query = @"
                 UPDATE eventactivity
                 SET 
@@ -116,9 +118,56 @@ namespace member_space
                     return (rowsAffected > 0);
                 }
             }
+            
         }
+        
+        public string suffixHelp(int day)
+            //This function will help return the proper suffix for the dates in the calendar
+        {
+            if (day % 100 >= 11 && day % 100 <= 13) 
+                return "th";
+            switch (day % 10)
+            {
+                case 1:
+                    return "st";
+                case 2:
+                    return "nd";
+                case 3:
+                    return "rd";
+                default:
+                    return "th";
+            };
+        }
+        public List<EventData> getEventsByMonth(DateTime start_Date,DateTime end_Date)
+            //
+        { 
+            List<EventData> events = new List<EventData>();
+            using (var connection = get_Connection())
+            {
+                connection.Open();
+                string query = "Select EventName,EventDate FROM eventactivity WHERE EventDate BETWEEN @startDate AND @endDate";
 
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@startDate", start_Date.Date);
+                    command.Parameters.AddWithValue("@endDate", end_Date.Date);
+                    using (var reader = command.ExecuteReader()) 
+                    {
+                        
+                        while (reader.Read()) 
+                        {
+                            events.Add(new EventData
+                            {
+                                EventName = reader.GetString("EventName"),
+                                Date = reader.GetDateTime("EventDate")
+                            });
+                        }
+                    }
 
+                }
+            }
+            return events;
+        }
     }
    
 }

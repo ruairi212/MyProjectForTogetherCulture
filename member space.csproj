@@ -305,6 +305,12 @@
     <Compile Include="BillingHistory.Designer.cs">
       <DependentUpon>BillingHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookingPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingPayment.Designer.cs">
+      <DependentUpon>BookingPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,11 +396,11 @@
     <Compile Include="Form14.Designer.cs">
       <DependentUpon>Form14.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form15.cs">
+    <Compile Include="EventBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form15.Designer.cs">
-      <DependentUpon>Form15.cs</DependentUpon>
+    <Compile Include="EventBooking.Designer.cs">
+      <DependentUpon>EventBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="InteractiveCalendar.cs">
       <SubType>Form</SubType>
@@ -488,6 +494,7 @@
     <Compile Include="staffList.Designer.cs">
       <DependentUpon>staffList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests.cs" />
     <Compile Include="updateAdminCred.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -536,6 +543,9 @@
     <EmbeddedResource Include="BillingHistory.resx">
       <DependentUpon>BillingHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookingPayment.resx">
+      <DependentUpon>BookingPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -575,8 +585,8 @@
     <EmbeddedResource Include="Form14.resx">
       <DependentUpon>Form14.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form15.resx">
-      <DependentUpon>Form15.cs</DependentUpon>
+    <EmbeddedResource Include="EventBooking.resx">
+      <DependentUpon>EventBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
