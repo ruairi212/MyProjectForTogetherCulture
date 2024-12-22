@@ -91,6 +91,30 @@ namespace member_space
             }
             
         }
+        public bool saveEvent(string eventId, string adminId, string address, string postcode,
+    string buildingName, string eventType, string description, DateTime date,
+    string duration, string maxCapacity, string eventName)
+        
+        {
+            if (string.IsNullOrEmpty(eventId))
+                return false;
+            var updatedEvent = new EventData
+            {
+                EventID = int.Parse(eventId),
+                AdminID = int.Parse(adminId),
+                Address = address,
+                Postcode = postcode,
+                BuildingName = buildingName,
+                Type = eventType,
+                Description = description,
+                Date = date,
+                Duration = int.Parse(duration),
+                MaxCapacity = int.Parse(maxCapacity),
+                EventName = eventName
+            };
+            var eventMethods = new EventMethods();
+            return eventMethods.UpdateEvent(updatedEvent);
+        }
         public bool createEvent(EventData newEvent)
         {
             using (var connection = get_Connection())

@@ -82,42 +82,57 @@ namespace member_space
 
         private void editbutton_Click(object sender, EventArgs e)
         {
-            if (EventDatadisplay.SelectedRows.Count == 0) 
-            {
+            
+                if (EventDatadisplay.SelectedRows.Count == 0) 
+                {
              
-               MessageBox.Show("Please Select an event to edit from the display","No event Selected",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            var selectedRow = EventDatadisplay.SelectedRows[0];
-            var eventName = selectedRow.Cells["EventName"].Value.ToString();
+                   MessageBox.Show("Please Select an event to edit from the display","No event Selected",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                var selectedRow = EventDatadisplay.SelectedRows[0];
+                var eventName = selectedRow.Cells["EventName"].Value.ToString();
 
-            var confirmName = MessageBox.Show($"Is this the event you want to edit '{eventName}'?","confirm",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var confirmName = MessageBox.Show($"Is this the event you want to edit '{eventName}'?","confirm",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (confirmName == DialogResult.Yes) 
-            {
-                EventIDtextbox.Text = selectedRow.Cells["EventID"].Value.ToString();
-                AdminIDText1.Text = selectedRow.Cells["AdminID"].Value.ToString();
-                AddressTB.Text = selectedRow.Cells["Address"].Value.ToString();
-                PostcodeTB.Text = selectedRow.Cells["PostCode"].Value.ToString();
-                BuildingnameTB.Text = selectedRow.Cells["BuildingName"].Value.ToString();
-                EventNameTB.Text = selectedRow.Cells["EventName"].Value.ToString();
-                EventtypeTB.Text = selectedRow.Cells["Type"].Value.ToString();
-                EventCapTB.Text = selectedRow.Cells["MaxCapacity"].Value.ToString();
-                EventDuraTB.Text = selectedRow.Cells["Duration"].Value.ToString();
-                descTB.Text = selectedRow.Cells["Description"].Value.ToString();
-                dateTimePicker1.Value = DateTime.Parse(selectedRow.Cells["Date"].Value.ToString());
-                MessageBox.Show(" press 'Save Changes' to update when finished", "Edit Event", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
+                if (confirmName == DialogResult.Yes)
+                {
+                    EventIDtextbox.Text = selectedRow.Cells["EventID"].Value.ToString();
+                    AdminIDText1.Text = selectedRow.Cells["AdminID"].Value.ToString();
+                    AddressTB.Text = selectedRow.Cells["Address"].Value.ToString();
+                    PostcodeTB.Text = selectedRow.Cells["PostCode"].Value.ToString();
+                    BuildingnameTB.Text = selectedRow.Cells["BuildingName"].Value.ToString();
+                    EventNameTB.Text = selectedRow.Cells["EventName"].Value.ToString();
+                    EventtypeTB.Text = selectedRow.Cells["Type"].Value.ToString();
+                    EventCapTB.Text = selectedRow.Cells["MaxCapacity"].Value.ToString();
+                    EventDuraTB.Text = selectedRow.Cells["Duration"].Value.ToString();
+                    descTB.Text = selectedRow.Cells["Description"].Value.ToString();
+                    dateTimePicker1.Value = DateTime.Parse(selectedRow.Cells["Date"].Value.ToString());
+                    MessageBox.Show(" press 'Save Changes' to update when finished", "Edit Event", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
         }
 
-        
-        
+
+        public bool EventIDExists(int eventID)
+        {
+            //Checks if input ID exists
+            EventMethods eventMethods = new EventMethods();
+            var events = eventMethods.GetEvents();  // Get the list of events
+
+            // Check if any event has the same EventID
+            return events.Any(e => e.EventID == eventID);
+        }
         private void savechangesbutton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(EventIDtextbox.Text)) 
             {
                 MessageBox.Show("No event selected please select one and try again");
+                return;
+            }
+            int createdID = int.Parse(EventIDtextbox.Text);
+            if (EventIDExists(createdID))
+            {
+
+                MessageBox.Show("The Event Id already exists. Choose one which does not");
                 return;
             }
             var confirmResult = MessageBox.Show(
