@@ -38,7 +38,50 @@ namespace member_space
              
         }
 
+        private bool ValidateEventInputs(out string errorMessage)
+        {
+            errorMessage = string.Empty;
 
+            if (string.IsNullOrEmpty(EventIDtextbox.Text))
+            {
+                errorMessage = "No event selected. Please select one and try again.";
+                return false;
+            }
+
+            if (!int.TryParse(EventIDtextbox.Text, out int createdID))
+            {
+                errorMessage = "Event ID must be a valid number.";
+                return false;
+            }
+
+            if (EventIDExists(createdID))
+            {
+                errorMessage = "The Event ID already exists. Choose one which does not.";
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(AdminIDText1.Text) ||
+                string.IsNullOrEmpty(AddressTB.Text) ||
+                string.IsNullOrEmpty(PostcodeTB.Text) ||
+                string.IsNullOrEmpty(BuildingnameTB.Text) ||
+                string.IsNullOrEmpty(EventtypeTB.Text) ||
+                string.IsNullOrEmpty(EventCapTB.Text) ||
+                string.IsNullOrEmpty(EventDuraTB.Text) ||
+                string.IsNullOrEmpty(EventNameTB.Text) ||
+                string.IsNullOrEmpty(descTB.Text))
+            {
+                errorMessage = "All fields must be filled out.";
+                return false;
+            }
+
+            if (!int.TryParse(EventDuraTB.Text, out _) || !int.TryParse(EventCapTB.Text, out _))
+            {
+                errorMessage = "Duration and Max Capacity must be valid numbers.";
+                return false;
+            }
+
+            return true;
+        }
         private void Form10_Load(object sender, EventArgs e)
         {
 
@@ -128,8 +171,9 @@ namespace member_space
                 MessageBox.Show("No event selected please select one and try again");
                 return;
             }
+            int originalID = int.Parse(EventIDtextbox.Text);
             int createdID = int.Parse(EventIDtextbox.Text);
-            if (EventIDExists(createdID))
+            if (originalID != createdID && EventIDExists(createdID))
             {
 
                 MessageBox.Show("The Event Id already exists. Choose one which does not");
