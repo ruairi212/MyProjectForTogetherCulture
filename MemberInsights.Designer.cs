@@ -293,9 +293,10 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(159, 16);
+            this.label12.Size = new System.Drawing.Size(112, 16);
             this.label12.TabIndex = 0;
-            this.label12.Text = "MEMBER RAN EVENTS:";
+            this.label12.Text = "TOTAL EVENTS:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // button5
             // 
@@ -336,6 +337,7 @@
             this.chart1.Size = new System.Drawing.Size(462, 234);
             this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // chart2
             // 

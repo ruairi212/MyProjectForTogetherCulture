@@ -17,7 +17,7 @@ namespace member_space
             InitializeComponent();
             load_Events();
         }
-        private void load_Events() 
+        public void load_Events() 
             //load the events found using  GetEvents into the dataSource displayed 
         {
             EventMethods eventMethods = new EventMethods();
@@ -38,7 +38,7 @@ namespace member_space
              
         }
 
-        private bool ValidateEventInputs(out string errorMessage)
+        public bool ValidateEventInputs(out string errorMessage)
         {
             errorMessage = string.Empty;
 
@@ -53,10 +53,11 @@ namespace member_space
                 errorMessage = "Event ID must be a valid number.";
                 return false;
             }
-
-            if (EventIDExists(createdID))
+            int originalID = int.Parse(EventIDtextbox.Text);
+            
+            if (originalID != createdID && EventIDExists(createdID))
             {
-                errorMessage = "The Event ID already exists. Choose one which does not.";
+                errorMessage = "The Event ID already exists. Please try again";
                 return false;
             }
 
@@ -117,13 +118,13 @@ namespace member_space
 
         }
 
-        private void createbutton_Click(object sender, EventArgs e)
+        public void createbutton_Click(object sender, EventArgs e)
         {
             EventCreateForm createevent = new EventCreateForm();
             createevent.Show();
         }
 
-        private void editbutton_Click(object sender, EventArgs e)
+        public void editbutton_Click(object sender, EventArgs e)
         {
             
                 if (EventDatadisplay.SelectedRows.Count == 0) 
@@ -164,27 +165,16 @@ namespace member_space
             // Check if any event has the same EventID
             return events.Any(e => e.EventID == eventID);
         }
-        private void savechangesbutton_Click(object sender, EventArgs e)
+        public void savechangesbutton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(EventIDtextbox.Text)) 
-            {
-                MessageBox.Show("No event selected please select one and try again");
+            if (!ValidateEventInputs(out string errorMessage)) 
+            {   
+                MessageBox.Show(errorMessage,"Validation Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int originalID = int.Parse(EventIDtextbox.Text);
-            int createdID = int.Parse(EventIDtextbox.Text);
-            if (originalID != createdID && EventIDExists(createdID))
-            {
-
-                MessageBox.Show("The Event Id already exists. Choose one which does not");
-                return;
-            }
-            var confirmResult = MessageBox.Show(
-            "Are you sure you want to save the changes to this event?",
-            "Confirm Save Changes",
+            var confirmResult = MessageBox.Show("Are you sure you want to save the changes to this event?","Confirm Save Changes",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question);
-
             if (confirmResult == DialogResult.Yes) 
             {
                 var EventMethods = new EventMethods();

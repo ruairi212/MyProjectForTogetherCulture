@@ -9,6 +9,8 @@ using Xunit;
 
 namespace member_space
 { 
-    
+public class EventSearchUnitTest 
+    {
+    }
 }
    

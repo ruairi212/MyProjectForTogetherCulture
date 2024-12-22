@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace member_space
 {
-    internal class EventMethods : DatabaseConnection
+    public class EventMethods : DatabaseConnection
     {
         public List<EventData> GetEvents() 
             //Get all events and their details
